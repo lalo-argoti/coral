@@ -1,5 +1,5 @@
 import os
-from flask import Blueprint, render_template, request, flash, redirect, url_for, current_app, session, jsonify
+from flask import Blueprint, render_template, request, flash, redirect, url_for, current_app, session
 from werkzeug.utils import secure_filename
 from app.x import Mirlt
 
@@ -110,7 +110,7 @@ def upload_image():
 @main.route('/edit_user', methods=['GET', 'POST'])
 def edit_user():
     username = session.get('username')
-    current_app.logger.debug(f"desde edit_user@routes.py:username={username}")
+    current_app.logger.debug(f"desde index@routes.py:username={username}")
     result, empresa= Mirlt.DB(query=None, username=username).obtenerUE() 
     empresa= f'{empresa[0][1]} \U0001F4E7{empresa[0][2]} \U0001F4DE{empresa[0][3]} '
     if result:
@@ -125,93 +125,15 @@ def edit_user():
 @main.route('/nevera', methods=['GET', 'POST'])
 def nevera():
     username = session.get('username')
-    #current_app.logger.debug(f"desde nevera@routes.py:username={username}")
+    current_app.logger.debug(f"desde index@routes.py:username={username}")
     result, empresa= Mirlt.DB(query=None, username=username).obtenerUE() 
     empresa= f'{empresa[0][1]} \U0001F4E7{empresa[0][2]} \U0001F4DE{empresa[0][3]} '
     if result:
         saludo = f"{result[0][5]} {result[0][6]}"  
     else:
         saludo = ""
-    result= Mirlt.DB(query=f"SELECT * FROM occb_carrito WHERE comprador='{username}'", username=username).run_query() 
-    return render_template('nevera.html', datos=result,  saludo= saludo, empresa=empresa)
-
-@main.route('/contenido_nevera/<int:item_id>', methods=['GET', 'POST'])
-def contenido_nevera(item_id):
-    username = session.get('username')
-    #current_app.logger.debug(f"desde contenido_nevera@routes.py:username={username}")
-    result, empresa= Mirlt.DB(query=None, username=username).obtenerUE() 
-    empresa= f'{empresa[0][1]} \U0001F4E7{empresa[0][2]} \U0001F4DE{empresa[0][3]} '
-    nombre_c=Mirlt.DB(f"SELECT nombre FROM occb_carrito WHERE id={item_id};", username=username).run_query()[0][0]
-    if result:
-        saludo = f"{result[0][5]} {result[0][6]}"  
-    else:
-        saludo = ""
-    query= ( f"""SELECT  cl.id_carrito, cl.id_producto_n,     a.nombre AS nombre_arti FROM occb_carrito_lista cl JOIN     occb_articulo a ON cl.id_producto_n = a.id WHERE     cl.id_carrito = {item_id}; """) 
-    result= Mirlt.DB(query=query, username=username).run_query() 
-    if result:
-        return render_template('contenido_nevera.html', datos=result, saludo= saludo, empresa=empresa , nombre_categoria=nombre_c)
-    else: 
-        return render_template('contenido_nevera.html', datos=[(item_id,"","no existen productos")], saludo= saludo, empresa=empresa, nombre_categoria=nombre_c)
-
-@main.route('/edit_nevera', methods=['GET', 'POST'])
-def edit_nevera():
-    username = session.get('username')
-    #current_app.logger.debug(f"desde index@routes.py:username={username}")
-    result, empresa= Mirlt.DB(query=None, username=username).obtenerUE() 
-    empresa= f'{empresa[0][1]} \U0001F4E7{empresa[0][2]} \U0001F4DE{empresa[0][3]} '
-    if result:
-        saludo = f"{result[0][5]} {result[0][6]}"  
-    else:
-        saludo = ""
-
-    return render_template('edit_user.html', user=result, saludo= saludo, empresa=empresa)  # Renderizar la plantilla para editar datos
-
-
-@main.route('/guardar_despensa', methods=['POST'])
-def guardar_despensa():
-    data = request.get_json()  # Obtener los datos del frontend (nombre del producto)
-    nombre_despensa = data.get('nombre')
-    if not nombre_despensa:
-        return jsonify({"success": False, "message": "El nombre de la despensa es requerido"})
-    try:
-        query=   (f"INSERT INTO occb_carrito (comprador, nombre, fechaapertura, fechacierre, estado, valortotal, pago, comprobantePago) VALUES  ({session.get('username')}, '{nombre_despensa}', '2024-11-18', '2024-12-31', 1, 0, 0, 0);")
-        Mirlt.DB(query=query,username=0).run_query()
-        return jsonify({"success": True, "message": "Despensa guardado exitosamente"})
-    except Exception as e:
-        return jsonify({"success": False, "message": str(e)})
-
-@main.route('/guardar_producto', methods=['POST'])
-def guardar_producto():
-    data = request.get_json()  # Obtener los datos del frontend (nombre del producto)
-    nombre_producto = data.get('nombre')
-    despensa=data.get('referencia')
-    if not nombre_producto:
-        return jsonify({"success": False, "message": "El nombre del producto es requerido"})
-    try:
-        # Conectar a la base de datos
-        query=   (f"SELECT id FROM occb_articulo WHERE nombre='{nombre_producto}'")
-        candidatos=Mirlt.DB(query=query, username="").run_query()
-        if candidatos:
-               pass
-        else:
-               query = f"INSERT INTO occb_articulo (nombre, fecha_ingreso, id_categoria,  id_autor, precio, cantidad) VALUES ('{nombre_producto}','2024-10-10',1,1,1.9,100)"
-               Mirlt.DB(query=query, username="").run_query()
-               query=   (f"SELECT id FROM occb_articulo WHERE nombre='{nombre_producto}'")    
-               candidatos=Mirlt.DB(query=query, username="").run_query()
-        # Insertar el producto en la base de datos (ajustar según tu esquema)
-        query = f"INSERT INTO occb_carrito_lista (id_carrito, id_producto_n, cantidad_n,direccion_entrega, estado_pago, mensajero,guia,entregado) VALUES ({despensa},{candidatos[0][0]},100,0,1,1,0,1)"
-        Mirlt.DB(query=query, username="").run_query()
-        return jsonify({"success": True, "message": "Producto guardado exitosamente"})
-    except Exception as e:
-        return jsonify({"success": False, "message": str(e)})
-
-@main.route('/editar_elemento_nevera/<int:item_id>')
-def editar_elemento_nevera(item_id):
-    return f"Editar elemento con ID: {item_id}"
-
-@main.route('/eliminar_elemento_nevera/<int:item_id>')
-def eliminar_elemento_nevera(item_id):
-    return f"Eliminar elemento con ID: {item_id}"
+    articulos=Mirlt.DB(f"SELECT * FROM occb_carrito_lista WHERE ").run_query()
+    return render_template('nevera.html', user=result, saludo= saludo, empresa=empresa)
 
 # Ruta para guardar los cambios del usuario
 @main.route('/save_user_changes', methods=['POST'])
@@ -241,9 +163,6 @@ def handle_actions():
     elif action == 'nevera':
         # Lógica para redirigir a la página de modificación de datos
         return redirect(url_for('main.nevera'))  # Redirigir a la página de edición de datos
-    elif action == 'agregar_a_nevera':
-        # Lógica para redirigir a la página de modificación de datos
-        return redirect(url_for('main.agregar_a_nevera'))  # Redirigir a la página de edición de datos
 
 
     return redirect(url_for('main.index'))  # Redirigir al home por defecto si no se seleccionó ninguna acción

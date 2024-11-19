@@ -7,9 +7,16 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
+    <header>
+        <p>{{ saludo }} </p>
+    </header>
 <body>
-    <h1>Subir Imagen SVG</h1>
+
+    <!-- h1>Subir Imagen SVG</h1 -->
     <form action="{{ url_for('main.upload_image') }}" method="POST" enctype="multipart/form-data">
+        <button onclick="window.location.href='{{ url_for('main.edit_user') }}'">X</button>
+        <h1>Subir Imagen SVG</h1>
+
         <input type="file" name="file" accept="image/svg+xml" required><br><br>
         <button type="submit">Subir Imagen</button>
     </form>
@@ -19,4 +26,10 @@
     {% endif %}
 
 </body>
+    <footer>
+        <p> {{empresa}}</p>
+    </footer>
+
+
+
 </html>

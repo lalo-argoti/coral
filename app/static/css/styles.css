@@ -5,6 +5,7 @@ body {
     padding: 0;
     height: 100vh;
     display: flex;
+    flex-direction: column;  /* Organizar los elementos en columna */
     justify-content: center;
     align-items: center;
     background-image: url('/static/images/fondo-principal.svg'); /* Imagen de fondo principal */
@@ -56,6 +57,7 @@ label {
 }
 
 input[type="text"],
+input[type="email"],
 input[type="password"] {
     width: 100%;
     padding: 10px;
@@ -82,10 +84,77 @@ button:hover {
 
 /* Estilo para el mensaje de error */
 p {
+    color: #000;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.error {
     color: red;
     font-size: 1rem;
     margin-top: 10px;
 }
+
+
+/* Estilos para la franja superior (header) */
+header {
+    width: 100%;
+    background-color: #fff;
+    opacity: 0.4;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: 0;
+}
+
+/* Estilos para la franja inferior (footer) */
+footer {
+    width: 100%;
+    background-color: #fff;
+    opacity: 0.4;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-botton: 0;
+}
+
+a {
+    margin-top: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+        .window-controls {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 5px;
+            justify-content: flex-end;
+        }
+        
+        .window-controls button {
+            width: 20px;
+            height: 20px;
+            border: none;
+            background-color: #dd4b4b;
+     	       color: white;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .window-controls button:hover {
+            background-color: #dd0b0b;
+        }
 
 /* Responsividad */
 @media (max-width: 600px) {
@@ -97,3 +166,5 @@ p {
         width: 90%;
     }
 }
+
+

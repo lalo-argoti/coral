@@ -6,6 +6,10 @@
     <title>Login</title>
     <link rel="stylesheet" href="/static/css/styles.css">
 </head>
+
+    <header>
+        <p>{{ saludo }} </p>
+    </header>
 <body>
     <div class="login-container">
         <!-- Logo dentro del contenedor de la ventana -->
@@ -13,6 +17,8 @@
         
         <!-- Formulario de inicio de sesión -->
         <form action="/login" method="POST">
+             <!--- button onclick="window.location.href='{{ url_for('main.index') }}'">X</button -->
+
             <h1>Iniciar Sesión</h1>
             <label for="username">Usuario:</label>
             <input type="text" id="username" name="username" required><br><br>
@@ -22,7 +28,10 @@
 
             <button type="submit">Iniciar Sesión</button>
         </form>
-        <p style="color: red;">Credenciales incorrectas.</p>
+        <p style="color: {{error[0]}};">{{error[1]}}</p>
     </div>
 </body>
+   <footer>
+{{empresa}}
+   </footer>
 </html>

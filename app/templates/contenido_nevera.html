@@ -1,0 +1,104 @@
+        <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!--  h1{{ saludo }}<br/</h1  -- Mostrar el saludo aquí -->
+    <header>
+        <p>{{ saludo }} </p>            
+
+    </header>
+   
+
+   <!--- button onclick="window.location.href='{{ url_for('main.nevera') }}'">X</button-->
+   
+   <form action="{{ url_for('main.handle_actions') }}" method="POST">
+   <button  type="submit" name="action" value="nevera" class="btn btn-primary">X</button>
+   <!-- p>{{ url_for('main.nevera') }}</p  -->
+   <h1>Lista de artículos asociados a {{nombre_categoria}}</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Artículo</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in datos %}
+                <tr>
+                    <td><a href='{{item[2]}}'>{{ item[2] }}</a></td>
+                    <td><a href='{{item[2]}}'>editar</a>, <a href='{{item[2]}}'>eliminar</a></td>
+                </tr>
+            {% endfor %}
+                <tr>
+                      <td><button type="button" id="addButton">+</button></td><td></td></tr><tr>
+                      <!-- Cuadro de texto oculto para ingresar el nuevo producto -->
+                    <td><div id="productInput" style="display:none;"  data-referencia="{{ datos[0][0] }}">
+                    <input type="text" id="newProduct" placeholder="Nuevo producto">
+                    <button type="button" id="saveButton">OK</button>
+                   </div></td><td></td>
+                </tr>
+        </tbody>
+    </table>
+
+</form>
+    
+    <footer>
+        <p>{{empresa}}</p>
+    </footer>
+
+</body>
+
+
+<script>
+    // Mostrar el cuadro de texto al hacer clic en el botón "+"
+    document.getElementById('addButton').onclick = function() {
+        document.getElementById('productInput').style.display = 'block';
+    };
+
+    // Guardar el producto cuando se haga clic en "OK"
+    document.getElementById('saveButton').onclick = function() {
+        var newProduct = document.getElementById('newProduct').value;
+        var referencia = "{{datos[0][0]}}";
+  
+   // Hacer la petición POST a Flask para guardar el nuevo producto
+        fetch("/guardar_producto", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ nombre: newProduct ,  referencia: referencia })
+                 
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data.message);  // Ver mensaje en consola
+            if (data.success) {
+                alert("Producto guardado exitosamente");
+                location.reload();
+                // Ocultar el cuadro de texto y limpiar el campo
+                document.getElementById('productInput').style.display = 'none';
+                document.getElementById('newProduct').value = '';
+            } else {
+                alert("Hubo un error al guardar el producto");
+            }
+        });
+        
+        // Aquí puedes agregar el código para guardar el nuevo producto
+        //console.log("Producto a guardar:", newProduct); // Temporal: Muestra en consola el valor
+
+        // Ocultar el cuadro de texto
+        document.getElementById('productInput').style.display = 'none';
+
+        // Limpiar el campo de texto
+        document.getElementById('newProduct').value = '';
+
+
+    };
+</script>
+
+</html>
