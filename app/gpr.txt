@@ -1,0 +1,139 @@
+Entendido, si lo que deseas es mover las carpetas static y templates a la carpeta app/core, la solución implica una pequeña modificación en la forma en que Flask maneja esas carpetas, ya que por defecto Flask busca estas carpetas en la raíz del proyecto. Vamos a hacer las modificaciones necesarias para que Flask pueda encontrar static y templates dentro de la carpeta app/core.
+
+A continuación te guiaré paso a paso sobre cómo realizar los cambios.
+
+Reorganización de Estructura de Proyecto Flask: Mover static y templates a app/core
+1. Estructura Final del Proyecto
+La nueva estructura de tu proyecto debería verse así:
+
+markdown
+Copiar código
+.
+├── app
+│   ├── core
+│   │   ├── static
+│   │   │   ├── css
+│   │   │   │   ├── styles.css
+│   │   │   │   └── styles.csss
+│   │   │   ├── images
+│   │   │   │   ├── fondo-principal.svg
+│   │   │   │   ├── fondo-ventana.svg
+│   │   │   │   └── logo.svg
+│   │   │   └── js
+│   │   │       └── script.js
+│   │   ├── templates
+│   │   │   ├── agregar_a_nevera.html
+│   │   │   ├── contenido_nevera.html
+│   │   │   ├── edit_nevera.html
+│   │   │   ├── edit_user.html
+│   │   │   ├── guardar_poducto.html
+│   │   │   ├── index.html
+│   │   │   ├── login.html
+│   │   │   ├── nevera.html
+│   │   │   └── upload_image.html
+│   ├── __init__.py
+│   ├── __init__.pyd
+│   ├── logs
+│   │   └── app.log
+│   ├── __pycache__
+│   ├── routes.py
+│   ├── routes.py.save
+│   ├── x
+│   │   ├── __init__.py
+│   │   ├── Mirlt.py
+│   │   └── __pycache__
+│   └── config.py
+├── Dockerfile
+├── readme.txt
+├── requirements.txt
+└── run.py
+2. Cambios en el Código
+a) Modificar create_app en app/__init__.py
+Para que Flask pueda encontrar las carpetas static y templates dentro de app/core, debemos configurar explícitamente la ubicación de esas carpetas cuando creamos la aplicación.
+
+Modificación de create_app en app/__init__.py:
+
+python
+Copiar código
+from flask import Flask
+import os
+
+def create_app():
+    # Crea la aplicación Flask especificando las rutas a las carpetas 'static' y 'templates'
+    app = Flask(__name__,
+                static_folder=os.path.join(os.getcwd(), 'app/core/static'),  # Ruta a la carpeta static dentro de app/core
+                template_folder=os.path.join(os.getcwd(), 'app/core/templates'))  # Ruta a la carpeta templates dentro de app/core
+
+    # Configuración adicional de la aplicación
+    from .routes import main  # Importa el blueprint 'main'
+    app.register_blueprint(main)  # Registra el blueprint en la aplicación
+
+    return app
+Aquí, hemos modificado create_app para que Flask busque los archivos estáticos en app/core/static y las plantillas en app/core/templates.
+
+b) Configuración de la carpeta de subidas (UPLOAD_FOLDER)
+No necesitas hacer cambios en la configuración de la carpeta de subidas, ya que sigue estando dentro de app. Solo asegúrate de que la ruta sea correcta.
+
+Código para UPLOAD_FOLDER en routes.py:
+
+python
+Copiar código
+UPLOAD_FOLDER = os.path.join(os.getcwd(), 'app/uploads')  # Ruta a la carpeta de subidas
+c) Código en run.py
+No es necesario hacer modificaciones en run.py, ya que ya está configurado para ejecutar la aplicación correctamente. El archivo run.py debe mantenerse igual:
+
+Contenido de run.py:
+
+python
+Copiar código
+from app import create_app
+
+# Crear y ejecutar la app
+app = create_app()
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)
+3. Verificación de las Rutas de Archivos Estáticos y Plantillas
+Asegúrate de que las rutas en tus archivos HTML sean correctas. En Flask, debes utilizar url_for para acceder a los archivos estáticos (como CSS o JavaScript) y plantillas (HTML).
+
+Ejemplo en el archivo index.html:
+html
+Copiar código
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coral</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Bienvenido a Coral</h1>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+Aquí, url_for('static', filename='css/styles.css') genera la URL correcta para acceder a styles.css dentro de la carpeta app/core/static.
+
+Ejemplo para carga de imágenes:
+Si deseas cargar imágenes desde static/images, la ruta sería similar:
+
+html
+Copiar código
+<img src="{{ url_for('static', filename='images/logo.svg') }}" alt="Logo">
+4. Verificación Final
+Con los cambios realizados, debes verificar que los archivos estáticos y las plantillas se carguen correctamente. Puedes iniciar la aplicación con el siguiente comando:
+
+bash
+Copiar código
+python run.py
+Accede a la aplicación en http://localhost:5000 o en la dirección configurada y verifica que los estilos, scripts y plantillas se carguen correctamente.
+
+Resumen de Cambios Realizados:
+Reorganización de carpetas: Movimos las carpetas static y templates dentro de app/core.
+Configuración de rutas en create_app: Especificamos explícitamente las rutas a las carpetas static y templates dentro de app/core para que Flask pueda encontrarlas.
+Actualización de rutas en las plantillas: Aseguramos que las rutas a los archivos estáticos en las plantillas HTML utilicen url_for correctamente.
+Con estos pasos, tu proyecto debería estar funcionando correctamente con las carpetas static y templates dentro de app/core. Si necesitas más ayuda o tienes alguna duda adicional, ¡no dudes en preguntar!
+
+
+
+
