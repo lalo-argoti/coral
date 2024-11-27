@@ -15,7 +15,7 @@
 
     <br><br/>
     <form action="{{ url_for('main.handle_actions') }}" method="POST">
-                 
+          <button onclick="window.location.href=/">X</button>       
           <h1>Hola!, {{saludo}}</h1>
                 <!-- Botón para cerrar sesión -->
                 <!-- button type="submit" name="action" value="modify_user" class="btn btn-primary">Modificar datos</button>  ELIMINAR DE HANDLE -->

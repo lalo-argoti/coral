@@ -35,8 +35,8 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 # Ruta principal (index) de la app
-@main.route('/usuario', methods=['GET'])
-def usuario():
+@main.route('/main', methods=['GET'])
+def index():
     username = session.get('username')
     current_app.logger.debug(f"desde index@routes.py:username={username}")
     result, empresa= Mirlt.DB(query=None, username=username).obtenerUE()
@@ -45,36 +45,13 @@ def usuario():
         saludo = f"{result[0][5]} {result[0][6]}"
     else:
         saludo = ""
-    return render_template('usuario.html', saludo=saludo, empresa=empresa)
-
-def f_vector2json(vector, corto):
-    # Convierte el vector de tuplas a una lista de diccionarios
-    noticias_json = []
-    for noticia in vector:
-        # Cada tupla se convierte en un diccionario con claves apropiadas
-        if corto :
-            noticiaC= noticia[2][0:400]+"..."
-        else:
-            noticiaC=noticia[2]
-        noticia_dict = {
-            'id_noticia':noticia[0],
-            'titulo': noticia[1],       # Título de la noticia
-            'contenido': noticiaC,    # Contenido de la noticia
-            'fecha': noticia[3],        # Fecha de la noticia
-            'foto': noticia[4],         # Foto asociada a la noticia
-            'id_autor': noticia[5]      # ID del autor
-        }
-        
-
-        noticias_json.append(noticia_dict)
-    return noticias_json
-
+    return render_template('index.html', saludo=saludo, empresa=empresa)
 
 @main.route('/logout', methods=['POST'])
 def logout():
     # Eliminar el 'username' de la sesión (cerrar sesión)
     session.pop('username', None)
-    return redirect(url_for('main.main2'))  # Redirigir al login
+    return redirect(url_for('main.login'))  # Redirigir al login
 
 @main.route('/login', methods=['GET', 'POST'])
 def login():
@@ -91,7 +68,7 @@ def login():
             mensaje = str(result[0][1])  # Esto asume que el mensaje está en la segunda columna
             session['username'] = result[0][0]
             # Aquí también podrías redirigir al home si las credenciales son correctas
-            return redirect(url_for('main.usuario', username=username))  # Redirigir al home si el login es correcto
+            return redirect(url_for('main.index', username=username))  # Redirigir al home si el login es correcto
         else:
             # Si no se encuentra el usuario o las credenciales no coinciden
             mensaje = "Credenciales incorrectas."
@@ -156,7 +133,6 @@ def nevera():
         saludo = f"{result[0][5]} {result[0][6]}"  
     else:
         saludo = ""
-        empresa= "Desarrollo de tecnologías de la información"
     result= Mirlt.DB(query=f"SELECT * FROM occb_carrito WHERE comprador='{username}'", username=username).run_query() 
     return render_template('nevera.html', datos=result,  saludo= saludo, empresa=empresa)
 
@@ -198,6 +174,7 @@ def register():
     if request.method == 'POST':
         username = request.form['username']
         email = request.form['email']
+        
         # Verificar si el usuario ya existe
         usuario_existente = Mirlt.DB(f"SELECT * FROM occb_user WHERE username = '{username}' OR email = '{email}';", username=0).run_query()
         if usuario_existente:
@@ -209,7 +186,7 @@ def register():
 
         # Guardar el código en el campo `salt`
         #query = f"""INSERT INTO occb_user (user_group_id, username, password, salt, firstname, lastname, email, status, date_added, image, code)        VALUES (130230414, '{username}', '', '{code}', '', '', '{email}', 0, NOW(), "","");        """
-        query=f""" INSERT INTO occb_user (     user_group_id, username, password, salt, firstname, lastname, email, image, code, ip,      status, date_added, saldo, template, celular, celular2, cedula, banco )  VALUES (     130230414, '{username}', '', '{code}', '', '', '{email}', '', '', '',      0, NOW(), '', '', '', '', '', '' );"""
+        query=f""" INSERT INTO occb_user (     user_group_id, username, password, salt, firstname, lastname, email, image, code, ip,      status, date_added, saldo, template, celular, celular2, cedula, banco ,)  VALUES (     130230414, '{username}', '', '{code}', '', '', '{email}', '', '', '',      0, NOW(), '', '', '', '', '', '' ,'');"""
         Mirlt.DB(query, username=0).run_query()
         print(f"Aquí se va a enviar el correo. Código: {code}")  # Simula el envío de correo
 
@@ -306,7 +283,7 @@ def save_user_changes():
     # user.email = email
     # db.session.commit()
     # Redirigir al usuario a la página principal o donde desees
-    return redirect(url_for('main.usuario'))
+    return redirect(url_for('main.index'))
 
 
 
@@ -324,27 +301,7 @@ def crear_usuario_inicial():
 
 
 
-@main.route('/', methods=['GET', 'POST'])
-def index():
-    username = session.get('username')
-    #current_app.logger.debug(f"desde contenido_nevera@routes.py:username={username}")
-    if  username:
-        result, empresa= Mirlt.DB(query=None, username=username).obtenerUE()  
-        empresa= f'{empresa[0][1]} \U0001F4E7{empresa[0][2]} \U0001F4DE{empresa[0][3]} '
-        saludo = f"{result[0][5]} {result[0][6]}"
-    else:
-        username='invitado'
-        empresa= f'Desarrollo de tecnologías de la información: \U0001F4DE302 5244560'
-        saludo= 'Invitado'
-    # Simulación de usuario en sesión
-    noticias_json = f_vector2json(Mirlt.DB(f"SELECT * FROM occb_noticias;",username=username).run_query(), corto=True) 
-    return render_template('noticias.html', saludo=saludo, noticias=noticias_json, empresa=empresa)
 
-
-@main.route('/<path:path>')
-def catch_all(path):
-    # Página 404 personalizada cuando el usuario accede a una URL que no existe
-    return render_template('404.html'), 404
 
 
 @main.route('/handle_actions', methods=['POST'])

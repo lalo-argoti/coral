@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenida</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1 ><a href= "{% if saludo == 'Invitado' %}{{+url_for('main.login')}}  {% else %} {{url_for('main.usuario') }}  {% endif %}"  style="color: gray;">     Bienvenido, {{ saludo }}</a>
+    </h1>
+</header>
+
+<section>
+    <h1>Noticias</h1>
+    <ul class="noticias">
+        {% for noticia in noticias %}
+            <li>
+                <h2>{{ noticia.titulo|safe }}</h2>
+                <p>{{ noticia.contenido|safe }}</p>
+                <p>Publicado el {{ noticia.fecha|safe }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</section>
+
+    <footer>
+        <p>{{empresa}}</p>
+    </footer>
+</body>
+</html>

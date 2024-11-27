@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<header>
+    <p>{{ saludo }}</p>
+</header>
+<body>
+    <div class="login-container">
+        <img src="/static/images/logo.svg" alt="Logo" class="logo">
+
+        <form action="/register" method="POST">
+            <h1>Registro de Usuario</h1>
+
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" name="username" required><br><br>
+
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <button type="submit">Registrarse</button>
+        </form>
+
+        <!-- Mostrar mensajes flash -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+            {% for category, message in messages %}
+                <li style="color: {{ 'red' if category == 'danger' else 'green' }};">
+                    {{ message }}
+                </li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+    </div>
+</body>
+<footer>
+    {{ empresa }}
+</footer>
+</html>
