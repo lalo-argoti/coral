@@ -3,7 +3,7 @@
 {% block title %}Lista de Alumnos{% endblock %}
 
 {% block content %}
-    <section id="students-list" class="page-section">
+    <section id="students-list" class="page-section" style="background-color: #f9f9f9;">
         <div class="container">
             <div class="heading">
                 <h2>Lista de Alumnos</h2>
@@ -12,7 +12,7 @@
             <div class="row">
                 {% for alumno in alumnos %}
                     <div class="col-md-4 col-sm-6">
-                        <div class="team-member">
+                        <div class="team-member" style="background-color: #ffffff; padding: 20px; border: 1px solid #ddd; border-radius: 5px;">
                             <div class="member-img">
                                 <img src="{{ url_for('static', filename='images/' + alumno.imagen) }}" alt="{{ alumno.nombre }}" class="img-responsive">
                                 <div class="team-socials">
