@@ -1,0 +1,32 @@
+{% extends 'core/home.html' %}
+
+{% block title %}Lista de Alumnos{% endblock %}
+
+{% block content %}
+    <section id="students-list" class="page-section">
+        <div class="container">
+            <div class="heading">
+                <h2>Lista de Alumnos</h2>
+                <p>A continuación, se presenta la lista de nuestros estudiantes destacados.</p>
+            </div>
+            <div class="row">
+                {% for alumno in alumnos %}
+                    <div class="col-md-4 col-sm-6">
+                        <div class="team-member">
+                            <div class="member-img">
+                                <img src="{{ url_for('static', filename='images/' + alumno.imagen) }}" alt="{{ alumno.nombre }}" class="img-responsive">
+                                <div class="team-socials">
+                                    <a href="{{ alumno.facebook }}"><i class="fa fa-facebook"></i></a>
+                                    <a href="{{ alumno.twitter }}"><i class="fa fa-twitter"></i></a>
+                                    <a href="{{ alumno.linkedin }}"><i class="fa fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                            <h4>{{ alumno.nombre }}</h4>
+                            <p class="pos">{{ alumno.posicion }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

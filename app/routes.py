@@ -324,22 +324,7 @@ def crear_usuario_inicial():
 
 
 
-@main.route('/', methods=['GET', 'POST'])
-def index():
-    username = session.get('username')
-    #current_app.logger.debug(f"desde contenido_nevera@routes.py:username={username}")
-    if  username:
-        result, empresa= Mirlt.DB(query=None, username=username).obtenerUE()  
-        empresa= f'{empresa[0][1]} \U0001F4E7{empresa[0][2]} \U0001F4DE{empresa[0][3]} '
-        saludo = f"{result[0][5]} {result[0][6]}"
-    else:
-        username='invitado'
-        empresa= f'Desarrollo de tecnologías de la información: \U0001F4DE302 5244560'
-        saludo= 'Invitado'
-    # Simulación de usuario en sesión
-    noticias_json = f_vector2json(Mirlt.DB(f"SELECT * FROM occb_noticias;",username=username).run_query(), corto=True) 
-    return render_template('noticias.html', saludo=saludo, noticias=noticias_json, empresa=empresa)
-
+ 
 
 @main.route('/<path:path>')
 def catch_all(path):
