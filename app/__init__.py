@@ -27,11 +27,18 @@ def create_app():
     file_handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
     app.logger.addHandler(file_handler)
 
-    # Registro de los blueprints
+    #importar y  registro de los blueprints
     from app.core import core
     from app.alumnos import alumnos
-
+    from app.colegio import colegio
+    from app.grupos import grupos
+    from app.usuario import usuario
+    from app.materias import materias
     app.register_blueprint(core)
+    app.register_blueprint(usuario)
+    app.register_blueprint(grupos)
     app.register_blueprint(alumnos)
+    app.register_blueprint(colegio)
+    app.register_blueprint(materias)
 
     return app

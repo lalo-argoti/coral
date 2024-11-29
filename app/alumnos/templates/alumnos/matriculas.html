@@ -6,9 +6,55 @@
     <section id="students-list" class="page-section" style="background-color: #f9f9f9;">
         <div class="container">
             <div class="heading">
-                <h2>Lista de Alumnos</h2>
-                <p>A continuación, se presenta la lista de nuestros estudiantes destacados.</p>
+                  <p>{{resultados[0]}}</p>
             </div>
+
+
+<section id="Features" class="page-section colord">
+  <div class="container">
+    <div class="row"> 
+      <!-- item -->
+      <div class="col-md-3 text-center"> 
+	  <div class="box-item">
+	  <i class="circle"><img src="images/5.png" alt="" /></i>
+        <h3>Matrículas </h3>
+        <p>e inscripciones.</p>
+      </div>
+	   </div>
+      <!-- end: --> 
+      
+      <!-- item -->
+      <div class="col-md-3 text-center">
+	  <div class="box-item">
+	  <i class="circle"> <img src="images/1.png" alt="" /></i>
+        <h3>Grupos</h3>
+        <p>configuraciones y listas.</p>
+      </div>
+	   </div>
+      <!-- end: --> 
+      
+      <!-- item -->
+      <div class="col-md-3 text-center">
+	  <div class="box-item">
+	  <i class="circle"> <img src="images/2.png" alt="" /></i>
+        <h3>Calificaciones,</h3>
+        <p>recuperaciones.</p>
+      </div>
+	   </div>
+      <!-- end: --> 
+      
+      <!-- item -->
+      <div class="col-md-3 text-center">
+	  <div class="box-item">
+	  <i class="circle"> <img src="images/3.png" alt="" /></i>
+        <h3>Grados y</h3>
+        <p>promociones.</p>
+      </div>
+      <!-- end:-->
+	   </div>
+    </div>
+  </div>
+
             <div class="row">
                 {% for alumno in alumnos %}
                     <div class="col-md-4 col-sm-6">
