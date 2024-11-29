@@ -2,3 +2,4 @@ Flask==2.3.2
 mysql-connector-python 
 python-dotenv
 flask-migrate
+SQLAlchemy>=2.0

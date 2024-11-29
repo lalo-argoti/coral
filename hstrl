@@ -1,0 +1,1000 @@
+ 1031  docker build -t coral .
+ 1032  docker run -p 5973:5000 coral
+ 1033  docker build -t coral .
+ 1034  docker run -p 5973:5000 coral
+ 1035  docker build -t coral .
+ 1036  docker run -p 5973:5000 coral
+ 1037  docker build -t coral .
+ 1038  docker run -p 5973:5000 coral
+ 1039  docker build -t coral .
+ 1040  docker run -p 5973:5000 coral
+ 1041  docker build -t coral .
+ 1042  docker run -p 5973:5000 coral
+ 1043  docker build -t coral .
+ 1044  docker run -p 5973:5000 coral
+ 1045  docker build -t coral .
+ 1046  docker run -p 5973:5000 coral
+ 1047  docker build -t coral .
+ 1048  docker run -p 5973:5000 coral
+ 1049  docker build -t coral .
+ 1050  docker run -p 5973:5000 coral
+ 1051  docker build -t coral .
+ 1052  docker run -p 5973:5000 coral
+ 1053  docker build -t coral .
+ 1054  docker run -p 5973:5000 coral
+ 1055  docker build -t coral .
+ 1056  docker run -p 5973:5000 coral
+ 1057  docker build -t coral .
+ 1058  docker run -p 5973:5000 coral
+ 1059  dcoker ps -a
+ 1060  docker ps -a
+ 1061  docker rm 5a3c6a86274c
+ 1062  docker rm cfa86cf0a0ae
+ 1063  docker rm abffdd559e65
+ 1064  docker rm c63549b279ee
+ 1065  docker rm 20188cb51dcc
+ 1066  docker rm 2b1864b74b37
+ 1067  docker rm 3d43e3866667
+ 1068  docker rm 7149554e550d
+ 1069  docker rm ec323a327ef2
+ 1070  docker rm 74453b080bc4
+ 1071  docker rm 9188b88906eb
+ 1072  docker rm 457b09fc065c
+ 1073  docker rm 7967dd58b0c3
+ 1074  docker rm a8fbccacf941
+ 1075  docker rm 85cccd48cb52
+ 1076  docker rm 18bef3dd2a77
+ 1077  docker rm 9fe71366f8c0
+ 1078  docker rm 6d124aa46b54
+ 1079  docker rm 45cdb5477bff
+ 1080  docker rm cd628d7d168d
+ 1081  docker rm 20340ce29898
+ 1082  docker rm 405a73eec04a
+ 1083  docker rm 3fb8572b1de3
+ 1084  docker build -t coral .
+ 1085  docker run -p 5973:5000 coral
+ 1086  ls
+ 1087  docker exec -it 8469c99f87e5 sh
+ 1088  nano quiri/coral/app/templates/noticias.html
+ 1089  nano quiri/coral/app/routes.py
+ 1090  dcoker ps 
+ 1091  docker ps -a
+ 1092  docker stop 9ea7b29020db
+ 1093  docker rm 9ea7b29020db
+ 1094  cd quiri/coral/
+ 1095  docker build -t coral .
+ 1096  docker run -p 5000:5000 coral
+ 1097  ls
+ 1098  nano quiri/coral/app/templates/noticias.html 
+ 1099  docker ps -a
+ 1100  ocker stop 014d1209ead2
+ 1101  docker stop 014d1209ead2
+ 1102  docker rm 014d1209ead2
+ 1103  cd quiri/coral/
+ 1104  docker build -t coral .
+ 1105  docker run -p 5000:5000 coral
+ 1106  nano app/templates/noticias.html 
+ 1107  docker exec -it 8469c99f87e5 sh
+ 1108  ls
+ 1109  nano app/templates/noticias.html 
+ 1110  nano app/routes.py
+ 1111  docker exec -it 8469c99f87e5 sh
+ 1112  nano app/static/css/styles.css
+ 1113  nano app/templates/noticias.html 
+ 1114  nano app/templates/noticias.htmls 
+ 1115  nano app/static/css/styles.css
+ 1116  nano app/templates/noticias.htmls 
+ 1117  nano app/templates/noticias.html
+ 1118  clear
+ 1119  nano app/templates/noticias.html
+ 1120  cd app/templates/
+ 1121  ls -a
+ 1122  r, *.swp
+ 1123  rm *.swp
+ 1124  ls
+ 1125  nano app/templates/noticias.html
+ 1126  nano noticias.html
+ 1127  ls
+ 1128  ls -a
+ 1129  rm  .noticias.html.swp 
+ 1130  rm .noticias.htmls.swp  
+ 1131  nano noticias.html
+ 1132  df -h
+ 1133  du -sh *
+ 1134  sudo journalctl --vacuum-size=100M
+ 1135  nano noticias.html
+ 1136  ls -a
+ 1137  rm .noticias.html.swp  
+ 1138  ls -a
+ 1139  nano noticias.html
+ 1140  docker exec -it 8469c99f87e5 sh
+ 1141  ls
+ 1142  cd q
+ 1143  cd quiri/
+ 1144  ls
+ 1145  cd Templates/
+ 1146  ls
+ 1147  cd car/
+ 1148  ls
+ 1149  cd template/
+ 1150  ls
+ 1151  cd car-care-auto-mobile-html5-bootstrap-web-template/
+ 1152  ls
+ 1153  cd css/
+ 1154  ls
+ 1155  mv style.css car.css
+ 1156  ls
+ 1157  cd ..
+ 1158  cp -r css ~/quiri/coral/app/static/css/
+ 1159  cd  ~/quiri/coral/app/static/css/
+ 1160  ls
+ 1161  cd css/ls
+ 1162  cd css/
+ 1163  ls
+ 1164  mv ../
+ 1165  mv * ~/quiri/coral/app/static/css/
+ 1166  ls
+ 1167  cd ..
+ 1168  rm -r css/ 
+ 1169  ls
+ 1170  cd ..
+ 1171  ls
+ 1172  cd templates/
+ 1173  ls
+ 1174  nano noticias.html 
+ 1175  docker ps -a
+ 1176  docker start 8469c99f87e5
+ 1177  docker ps 
+ 1178  sudo lsof -i :3306
+ 1179  sudo kill -9  631304
+ 1180  docker start 8469c99f87e5
+ 1181  sudo lsof -i :3306
+ 1182  docker run -d -p 3307:3306 --name db  
+ 1183  docker run -d -p 3307:3306 --name db  db
+ 1184  docker run -d -p 3307:3306 --name db  db2
+ 1185  docker run -d -p 3307:3306 --name db  8469c99f87e5
+ 1186  sudo systemctl stop mariadb
+ 1187  docker start 8469c99f87e5
+ 1188  cd quiri/coral/app/static/images/
+ 1189  nano basededatosCCI.svg
+ 1190  cd ..
+ 1191  ls
+ 1192  docker build -t coral .
+ 1193  docker ps -a
+ 1194  docker stop 516d0fc873ff
+ 1195  docker stop 844568b25640
+ 1196  docker rm 844568b25640
+ 1197  docker rm 516d0fc873ff
+ 1198  docker run -p 5000:5000 coral
+ 1199  ls
+ 1200  cd app/
+ 1201  ls
+ 1202  cd static/
+ 1203  ls
+ 1204  cd images/
+ 1205  ls
+ 1206  nano basededatosCCI.svg 
+ 1207  ls
+ 1208  nano fondo-principal.svg 
+ 1209  nano fondo-ventana.svg 
+ 1210  cd ..
+ 1211  docker build -t coral .
+ 1212  cd ..
+ 1213  docker build -t coral .
+ 1214  docker run -p 5000:5000 coral
+ 1215  ls 
+ 1216  nano app/static/css/styles.css
+ 1217  cd quiri/coral/
+ 1218  docker run -p 5000:5000 coral
+ 1219  cd quiri/coral/
+ 1220  ls
+ 1221  cd app/
+ 1222  ls
+ 1223  cd ..
+ 1224  git add .
+ 1225  git checkout -b "v0.99"
+ 1226  git commit -a -m  "ADICION LOGS"
+ 1227  git push
+ 1228  git push --set-upstream origin v0.99
+ 1229  ls
+ 1230  ls
+ 1231  cd quiri/
+ 1232  ls
+ 1233  cp -r coral/ cascabel/
+ 1234  sudo cp -r coral/ cascabel/
+ 1235  ls
+ 1236  cd coral
+ 1237  ls
+ 1238  git pull origin main
+ 1239  sudo git pull origin main
+ 1240  ls
+ 1241  cd app/
+ 1242  ls
+ 1243  cd corels
+ 1244  ls
+ 1245  cd core
+ 1246  ls
+ 1247  cd ..
+ 1248  cd 
+ 1249  cd quiri/
+ 1250  cd coral/
+ 1251  ls
+ 1252  docker build -t coral .
+ 1253  docker ps -a
+ 1254  docker stop 83d74f80300f
+ 1255  docker rm 83d74f80300f
+ 1256  docker build -t coral .
+ 1257  docker run -p 5001:5000 coral
+ 1258  cd quiri/
+ 1259  ls
+ 1260  cd coral/
+ 1261  ls
+ 1262  cd entorno/
+ 1263  ls
+ 1264  cd ..
+ 1265  git pull -u origin main
+ 1266  git pull  origin main
+ 1267  sudo git pull  origin main
+ 1268  ls
+ 1269  cd app/
+ 1270  ls
+ 1271  cd ..
+ 1272  rm *.save
+ 1273  cd app/
+ 1274  rm *.save 
+ 1275  ls
+ 1276  cd  core/
+ 1277  ls
+ 1278  cd templates/
+ 1279  main
+ 1280  nano main.html 
+ 1281  sudo nano main.html 
+ 1282  cd ..
+ 1283  docker build -t coral .
+ 1284  sudo docker build -t coral .
+ 1285  ls
+ 1286  docker ps -a
+ 1287  docker rm bbef5326f25f
+ 1288  docker rm a4a068faf07edocker rm 31a743cf5d8e
+ 1289  docker rm a4a068faf07e
+ 1290  docker rm 31a743cf5d8e
+ 1291  docker rm 0297320976cf
+ 1292  sudo docker build -t coral .
+ 1293  docker system df
+ 1294  docker system prune -a
+ 1295  sudo docker build -t coral .
+ 1296  docker run -p 5002:5000 coral
+ 1297  ls
+ 1298  cd quiri/
+ 1299  ls
+ 1300  cd cascabel/
+ 1301  ls
+ 1302  sudo docker build -t cascabel .
+ 1303  docker run -p 5973:5000 cascabel
+ 1304  sudo docker build -t cascabel .
+ 1305  docker run -p 5973:5000 cascabel
+ 1306  sudo docker build -t cascabel .
+ 1307  docker run -p 5973:5000 cascabel
+ 1308  sudo docker build -t cascabel .
+ 1309  docker run -p 5973:5000 cascabel
+ 1310  sudo docker build -t cascabel .
+ 1311  docker run -p 5973:5000 cascabel
+ 1312  sudo docker build -t cascabel .
+ 1313  docker run -p 5973:5000 cascabel
+ 1314  sudo docker build -t cascabel .
+ 1315  docker run -p 5973:5000 cascabel
+ 1316  ls
+ 1317  cd quiri/
+ 1318  ls
+ 1319  cd cascabel/
+ 1320  ls
+ 1321  cd coral/
+ 1322  ls
+ 1323  cd ..
+ 1324  nano app/static/images/
+ 1325  nano *
+ 1326  nano app/static/images/*
+ 1327  cd app/static/
+ 1328  ls
+ 1329  cd images
+ 1330  ls
+ 1331  nano fondo-ventana.svg 
+ 1332  nano fondo-ventana.svgh 
+ 1333  nano fondo-principal.svgg
+ 1334  nano fondo-principal.svg
+ 1335  cp ../../../coral/app/static/images/fondo-principal.svg fondo-principal.svg 
+ 1336  cp ../../../coral/app/static/images/fondo-ventana.svg fondo-ventana.svg 
+ 1337  nano fondo-principal.svg 
+ 1338  nano fondo-ventana.svg 
+ 1339  nano fondo-principal.svg 
+ 1340  cd ..
+ 1341  cd css/
+ 1342  ls
+ 1343  nano styles.css
+ 1344  ls
+ 1345  cd quiri/
+ 1346  ls
+ 1347  cd cd coral/
+ 1348  ls
+ 1349  docker ps -a
+ 1350  docker rm 3c506ac9c9b8
+ 1351  docker rm e7244c97eb81
+ 1352  docker rm 33a4a27a50cb
+ 1353  docker rm 7faf964efe17
+ 1354  docker rm de7ee7635495
+ 1355  docker rm af6caf88a21d
+ 1356  docker rm ce6f9d45f6bb
+ 1357  docker rm a0293738cbed
+ 1358  docker rm c29c59cdbb6d
+ 1359  docker rm 04bcc865dd17
+ 1360  docker rm 3dc82819a625
+ 1361  docker rm 457b09fc065c
+ 1362  docker rm 7967dd58b0c3
+ 1363  docker rm a8fbccacf941
+ 1364  docker rm 85cccd48cb52
+ 1365  docker rm 18bef3dd2a77
+ 1366  docker rm 9fe71366f8c0
+ 1367  docker rm 6d124aa46b54
+ 1368  docker rm 45cdb5477bff
+ 1369  docker rm cd628d7d168d
+ 1370  docker rm 20340ce29898
+ 1371  docker rm 405a73eec04a
+ 1372  docker rm 3fb8572b1de3
+ 1373  docker ps -a
+ 1374  docker logs 3c506ac9c9b8
+ 1375  ls
+ 1376  cd quiri/
+ 1377  ls
+ 1378  cd coral/
+ 1379  ls
+ 1380  cd app/
+ 1381  ls
+ 1382  cd core/
+ 1383  ls
+ 1384  nano routes.py 
+ 1385  cd ..
+ 1386  ls
+ 1387  cd alumnos/
+ 1388  ls
+ 1389  nano routes.py 
+ 1390  nano templates/alumnos/
+ 1391  nano templates/alumnos/lista_alumnos.html 
+ 1392  cd ..
+ 1393  cd  cascabel/
+ 1394  ls
+ 1395  rm -r coral/
+ 1396  nano app/
+ 1397  cd app/
+ 1398  ls
+ 1399  nano routes.py
+ 1400  nano templates/
+ 1401  nano templates/usuario.html 
+ 1402  nano routes.py
+ 1403  cd ..
+ 1404  cd coral/
+ 1405  git pull origin main
+ 1406  ls
+ 1407  sudo docker build -t coral .
+ 1408  ls
+ 1409  cd app/
+ 1410  ls
+ 1411  cd core
+ 1412  ls
+ 1413  nano modelos.py
+ 1414  pip install flask-migrate
+ 1415  pip3 install flask-migrate
+ 1416  docker ps 
+ 1417  ls
+ 1418  cd ..
+ 1419  nano requirements.txt 
+ 1420  nano app/alumnos/views.py 
+ 1421  nano app/alumnos/routes.py 
+ 1422  nano app/alumnos/templates/alumnos/lista_alumnos.html 
+ 1423  nano app/alumnos/routes.py 
+ 1424  nano app/alumnos/templates/alumnos/lista_alumnos.html 
+ 1425  nano app/alumnos/templates/alumnos/lista_alumnos.html
+ 1426  nano app/core/templates/index.html
+ 1427  nano app/core/templates/
+ 1428  nano app/core/templates/main.html 
+ 1429  cd app/core/templates/
+ 1430  ls
+ 1431  cd core/
+ 1432  ls
+ 1433  nano home.html 
+ 1434  ls
+ 1435  cp ../../../alumnos/templates/alumnos/lista_alumnos.html portal.html
+ 1436  ls
+ 1437  nano portal.html 
+ 1438  nano portal.htmlg 
+ 1439  rm portal.htmlg 
+ 1440  ls
+ 1441  cd ..
+ 1442  ls
+ 1443  cp ../alumnos/views.py  views.py
+ 1444  ls
+ 1445  nano views.py 
+ 1446  nano templates/core/portal.html 
+ 1447  nano routes.py 
+ 1448  nano views.py 
+ 1449  nano templates/core/portal.html 
+ 1450  nano ../alumnos/views.py 
+ 1451  nano ../alumnos/routes.py 
+ 1452  nano ../alumnos/templates/alumnos/
+ 1453  nano ../alumnos/templates/alumnos/lista_alumnos.html 
+ 1454  nano ../alumnos/routes.py 
+ 1455  cd ..
+ 1456  ls
+ 1457  cd core/
+ 1458  ls
+ 1459  nano routes.py 
+ 1460  nano templates/core/portal.html 
+ 1461  cd ..
+ 1462  nano core/templates/core/portal.html 
+ 1463  nano alumnos/templates/alumnos/portal.html 
+ 1464  nano alumnos/routes.py 
+ 1465  nano core/routes.py 
+ 1466  ls
+ 1467  nano __init__.py
+ 1468  nano alumnos/views.py 
+ 1469  nano core/views.py 
+ 1470  nano alumnos/views.py 
+ 1471  nano alumnos/routes.py 
+ 1472  nano alumnos/views.py 
+ 1473  ls
+ 1474  nano routes.py
+ 1475  rm *save*
+ 1476  ls
+ 1477  rm *sql
+ 1478  ls
+ 1479  rm -r x
+ 1480  ls
+ 1481  nano alumnos/routes.py 
+ 1482  nano alumnos/views.py 
+ 1483  nano alumnos/templates/alumnos/portal.html 
+ 1484  nano core/routes.py 
+ 1485  nano core/templates/core/home.html 
+ 1486  nano alumnos/routes.py 
+ 1487  ls
+ 1488  cd alumnos/
+ 1489  ls
+ 1490  nano routes.py 
+ 1491  ls
+ 1492  nano views.py 
+ 1493  nano templates/alumnos/lista_alumnos.html 
+ 1494  nano templates/alumnos/portal.html 
+ 1495  cd templates/alumnos/
+ 1496  ls
+ 1497  nano portal.html 
+ 1498  docker ps -a
+ 1499  cd ..
+ 1500  cd alumnos/
+ 1501  ls
+ 1502  nano routes.py 
+ 1503  cd ..
+ 1504  nano core/templates/core/home.html 
+ 1505  nano routes.py 
+ 1506  cd alumnos/
+ 1507  nano routes.py 
+ 1508  cd ..
+ 1509  nano core/templates/core/home.html 
+ 1510  nano alumnos/routes.py 
+ 1511  nano core/templates/core/home.html 
+ 1512  nano alumnos/routes.py 
+ 1513  nano core/templates/core/portal.html 
+ 1514  nano core/routes.py 
+ 1515  nano alumnos/routes.py 
+ 1516  nano core/routes.py 
+ 1517  nano core/views.py 
+ 1518  nano core/templates/core/portal.html 
+ 1519  nano core/routes.py 
+ 1520  nano core/views.py 
+ 1521  nano core/routes.py 
+ 1522  nano core/templates/core/home.html 
+ 1523  cp -r alumnos/ grupos/
+ 1524  cp -r alumnos/ colegio/
+ 1525  cp -r alumnos/ usuario/
+ 1526  ls
+ 1527  cd colegio/
+ 1528  ls
+ 1529  nano routes.py 
+ 1530  ls
+ 1531  nano views.py 
+ 1532  cd templates/
+ 1533  ls
+ 1534  mv -r alumnos/ colegio/
+ 1535  mv alumnos/ colegio/
+ 1536  ls
+ 1537  cd colegio/
+ 1538  ls
+ 1539  rm lista_alumnos.html 
+ 1540  ls
+ 1541  cd por
+ 1542  nano portal.html 
+ 1543  cd ..
+ 1544  nano core/templates/core/home.html 
+ 1545  ls
+ 1546  nano __init__.py
+ 1547  nano colegio/__init__.py 
+ 1548  ls
+ 1549  nano grupos/*
+ 1550  cd grupos/templates/
+ 1551  ls
+ 1552  mv alumnos/ grupos/
+ 1553  ls
+ 1554  cd grupos/
+ 1555  ls
+ 1556  rm lista_alumnos.html 
+ 1557  nano portal.html 
+ 1558  cd ..
+ 1559  nano core/templates/core/home.html 
+ 1560  nano __init__.py
+ 1561  nano usuario/*
+ 1562  nano __init__.py
+ 1563  ls
+ 1564  nano __init__.py
+ 1565  nano usuario/*
+ 1566  cd usuario/
+ 1567  ls
+ 1568  cd templates/
+ 1569  ls
+ 1570  mv alumnos/ usuario/
+ 1571  cd ..
+ 1572  c ..
+ 1573  cd ..
+ 1574  ls
+ 1575  nano core/templates/core/home.html 
+ 1576  nano usuario/routes.py 
+ 1577  nano core/templates/core/home.html 
+ 1578  nano usuario/*
+ 1579  ls
+ 1580  cd usuario/
+ 1581  ls
+ 1582  nano __init__.py 
+ 1583  nano views.py 
+ 1584  cd templates/usuario/
+ 1585  ls
+ 1586  rm lista_alumnos.html 
+ 1587  ls
+ 1588  cd ..
+ 1589  ls
+ 1590  cd
+ 1591  cd quiri/coral/app/
+ 1592  ls
+ 1593  rm routes.py 
+ 1594  nano core/templates/core/home.html 
+ 1595  nano usuario/routes.py o
+ 1596  cd ..
+ 1597  ls
+ 1598  cd app/
+ 1599  ls
+ 1600  nano __init__.py
+ 1601  cd usuario/
+ 1602  ls
+ 1603  cd templates/
+ 1604  ls
+ 1605  cd usuario/
+ 1606  ls
+ 1607  nano portal.html 
+ 1608  cd ..
+ 1609  ls
+ 1610  nano __init__.py
+ 1611  nano usuario/__init__.py 
+ 1612  ls
+ 1613  nano __init__.py
+ 1614  cd usuario/
+ 1615  ls
+ 1616  nano routes.py 
+ 1617  nano views.py 
+ 1618  nano routes.py 
+ 1619  nano ../alumnos/routes.py 
+ 1620  nano ../alumnos/views.py 
+ 1621  cp ../alumnos/templates/alumnos/portal.html ../alumnos/templates/alumnos/matr
+ 1622  nano ../core/templates/core/home.html 
+ 1623  ls
+ 1624  nano *
+ 1625  nano ../core/templates/core/home.html 
+ 1626  nano __init__.py 
+ 1627  nano ../alumnos/__init__.py 
+ 1628  nano __init__.py 
+ 1629  nano ../alumnos/__init__.py 
+ 1630  nano ../core/templates/core/home.html 
+ 1631  nano views.py 
+ 1632  nano routes.py 
+ 1633  cd ..
+ 1634  ls
+ 1635  cd alumnos/
+ 1636  ls
+ 1637  nano views.py 
+ 1638  docker ps 
+ 1639  docker exec 8469c99f87e5 sh
+ 1640  docker exec 8469c99f87e5 bin
+ 1641  nano routes.py 
+ 1642  nano views.py 
+ 1643  nano ../core/templates/core/home.html 
+ 1644  ls
+ 1645  nano routes.py 
+ 1646  cd ..
+ 1647  ls
+ 1648  cd grupos/
+ 1649  ls
+ 1650  cp -r ../colegio/ ../materias
+ 1651  cd ../materias/
+ 1652  ls
+ 1653  nano *
+ 1654  [A
+ 1655  nano *
+ 1656  mv templates/colegio/ templates/materias
+ 1657  cd ..
+ 1658  nano __init__.py
+ 1659  nano materias/routes.py 
+ 1660  nano materias/views.py 
+ 1661  nano materias/templates/materias/portal.html 
+ 1662  ls
+ 1663  cd quiri/
+ 1664  ls
+ 1665  cd coral/
+ 1666  ls
+ 1667  cd entorno/
+ 1668  ls
+ 1669  cd ..
+ 1670  ls
+ 1671  git pull origin main 
+ 1672  git pull 
+ 1673  branch
+ 1674  git branch
+ 1675  git checkout main
+ 1676  git branch
+ 1677  git checkout
+ 1678  git checkout main
+ 1679  git branch -a
+ 1680  git checkout main
+ 1681  git reset --hard
+ 1682  sudo reset --hard
+ 1683  git checkout main
+ 1684  sudo git checkout main
+ 1685  ls
+ 1686  checkout main
+ 1687  git checkout main
+ 1688  rm *
+ 1689  lls
+ 1690  ls
+ 1691  rm -r *
+ 1692  sudo rm -r *
+ 1693  ls
+ 1694  git clone httl://www.github.com/lalo-argoti/coral
+ 1695  git clone http://www.github.com/lalo-argoti/coral
+ 1696  ls
+ 1697  rm *
+ 1698  cd ..
+ 1699  git clone http://www.github.com/lalo-argoti/coral
+ 1700  rm -r coral
+ 1701  sudo rm -r coral
+ 1702  git clone http://www.github.com/lalo-argoti/coral
+ 1703  cd coral
+ 1704  ls
+ 1705  cd a
+ 1706  cd aa
+ 1707  cd app/
+ 1708  ls
+ 1709  git pull 
+ 1710  cd alumnos/
+ 1711  ls
+ 1712  nano routes.py 
+ 1713  ls
+ 1714  cd ..
+ 1715  cd alumnos/
+ 1716  cd templates/
+ 1717  ls
+ 1718  cd alumnos/
+ 1719  ls
+ 1720  cd ..
+ 1721  nano views.py
+ 1722  ls
+ 1723  cd ..
+ 1724  tree
+ 1725  cd ..
+ 1726  cd coral/
+ 1727  ls
+ 1728  tree
+ 1729  apt-get install tree
+ 1730  sudo apt-get install tree
+ 1731  tree
+ 1732  cd app/
+ 1733  ls
+ 1734  tree
+ 1735  ls
+ 1736  mv x/Mirlt.py core/Mirlt.py 
+ 1737  cd core/
+ 1738  ls
+ 1739  cd ..
+ 1740  cd alumnos/
+ 1741  ls
+ 1742  nano routes.py 
+ 1743  nano views.py 
+ 1744  git status
+ 1745  cd ..
+ 1746  git status
+ 1747  git init
+ 1748  git status
+ 1749  git add 
+ 1750  git add .
+ 1751  git commit -m "agregar view 1 "
+ 1752  git config --global user.name lalo-argoti
+ 1753  git pull origin main --rebase
+ 1754  git push origin main
+ 1755  sudo docker build -t coral .
+ 1756  docker run -p 5000:5000 coral
+ 1757  sudo docker build -t coral .
+ 1758  ls
+ 1759  cd app/
+ 1760  ls
+ 1761  cd core/
+ 1762  ls
+ 1763  cd ../alumnos/
+ 1764  ls
+ 1765  nano  views.py 
+ 1766  cd ..
+ 1767  docker ps
+ 1768  sudo docker build -t coral .
+ 1769  docker run -p 5000:5000 coral
+ 1770  sudo docker build -t coral .
+ 1771  docker run -p 5000:5000 coral
+ 1772  sudo docker build -t coral .
+ 1773  docker run -p 5000:5000 coral
+ 1774  sudo docker build -t coral .
+ 1775  docker run -p 5000:5000 coral
+ 1776  sudo docker build -t coral .
+ 1777  docker run -p 5000:5000 coral
+ 1778  sudo docker build -t coral .
+ 1779  docker run -p 5000:5000 coral
+ 1780  sudo docker build -t coral .
+ 1781  docker run -p 5000:5000 coral
+ 1782  sudo docker build -t coral .
+ 1783  docker run -p 5000:5000 coral
+ 1784  sudo docker build -t coral .
+ 1785  docker run -p 5000:5000 coral
+ 1786  sudo docker build -t coral .
+ 1787  docker run -p 5000:5000 coral
+ 1788  sudo docker build -t coral .
+ 1789  docker run -p 5000:5000 coral
+ 1790  sudo docker build -t coral .
+ 1791  docker run -p 5000:5000 coral
+ 1792  docker rm 75a5b479a7d7
+ 1793  docker rm df1507faa981
+ 1794  docker rm 8fc4e4ec4572
+ 1795  docker rm 510f864bb0ab
+ 1796  docker rm 5e5b0af7c2f1
+ 1797  docker rm 2fc45a7571ce
+ 1798  docker rm ff931d8070fd
+ 1799  docker rm d39ed3a002bb
+ 1800  docker rm 3ef3ac59ee85
+ 1801  docker rm 6d09927e29cf
+ 1802  docker rm 0f515855fb8a
+ 1803  docker rm b08408c7cfb5
+ 1804  docker rm 48ddfa00ad3b
+ 1805  docker rm 5a97d955d3ff
+ 1806  docker rm 3c506ac9c9b8
+ 1807  docker rm 18bef3dd2a77
+ 1808  docker rm 9fe71366f8c0
+ 1809  sudo docker build -t coral .
+ 1810  docker run -p 5000:5000 coral
+ 1811  sudo docker build -t coral .
+ 1812  docker run -p 5000:5000 coral
+ 1813  sudo docker build -t coral .
+ 1814  docker run -p 5000:5000 coral
+ 1815  sudo docker build -t coral .
+ 1816  docker run -p 5000:5000 coral
+ 1817  sudo docker build -t coral .
+ 1818  docker run -p 5000:5000 coral
+ 1819  sudo docker build -t coral .
+ 1820  docker run -p 5000:5000 coral
+ 1821  sudo docker build -t coral .
+ 1822  docker run -p 5000:5000 coral
+ 1823  sudo docker build -t coral .
+ 1824  docker run -p 5000:5000 coral
+ 1825  sudo docker build -t coral .
+ 1826  docker run -p 5000:5000 coral
+ 1827  nano app/core/templates/core/home.html 
+ 1828  sudo docker build -t coral .
+ 1829  docker run -p 5000:5000 coral
+ 1830  sudo docker build -t coral .
+ 1831  docker run -p 5000:5000 coral
+ 1832  sudo docker build -t coral .
+ 1833  docker run -p 5000:5000 coral
+ 1834  sudo docker build -t coral .
+ 1835  docker run -p 5000:5000 coral
+ 1836  sudo docker build -t coral .
+ 1837  docker run -p 5000:5000 coral
+ 1838  sudo docker build -t coral .
+ 1839  docker run -p 5000:5000 coral
+ 1840  sudo docker build -t coral .
+ 1841  docker run -p 5000:5000 coral
+ 1842  nano app/core/templates/core/home.html 
+ 1843  docker run -p 5000:5000 coral
+ 1844  sudo docker build -t coral .
+ 1845  docker run -p 5000:5000 coral
+ 1846  sudo docker build -t coral .
+ 1847  docker run -p 5000:5000 coral
+ 1848  sudo docker build -t coral .
+ 1849  docker run -p 5000:5000 coral
+ 1850  sudo docker build -t coral .
+ 1851  docker run -p 5000:5000 coral
+ 1852  sudo docker build -t coral .
+ 1853  docker run -p 5000:5000 coral
+ 1854  sudo docker build -t coral .
+ 1855  docker run -p 5000:5000 coral
+ 1856  sudo docker build -t coral .
+ 1857  docker run -p 5000:5000 coral
+ 1858  sudo docker build -t coral .
+ 1859  docker run -p 5000:5000 coral
+ 1860  sudo docker build -t coral .
+ 1861  docker run -p 5000:5000 coral
+ 1862  sudo docker build -t coral .
+ 1863  docker run -p 5000:5000 coral
+ 1864  sudo docker build -t coral .
+ 1865  docker run -p 5000:5000 coral
+ 1866  sudo docker build -t coral .
+ 1867  docker run -p 5000:5000 coral
+ 1868  sudo docker build -t coral .
+ 1869  docker run -p 5000:5000 coral
+ 1870  sudo docker build -t coral .
+ 1871  docker run -p 5000:5000 coral
+ 1872  sudo docker build -t coral .
+ 1873  docker run -p 5000:5000 coral
+ 1874  python3
+ 1875  docker exec -it db sh
+ 1876  sudo docker build -t coral .
+ 1877  docker run -p 5000:5000 coral
+ 1878  sudo docker build -t coral .
+ 1879  docker run -p 5000:5000 coral
+ 1880  docker exec -it db sh
+ 1881  docker run -p 5000:5000 coral
+ 1882  docker exec -it db sh
+ 1883  docker run -p 5000:5000 coral
+ 1884  sudo docker build -t coral .
+ 1885  docker run -p 5000:5000 coral
+ 1886  sudo docker build -t coral .
+ 1887  docker run -p 5000:5000 coral
+ 1888  sudo docker build -t coral .
+ 1889  docker run -p 5000:5000 coral
+ 1890  nano ../cascabel/app/templates/*
+ 1891  sudo docker build -t coral .
+ 1892  docker run -p 5000:5000 coral
+ 1893  sudo docker build -t coral .
+ 1894  docker run -p 5000:5000 coral
+ 1895  sudo docker build -t coral .
+ 1896  docker run -p 5000:5000 coral
+ 1897  ls
+ 1898  cd quiri/coral/
+ 1899  ls
+ 1900  sudo docker build -t coral .
+ 1901  docker ps -a
+ 1902  docker rm 6937cf35d65
+ 1903  docker rm 06d1847ddc9d
+ 1904  docker rm 64ab77ad063c
+ 1905  docker rm 667b7b0d50a3
+ 1906  docker rm be73bd6ef456
+ 1907  docker rm 9cde1bd90db6
+ 1908  docker rm c3066e6b7133
+ 1909  docker rm 4db123760af3
+ 1910  docker rm d02eec6ea4a0
+ 1911  docker rm 56b20dc038c7
+ 1912  docker rm dfcc49f0b78c
+ 1913  docker rm 2918e6ec0bb8
+ 1914  docker rm 12f5d760f99e
+ 1915  docker rm 981dc456d87f
+ 1916  docker rm d36035c44cca
+ 1917  docker rm 6dc9ad16fa7d
+ 1918  docker rm c3c99db6b56c
+ 1919  docker rm 5ff80a4c44a4
+ 1920  docker rm c470eee9ca29
+ 1921  docker rm 0462ea660545
+ 1922  docker rm 6abf0087d6a1
+ 1923  docker rm 04a40b8a6180
+ 1924  docker rm 0fa442382820
+ 1925  docker rm 5193aea1dd24
+ 1926  docker rm dc1df7e68322
+ 1927  docker rm 08070640ba15
+ 1928  docker rm 22604e1ecf20
+ 1929  docker rm 52d52a67107d
+ 1930  docker rm 159a190a6753
+ 1931  docker rm bd67a262a513
+ 1932  docker rm ac6c63337b3f
+ 1933  docker rm 6eae0dc541af
+ 1934  docker rm 482df6368f32
+ 1935  docker rm 53636adb95aa
+ 1936  docker rm d031ee0cd254
+ 1937  docker rm 6eb85f9b11b8
+ 1938  docker rm 29e26c3d62de
+ 1939  docker rm 0e7afc130332
+ 1940  docker rm 4c7cb8f7f993
+ 1941  docker rm f6b8783736b7
+ 1942  docker rm 2b50cdcd983a
+ 1943  docker rm 8ab3e0529cb9
+ 1944  docker rm b2010fedf9cf
+ 1945  docker rm 8af572f38a35
+ 1946  docker ps -a
+ 1947  docker ps -a36937cf35d65
+ 1948  docker stop 36937cf35d65
+ 1949  docker rm 36937cf35d65
+ 1950  sudo docker build -t coral .
+ 1951  docker run -p 5000:5000 coral
+ 1952  sudo docker build -t coral .
+ 1953  docker run -p 5000:5000 coral
+ 1954  ls
+ 1955  cd quiri/
+ 1956  ls
+ 1957  cd coral/app/core/static/
+ 1958  ls
+ 1959  cd ..
+ 1960  nano templates/core/portal.html 
+ 1961  nano templates/core/home.html 
+ 1962  ls
+ 1963  cd quiri/coral/app/core/static/images/
+ 1964  ls
+ 1965  cd ..
+ 1966  ls
+ 1967  cd ../../alumnos/
+ 1968  ls
+ 1969  cd ..
+ 1970  ls
+ 1971  nano __init__.py
+ 1972  ls
+ 1973  nano __init__.py
+ 1974  ls
+ 1975  nano core/templates/core/portal.html 
+ 1976  docker ps 
+ 1977  docker stop eda7b274232c
+ 1978  docker rm eda7b274232c
+ 1979  sudo docker build -t coral .
+ 1980  cd ..
+ 1981  sudo docker build -t coral .
+ 1982  docker run -p 5000:5000 coral
+ 1983  ls
+ 1984  nano app/core/static/css/styles.css
+ 1985  sudo docker build -t coral .
+ 1986  docker run -p 5000:5000 coral
+ 1987  sudo docker build -t coral .
+ 1988  docker run -p 5000:5000 coral
+ 1989  sudo docker build -t coral .
+ 1990  docker run -p 5000:5000 coral
+ 1991  nano app/core/templates/core/home.html 
+ 1992  git add .
+ 1993  git commit -m "Plantilla funcional sin apps"
+ 1994  git push -u origin main
+ 1995  ls
+ 1996  sudo docker build -t coral .
+ 1997  docker run -p 5000:5000 coral
+ 1998  sudo docker build -t coral .
+ 1999  docker run -p 5000:5000 coral
+ 2000  ls
+ 2001  cd quiri/
+ 2002  ls
+ 2003  cd coral/
+ 2004  ls
+ 2005  cd app/
+ 2006  ls
+ 2007  cd core/
+ 2008  ls
+ 2009  nano models.py
+ 2010  cd ..
+ 2011  tree
+ 2012  cd core/
+ 2013  ls
+ 2014  nano models.py 
+ 2015  nano ../alumnos/views.py 
+ 2016  nano models.py 
+ 2017  cd ..
+ 2018  ls
+ 2019  nano re
+ 2020  nano requirements.txt 
+ 2021  docker ps 
+ 2022  docker rm 8f4fb80f6b04
+ 2023  docker stop 8f4fb80f6b04
+ 2024  docker rm 8f4fb80f6b04
+ 2025  docker run -p 5000:5000 coral
+ 2026  sudo docker build -t coral .
+ 2027  docker run -p 5000:5000 coral
+ 2028  nano Dockerfile 
+ 2029  ls
+ 2030  history >> hstrl

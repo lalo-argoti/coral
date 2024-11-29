@@ -32,7 +32,10 @@
         <!--/.navbar-header-->
         <div id="main-nav" class="collapse navbar-collapse">
           <ul class="nav navbar-nav" id="mainNav">
+
             <!-- li class="active" id="firstLink"><a href=" url_for('core.portal') ">Inicio</a></li  -->
+           <li><a href="{{url_for('core.r_portal')}}">Inicio</a></li>
+
             <li><a href="{{ url_for('alumnos.r_portal') }}">Alumnos</a></li>
             <li><a href="{{ url_for('grupos.r_portal') }} ">Grupos</a></li >
             <li><a href="{{ url_for('colegio.r_portal') }}">Colegio</a></li>
@@ -46,7 +49,7 @@
 
                <!-- Tomar desición para dicernir entre si está logueado -->  
               <ul class="dropdown-menu">
-                <li><a href="{{url_for('core.r_portal')}}">Inicio</a></li>
+                <!-- <li><a href="{{url_for('core.r_portal')}}">Inicio</a></li -->
 
                 <li><a href="{{url_for('usuario.r_portal')}}">Perfil</a></li>
                 <li><a href="{{url_for('usuario.r_config')}}">Configuraciones</a></li>
