@@ -10,7 +10,7 @@ def r_portal():
     return render_template('alumnos/portal.html', resultados=resultados)
 
 
-@alumnos.route('/matriculas')
+@alumnos.route('/matriculasv0')
 def almns_matriculas():
     # Aquí podrías obtener datos de la base de datos
     resultados = matriculas()

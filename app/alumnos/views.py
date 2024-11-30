@@ -34,5 +34,5 @@ import json
 def process_student_data(student_data):
     # Imprimir los datos en consola para verificar
     #DB(query = "--Procesando estudiante:"+str( student_data),username="").run_query()
-
+    print(student_data)
     return ""
