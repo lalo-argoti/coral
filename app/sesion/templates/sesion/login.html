@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
-</head>
-
-    <header>
-        <p>{{ saludo }} </p>
-    </header>
-<body>
+{% extends 'core/home.html' %}
+{% block title %}Iniciar sesión{% endblock %}
+{% block content %}
+    
     <div class="login-container">
         <!-- Logo dentro del contenedor de la ventana -->
         <img src="/static/images/logo.svg" alt="Logo" class="logo">
-        
+
         <!-- Formulario de inicio de sesión -->
         <form action="/login" method="POST">
              <!--- button onclick="window.location.href=' url_for('main.index') '">X</button -->
@@ -30,8 +21,6 @@
         </form>
         <p style="color: {{error[0]}};">{{error[1]}}</p>
     </div>
-</body>
-   <footer>
-{{empresa}}
-   </footer>
-</html>
+
+{% endblock %}
+
