@@ -29,13 +29,9 @@
             <b><i><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" /></i></b>
           </a> 
         </div>
-
-
         <!--/.navbar-header-->
         <div id="main-nav" class="collapse navbar-collapse">
           <ul class="nav navbar-nav" id="mainNav">
-            
-          {%if username%}
             <li><a href="{{url_for('core.r_portal')}}">Inicio</a></li>
             <li><a href="{{ url_for('alumnos.r_portal') }}">Alumnos</a></li>
             <li><a href="{{ url_for('grupos.r_portal') }}">Grupos</a></li>
@@ -43,7 +39,7 @@
             <!-- Menú Desplegable para Usuario -->
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                {{username}} <span class="caret"></span>
+                Usuario <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
                 <li><a href="{{url_for('usuario.r_portal')}}">Perfil</a></li>
@@ -51,10 +47,11 @@
                 <li role="separator" class="divider"></li>
                 <li><a href="{{url_for('usuario.r_salir') }}">Salir</a></li>
               </ul>
+               
+
             </li>
-          {%else %}             
              <li><a href="{{ url_for('sesion.login') }}">Entrar</a></li>
-          {%endif%}
+
           </ul>
 
           <!-- Formulario de Búsqueda -->

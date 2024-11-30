@@ -505,6 +505,15 @@ copyright a:hover {
     }
 }
 
+
+/*login*/
+.login-container {
+    text-align: center;
+    color: white;
+}
+/*end login*/
+
+
 /* =========================================
    Estilos para la página de Matrículas e Inscripciones
    ========================================= */
@@ -689,3 +698,7 @@ copyright a:hover {
         margin-bottom: 5px !important;
     }
 }
+
+
+/* Contenedor del formulario (subventana) */
+

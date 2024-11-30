@@ -1,13 +1,14 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for,session
 from . import alumnos
 from .views import *
 
 @alumnos.route('/alumnos')
 def r_portal():
+    
     # Aquí podrías obtener datos de la base de datos
     resultados = portal()
     # Renderiza una plantilla para mostrar los resultados
-    return render_template('alumnos/portal.html', resultados=resultados)
+    return render_template('alumnos/portal.html', resultados=resultados, username=session.get('username') )
 
 
 @alumnos.route('/matriculasv0')
@@ -15,14 +16,14 @@ def almns_matriculas():
     # Aquí podrías obtener datos de la base de datos
     resultados = matriculas()
     # Renderiza una plantilla para mostrar los resultados
-    return render_template('alumnos/matriculas.html', resultados=resultados)
+    return render_template('alumnos/matriculas.html', resultados=resultados,  username=session.get('username'))
 
 @alumnos.route('/acudientes')
 def almns_acudientes():
     # Aquí podrías obtener datos de la base de datos
     resultados = acudientes()
     # Renderiza una plantilla para mostrar los resultados
-    return render_template('alumnos/acudientes.html', resultados=resultados)
+    return render_template('alumnos/acudientes.html', resultados=resultados, username=session.get('username'))
 
 @alumnos.route('/calificaciones')
 def almns_calificaciones():
@@ -31,7 +32,7 @@ def almns_calificaciones():
 
     resultados = calificaciones()
     # Renderiza una plantilla para mostrar los resultados
-    return render_template('alumnos/calificaciones.html', resultados=resultados)
+    return render_template('alumnos/calificaciones.html', resultados=resultados, username=session.get('username'))
 
 @alumnos.route('/promocion')
 def almns_promocion():
@@ -39,7 +40,7 @@ def almns_promocion():
     resultados = promocion()
     DB(query="-- desde promocion", username="").run_query()
     # Renderiza una plantilla para mostrar los resultados
-    return render_template('alumnos/promocion.html', resultados=resultados )
+    return render_template('alumnos/promocion.html', resultados=resultados , username=session.get('username'))
 
 
 @alumnos.route('/handle_actions', methods=['POST'])
