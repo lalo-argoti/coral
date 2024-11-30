@@ -26,11 +26,8 @@ def login():
             mensaje = "Credenciales incorrectas."
             session['username']=0
     # Renderizar el template con el mensaje
-<<<<<<< HEAD
     return render_template('sesion/login.html', mensaje=mensaje, error=["red",mensaje])
-=======
-    return render_template('login.html', mensaje=mensaje, error=["red",mensaje], username=session.get('username'))
->>>>>>> 329f12d994766d6e03960f9063acc711a3365300
+
 
 """
 @alumnos.route('/matriculas')
