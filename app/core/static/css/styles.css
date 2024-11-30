@@ -438,3 +438,69 @@ copyright a:hover {
 .main-content {
     padding-top: 60px; /* Ajusta según la altura de tu navbar */
 }
+
+/* Estilos para el formulario de búsqueda en el navbar */
+.navbar-form {
+    margin-top: 8px; /* Alineación vertical */
+}
+
+.navbar-form .input-group {
+    width: 250px; /* Ancho total del grupo de entrada */
+}
+
+.navbar-form .form-control {
+    border-radius: 4px 0 0 4px; /* Bordes redondeados en el lado izquierdo */
+    border: 1px solid #FEDE00; /* Borde consistente con otros elementos */
+    padding-left: 10px; /* Espaciado interno */
+    transition: border 0.3s;
+}
+
+.navbar-form .form-control:focus {
+    border-color: #FFDF00;
+    box-shadow: none;
+}
+
+.navbar-form .input-group-btn .btn {
+    border-radius: 0 4px 4px 0; /* Bordes redondeados en el lado derecho */
+    background: #FFDF00;
+    color: #000;
+    border: 1px solid #FEDE00;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.navbar-form .input-group-btn .btn:hover {
+    background: #E0C400;
+    color: #fff;
+    border-color: #E0C400;
+}
+
+/* Asegurar que el botón tenga el mismo alto que el campo de entrada */
+.navbar-form .btn {
+    padding: 6px 10px;
+}
+
+/* Icono dentro del botón */
+.navbar-form .btn i {
+    font-size: 16px;
+}
+
+/* Responsividad: Ajustar el ancho en dispositivos móviles */
+@media (max-width: 768px) {
+    .navbar-form {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .navbar-form .input-group {
+        width: 100%;
+    }
+
+    .navbar-form .form-control {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .navbar-form .input-group-btn .btn {
+        width: 20%;
+    }
+}
