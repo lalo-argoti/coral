@@ -17,14 +17,20 @@ def login():
         if result:
             # Si la consulta devuelve resultados, asignar el mensaje desde la base de datos
             mensaje = str(result[0][1])  # Esto asume que el mensaje está en la segunda columna
-            session['username'] = result[0][0]
+            session['username'] = result[0][2]
+            session['id_user']= result[0][0]
             # Aquí también podrías redirigir al home si las credenciales son correctas
-            return redirect(url_for('core.r_portal', username=username))  # Redirigir al home si el login es correcto
+            return redirect(url_for('core.r_portal',mensaje="Conexion-exitosa"))  # Redirigir al home si el login es correcto
         else:
             # Si no se encuentra el usuario o las credenciales no coinciden
             mensaje = "Credenciales incorrectas."
+            session['username']=0
     # Renderizar el template con el mensaje
+<<<<<<< HEAD
     return render_template('sesion/login.html', mensaje=mensaje, error=["red",mensaje])
+=======
+    return render_template('login.html', mensaje=mensaje, error=["red",mensaje], username=session.get('username'))
+>>>>>>> 329f12d994766d6e03960f9063acc711a3365300
 
 """
 @alumnos.route('/matriculas')

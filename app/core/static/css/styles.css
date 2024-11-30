@@ -505,6 +505,15 @@ copyright a:hover {
     }
 }
 
+
+/*login*/
+.login-container {
+    text-align: center;
+    color: white;
+}
+/*end login*/
+
+
 /* =========================================
    Estilos para la página de Matrículas e Inscripciones
    ========================================= */
@@ -690,6 +699,7 @@ copyright a:hover {
     }
 }
 
+<<<<<<< HEAD
 /* =========================================
    Estilos para la Página de Iniciar Sesión
    ========================================= */
@@ -791,3 +801,8 @@ copyright a:hover {
         font-size: 16px;
     }
 }
+=======
+
+/* Contenedor del formulario (subventana) */
+
+>>>>>>> 329f12d994766d6e03960f9063acc711a3365300
