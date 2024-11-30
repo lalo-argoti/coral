@@ -504,3 +504,188 @@ copyright a:hover {
         width: 20%;
     }
 }
+
+/* =========================================
+   Estilos para la página de Matrículas e Inscripciones
+   ========================================= */
+
+/* Estilos para las pestañas de Matrículas e Inscripciones */
+.nav-tabs .nav-link {
+    background-color: #FFDF00;
+    color: #000;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    margin-right: 5px;
+    border-radius: 5px 5px 0 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #fff;
+    color: #000;
+    border-color: #ddd;
+    border-bottom: 1px solid #fff;
+}
+
+.nav-tabs .nav-link:hover {
+    background-color: #E0C400;
+    color: #fff;
+}
+
+.tab-content {
+    border: 1px solid #ddd;
+    border-top: none;
+    padding: 20px;
+    border-radius: 0 5px 5px 5px;
+    background-color: #fff;
+}
+
+/* Estilos para el formulario de búsqueda en la sección "Buscar estudiante" */
+#students-list .d-flex {
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#students-list .form-control {
+    max-width: 300px;
+}
+
+#students-list .btn-warning {
+    height: 45px;
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 4px 4px 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#students-list .btn-warning:hover {
+    background-color: #E0C400;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    #students-list .d-flex {
+        flex-direction: column;
+    }
+
+    #students-list .btn-warning {
+        width: 100%;
+        border-radius: 4px;
+    }
+
+    #students-list .form-control {
+        width: 100%;
+    }
+}
+
+/* Estilos para los formularios dentro de las pestañas */
+.tab-pane form .row {
+    margin-bottom: 15px;
+}
+
+.tab-pane form .form-label {
+    font-weight: 600;
+}
+
+.tab-pane form .btn {
+    min-width: 150px;
+}
+
+/* Botones personalizados para formularios */
+.tab-pane form .btn-primary {
+    background: #FFDF00;
+    color: #000;
+    border: none;
+}
+
+.tab-pane form .btn-primary:hover {
+    background: #E0C400;
+    color: #fff;
+}
+
+.tab-pane form .btn-success {
+    background: #51D4B6;
+    color: #000;
+    border: none;
+}
+
+.tab-pane form .btn-success:hover {
+    background: #3CBAB5;
+    color: #fff;
+}
+
+
+/* =========================================
+   Estilos Personalizados para el Menú Desplegable de "Estrato"
+   ========================================= */
+
+/* 1. Asegurar que las etiquetas estén correctamente alineadas */
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600; /* Negrita para destacar las etiquetas */
+}
+
+/* 2. Igualar el tamaño y apariencia de 'grado' y 'eps' */
+#grado, #eps {
+    width: 100%; /* Ancho completo dentro de su contenedor */
+    padding: 10px 15px; /* Espaciado interno consistente */
+    font-size: 16px; /* Tamaño de fuente uniforme */
+    border: 1px solid #FEDE00; /* Borde amarillo consistente */
+    border-radius: 4px; /* Bordes ligeramente redondeados */
+    background-color: #fff; /* Fondo blanco para mantener la coherencia */
+    color: #000; /* Texto negro para buena legibilidad */
+    box-sizing: border-box; /* Incluir padding y border en el cálculo del ancho */
+    transition: border-color 0.3s, background-color 0.3s, color 0.3s; /* Transiciones suaves */
+}
+
+/* 1. Eliminar el fondo amarillo y ajustar el select para que coincida con "EPS" */
+#estrato {
+    background-color: #fff !important; /* Fondo blanco */
+    border-color: #ccc !important; /* Borde gris claro */
+    color: #000 !important; /* Texto negro */
+    background-image: none !important; /* Eliminar icono personalizado */
+    padding: 10px 15px !important; /* Ajustar padding para igualar "EPS" */
+    font-size: 16px !important; /* Asegurar tamaño de fuente coherente */
+    border-radius: 4px !important; /* Bordes ligeramente redondeados */
+    height: auto !important; /* Altura automática */
+    width: 100% !important; /* Ancho completo del contenedor */
+    box-shadow: none !important; /* Eliminar sombra si existe */
+    transition: border-color 0.3s, background-color 0.3s, color 0.3s; /* Transiciones suaves */
+}
+
+/* 4. Ajustar la altura de 'grado', 'eps' y 'estrato' para uniformidad */
+#grado, #eps, #estrato {
+    height: 45px; /* Altura uniforme */
+}
+
+/* 5. Eliminar cualquier sombra o estilo adicional que afecte los campos */
+#estrato, #grado, #eps {
+    box-shadow: none !important;
+}
+
+/* 6. Estilizar el select 'estrato' para que se vea como los inputs */
+#estrato {
+    padding: 10px 15px !important; /* Espaciado interno consistente */
+    font-size: 16px !important; /* Tamaño de fuente uniforme */
+    border-radius: 4px !important; /* Bordes ligeramente redondeados */
+    transition: border-color 0.3s, background-color 0.3s, color 0.3s !important; /* Transiciones suaves */
+}
+
+/* 7. Ajustes Responsivos para Dispositivos Móviles */
+@media (max-width: 768px) {
+    #grado, #eps, #estrato {
+        width: 100% !important; /* Ancho completo en móviles */
+        padding: 10px 15px !important; /* Mantener padding consistente */
+        font-size: 16px !important; /* Mantener tamaño de fuente */
+        height: 45px !important; /* Mantener altura uniforme */
+    }
+
+    /* Asegurar que las etiquetas estén correctamente alineadas en móviles */
+    .form-label {
+        margin-bottom: 5px !important;
+    }
+}
