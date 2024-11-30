@@ -17,7 +17,8 @@ def login():
         if result:
             # Si la consulta devuelve resultados, asignar el mensaje desde la base de datos
             mensaje = str(result[0][1])  # Esto asume que el mensaje está en la segunda columna
-            session['username'] = result[0][0]
+            session['username'] = result[0][2]
+            session['id_user']= result[0][0]
             # Aquí también podrías redirigir al home si las credenciales son correctas
             return redirect(url_for('core.r_portal',mensaje="Conexion-exitosa"))  # Redirigir al home si el login es correcto
         else:
