@@ -35,12 +35,15 @@ def create_app():
     from app.grupos import grupos
     from app.usuario import usuario
     from app.materias import materias
+    from app.coral import coral
+    from app.sesion import sesion 
     app.register_blueprint(core)
+    app.register_blueprint(sesion)
     app.register_blueprint(usuario)
     app.register_blueprint(grupos)
     app.register_blueprint(alumnos)
     app.register_blueprint(matriculas)
     app.register_blueprint(colegio)
     app.register_blueprint(materias)
-
+    app.register_blueprint(coral)
     return app
