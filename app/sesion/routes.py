@@ -24,7 +24,7 @@ def login():
             # Si no se encuentra el usuario o las credenciales no coinciden
             mensaje = "Credenciales incorrectas."
     # Renderizar el template con el mensaje
-    return render_template('login.html', mensaje=mensaje, error=["red",mensaje])
+    return render_template('sesion/login.html', mensaje=mensaje, error=["red",mensaje])
 
 """
 @alumnos.route('/matriculas')

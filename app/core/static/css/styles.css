@@ -689,3 +689,105 @@ copyright a:hover {
         margin-bottom: 5px !important;
     }
 }
+
+/* =========================================
+   Estilos para la Página de Iniciar Sesión
+   ========================================= */
+
+/* Contenedor de Inicio de Sesión */
+.login-container {
+    max-width: 400px;
+    margin: 100px auto; /* Centrar vertical y horizontalmente */
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Logo en el Contenedor de Inicio de Sesión */
+.login-container .logo {
+    max-width: 150px;
+    margin-bottom: 20px;
+}
+
+/* Título del Formulario */
+.login-container h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+/* Estilos para las Etiquetas */
+.login-container label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Estilos para los Campos de Entrada */
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #FEDE00;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #000;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+
+.login-container input[type="text"]:focus,
+.login-container input[type="password"]:focus {
+    border-color: #FFDF00;
+    outline: none;
+    box-shadow: none;
+}
+
+/* Botón de Inicio de Sesión */
+.login-container button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background: #FFDF00;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.login-container button[type="submit"]:hover {
+    background: #E0C400;
+    color: #fff;
+}
+
+/* Mensaje de Error */
+.login-container p {
+    margin-top: 15px;
+    color: #FF0000; /* Puedes ajustar el color según tus necesidades */
+    font-weight: 600;
+}
+
+/* Responsividad para Dispositivos Móviles */
+@media (max-width: 480px) {
+    .login-container {
+        margin: 50px 20px;
+        padding: 20px;
+    }
+
+    .login-container h1 {
+        font-size: 20px;
+    }
+
+    .login-container button[type="submit"] {
+        font-size: 16px;
+    }
+}
