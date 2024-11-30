@@ -2,6 +2,64 @@
 {% block title %}Lista de Alumnos{% endblock %}
 {% block content %}
     <section id="students-list" class="page-section" style="background-color: #f9f9f9;">
+                 <div class="col-md-3">
+          <div class="col">
+            <h4>Buscar estudiante</h4>
+            <form class="form-inline">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="nombre o id" required>
+                <span class="input-group-btn">
+                  <button class="btn" type="submit">Buscar</button>
+                </span>
+              </div>
+            </form>
+         </div></div>
+    </section>
+    <section id="students-list" class="page-section" style="background-color: #f9f9f9;">
+
+<section id="Features" class="page-section colord">
+  <div class="container">
+    <div class="row"> 
+      <!-- item -->
+    <a href="{{ url_for('alumnos.almns_matriculas')  }}">  <div class="col-md-3 text-center"> 
+	  <div class="box-item">
+	  <i class="circle"><img src="static/images/5.png" alt="" /></i>
+        <h3>Matrículas</h3>
+        <p>e inscripciones.</p>
+      </div>
+	   </div></a>
+      <!-- item: -->  <a href="{{ url_for('alumnos.almns_acudientes')  }}">
+      <div class="col-md-3 text-center">
+	  <div class="box-item">
+	  <i class="circle"> <img src="static/images/1.png" alt="" /></i>
+        <h3>Acudientes</h3>
+        <p>y contacto.</p>
+      </div>
+	   </div></a>
+
+      <!-- item: -->  <a href="{{ url_for('alumnos.almns_calificaciones')  }}">
+      <div class="col-md-3 text-center">
+	  <div class="box-item">
+	  <i class="circle"> <img src="static/images/2.png" alt="" /></i>
+        <h3>Notas, </h3>
+        <p>logros y recuperaciones.</p>
+      </div>
+	   </div></a>
+
+      <!-- item: -->  <a href="{{ url_for('alumnos.almns_promocion')  }}">
+      <div class="col-md-3 text-center">
+	  <div class="box-item">
+	  <i class="circle"> <img src="static/images/3.png" alt="" /></i>
+        <h3>Grados y </h3>
+        <p>promociones.</p>
+      </div></a>
+
+      <!-- item:-->
+	   </div>
+    </div>
+  </div>
+  <!--/.container--> 
+</section>
 
     </section>
 {% endblock %}

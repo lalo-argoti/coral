@@ -14,58 +14,61 @@
 </head>
 
 <body>
-  <header class="header">
+ <header class="header">
     <div class="container">
-      <nav class="navbar navbar-inverse" role="navigation">
-        <div class="navbar-header">
-          <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav"> 
-            <span class="sr-only">Toggle navigation</span> 
-            <span class="icon-bar"></span> 
-            <span class="icon-bar"></span> 
-            <span class="icon-bar"></span> 
-          </button>
-          <!-- Logo -->
-          <a href="{{ url_for('core.r_portal') }}" class="navbar-brand scroll-top logo animated bounceInLeft">
-            <b><i><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" /></i></b>
-          </a> 
-        </div>
-        <!--/.navbar-header-->
-        <div id="main-nav" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav" id="mainNav">
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="navbar-header">
+        <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- Logo -->
+        <a href="{{ url_for('core.r_portal') }}" class="navbar-brand scroll-top logo animated bounceInLeft">
+          <b><i><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" /></i></b>
+        </a>
+      </div>
+      <!--/.navbar-header-->
+      <div id="main-nav" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav" id="mainNav">
+          <li><a href="{{url_for('core.r_portal')}}">Inicio</a></li>
+          <li><a href="{{ url_for('alumnos.r_portal') }}">Alumnos</a></li>
+          <li><a href="{{ url_for('grupos.r_portal') }}">Grupos</a></li>
+          <li><a href="{{ url_for('colegio.r_portal') }}">Colegio</a></li>
+          <!-- Menú Desplegable para Usuario -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              Usuario <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="{{url_for('usuario.r_portal')}}">Perfil</a></li>
+              <li><a href="{{url_for('usuario.r_config')}}">Configuraciones</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="{{url_for('usuario.r_salir') }}">Salir</a></li>
+            </ul>
+          </li>
+          <!-- Formulario de Mailing List -->
+          <li>
 
-            <!-- li class="active" id="firstLink"><a href=" url_for('core.portal') ">Inicio</a></li  -->
-           <li><a href="{{url_for('core.r_portal')}}">Inicio</a></li>
+          <div>
+          <div>
 
-            <li><a href="{{ url_for('alumnos.r_portal') }}">Alumnos</a></li>
-            <li><a href="{{ url_for('grupos.r_portal') }} ">Grupos</a></li >
-            <li><a href="{{ url_for('colegio.r_portal') }}">Colegio</a></li>
-            <!-- Menú Desplegable para Usuario -->
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Usuario <span class="caret"></span>
-              </a>
-
-
-
-               <!-- Tomar desición para dicernir entre si está logueado -->  
-              <ul class="dropdown-menu">
-                <!-- <li><a href="{{url_for('core.r_portal')}}">Inicio</a></li -->
-
-                <li><a href="{{url_for('usuario.r_portal')}}">Perfil</a></li>
-                <li><a href="{{url_for('usuario.r_config')}}">Configuraciones</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="{{url_for('usuario.r_salir') }}">Salir</a></li>
-              </ul>
-                <!-- o debe loguearse                                   ----->
-                 <!-- li><a href=" url_for('usuario.login') ">Acceder</a></li -->
-
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-  </header>
-
+            <form class="form-inline">
+              <div class="input-group">
+                <input type="email" class="form-control" placeholder="Ingrese datos" required>
+                <span class="input-group-btn">
+                  <button class="btn btn-primary" type="submit">Buscar</button>
+                </span>
+              </div>
+            </form>
+            </div></div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
   <main class="main-content">
     {% block content %}{% endblock %}
   </main>
