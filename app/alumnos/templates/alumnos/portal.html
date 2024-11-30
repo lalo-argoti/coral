@@ -1,27 +1,14 @@
 {% extends 'core/home.html' %}
 {% block title %}Lista de Alumnos{% endblock %}
 {% block content %}
-    <section id="students-list" class="page-section" style="background-color: #f9f9f9;">
-                 <div class="col-md-3">
-          <div class="col">
-            <h4>Buscar estudiante</h4>
-            <form class="form-inline">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="nombre o id" required>
-                <span class="input-group-btn">
-                  <button class="btn" type="submit">Buscar</button>
-                </span>
-              </div>
-            </form>
-         </div></div>
-    </section>
+    
     <section id="students-list" class="page-section" style="background-color: #f9f9f9;">
 
 <section id="Features" class="page-section colord">
   <div class="container">
     <div class="row"> 
       <!-- item -->
-    <a href="{{ url_for('alumnos.almns_matriculas')  }}">  <div class="col-md-3 text-center"> 
+    <a href="{{ url_for('matriculas.r_portal')  }}">  <div class="col-md-3 text-center"> 
 	  <div class="box-item">
 	  <i class="circle"><img src="static/images/5.png" alt="" /></i>
         <h3>Matrículas</h3>

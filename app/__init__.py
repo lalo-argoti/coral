@@ -30,6 +30,7 @@ def create_app():
     #importar y  registro de los blueprints
     from app.core import core
     from app.alumnos import alumnos
+    from app.matriculas import matriculas
     from app.colegio import colegio
     from app.grupos import grupos
     from app.usuario import usuario
@@ -38,6 +39,7 @@ def create_app():
     app.register_blueprint(usuario)
     app.register_blueprint(grupos)
     app.register_blueprint(alumnos)
+    app.register_blueprint(matriculas)
     app.register_blueprint(colegio)
     app.register_blueprint(materias)
 
