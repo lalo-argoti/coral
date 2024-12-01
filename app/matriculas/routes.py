@@ -1,13 +1,17 @@
-from flask import render_template,session
+#{{'texto1':'','texto2':'','imagen':'','link':''}}
+from flask import render_template,session, redirect,url_for
 from . import matriculas
 from .views import *
+import json
 
 @matriculas.route('/matriculas')
 def r_portal():
     # Aquí podrías obtener datos de la base de datos
-    resultados = portal()
+    itemsMenu =[{'texto1':'Matriculas','texto2':'e inscripciones','imagen':'2.png','link':'matriculas.mtrcls_inscribir'},
+    {'texto1':'Gestión','texto2':'y configuraciones','imagen':'1.png','link':'matriculas.mtrcls_gestion'}]
     # Renderiza una plantilla para mostrar los resultados
-    return render_template('matriculas/portal.html', resultados=resultados, username=session.get('username'))
+
+    return render_template('core/portal.html', menu=itemsMenu, titulo= "Matrículas core-portal", username=session.get('username'))
 
 
 @matriculas.route('/handle_actions', methods=['POST'])

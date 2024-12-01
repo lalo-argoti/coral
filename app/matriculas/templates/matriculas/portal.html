@@ -6,29 +6,26 @@
      <section id="Features" class="page-section colord">
   <div class="container">
     <div class="row">
-      <!-- item -->
-    <a href="{{ url_for('matriculas.mtrcls_inscribir')  }}">  <div class="col-md-3 text-center">
-          <div class="box-item">
-          <i class="circle"><img src="static/images/5.png" alt="" /></i>
-        <h3>Matrículas</h3>
-        <p>e inscripciones.</p>
-      </div>
-           </div></a>
-      <!-- item: -->  <a href="{{ url_for('matriculas.mtrcls_gestion')  }}">
+  
+      {% for item in resultados %}
+    <!-- item -->
+    <a href="{{ url_for(item['link']) }}">
       <div class="col-md-3 text-center">
-          <div class="box-item">
-          <i class="circle"> <img src="static/images/1.png" alt="" /></i>
-        <h3>Gestión</h3>
-        <p>y configuraciones.</p>
+        <div class="box-item">
+          <i class="circle"><img src="{{ item['imagen'] }}" alt="" /></i>
+          <h3>{{ item['texto1'] }}</h3>
+          <p>{{ item['texto2'] }}</p>
+        </div>
       </div>
-           </div></a>
+    </a>
+  {% endfor %}
 
       
 
    
 
       <!-- item:-->
-           </div>
+       
     </div>
   </div>
   <!--/.container-->
