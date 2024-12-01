@@ -1,0 +1,25 @@
+{% extends 'core/home.html' %}
+{% block title %}Desarrolladores{% endblock %}
+{% block content %}
+<section id="diseñador" class="page-dev" style="background-color: #f9f9f9;">
+    <div class="container mt-5">
+        <h1 class="text-center">SQL Interface</h1>
+        <form action="{{ url_for('coral.execute_query') }}" method="post">
+            <div class="form-group">
+                <label for="query">Enter SQL Query:</label>
+                <textarea class="form-control" id="query" name="query" rows="1" placeholder="Write your SQL query here..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Execute</button>
+        </form>
+        {% if response %}
+        <div class="mt-3">
+            {% if response.success %}
+            <div class="alert alert-success">{{ response.message }}</div>
+            {% else %}
+            <div class="alert alert-danger">{{ response.message }}</div>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
