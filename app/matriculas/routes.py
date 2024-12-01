@@ -11,7 +11,7 @@ def r_portal():
     {'texto1':'Gestión','texto2':'y configuraciones','imagen':'1.png','link':'matriculas.mtrcls_gestion'}]
     # Renderiza una plantilla para mostrar los resultados
 
-    return render_template('core/portal.html', menu=itemsMenu, titulo= "Matrículas core-portal", username=session.get('username'))
+    return render_template('core/portal.html', menu=itemsMenu, titulo= "Matrículas", username=session.get('username'))
 
 
 @matriculas.route('/handle_actions', methods=['POST'])

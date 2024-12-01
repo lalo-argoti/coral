@@ -4,19 +4,13 @@ from .views import *
 
 @alumnos.route('/alumnos')
 def r_portal():
-    
-    # Aquí podrías obtener datos de la base de datos
-    resultados = portal()
+   # Aquí podrías obtener datos de la base de datos
+    itemsMenu =[{'texto1':'Matriculas','texto2':'e inscripciones','imagen':'3.png','link':'matriculas.r_portal'},
+    {'texto1':'Acudientes','texto2':'y contacto','imagen':'6.png','link':'alumnos.almns_acudientes'},
+    {'texto1':'Notas','texto2':'logros y recuperaciones','imagen':'2.png','link':'alumnos.almns_calificaciones'},
+    {'texto1':'Grados','texto2':'y promociones','imagen':'5.png','link':'alumnos.almns_promocion'}]
     # Renderiza una plantilla para mostrar los resultados
-    return render_template('alumnos/portal.html', resultados=resultados, username=session.get('username') )
-
-
-@alumnos.route('/matriculasv0')
-def almns_matriculas():
-    # Aquí podrías obtener datos de la base de datos
-    resultados = matriculas()
-    # Renderiza una plantilla para mostrar los resultados
-    return render_template('alumnos/matriculas.html', resultados=resultados,  username=session.get('username'))
+    return render_template('core/portal.html', menu=itemsMenu, titulo= "Alumnos", username=session.get('username'))
 
 @alumnos.route('/acudientes')
 def almns_acudientes():
