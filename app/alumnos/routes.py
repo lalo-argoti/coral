@@ -2,7 +2,9 @@ from flask import render_template, request, redirect, url_for,session
 from . import alumnos
 from .views import *
 
-@alumnos.route('/alumnos')
+p='/alumnos'
+
+@alumnos.route(p)
 def r_portal():
    # Aquí podrías obtener datos de la base de datos
     itemsMenu =[{'texto1':'Matriculas','texto2':'e inscripciones','imagen':'3.png','link':'matriculas.r_portal'},
@@ -12,14 +14,14 @@ def r_portal():
     # Renderiza una plantilla para mostrar los resultados
     return render_template('core/portal.html', menu=itemsMenu, titulo= "Alumnos", username=session.get('username'))
 
-@alumnos.route('/acudientes')
+@alumnos.route(p+'/acudientes')
 def almns_acudientes():
     # Aquí podrías obtener datos de la base de datos
     resultados = acudientes()
     # Renderiza una plantilla para mostrar los resultados
     return render_template('alumnos/acudientes.html', resultados=resultados, username=session.get('username'))
 
-@alumnos.route('/calificaciones')
+@alumnos.route(p+'/calificaciones')
 def almns_calificaciones():
     # Aquí podrías obtener datos de la base de datos
     DB(query=f'--accion: calificaciones', username="").run_query()
@@ -28,7 +30,7 @@ def almns_calificaciones():
     # Renderiza una plantilla para mostrar los resultados
     return render_template('alumnos/calificaciones.html', resultados=resultados, username=session.get('username'))
 
-@alumnos.route('/promocion')
+@alumnos.route(p+'/promocion')
 def almns_promocion():
     # Aquí podrías obtener datos de la base de datos
     resultados = promocion()
@@ -37,7 +39,7 @@ def almns_promocion():
     return render_template('alumnos/promocion.html', resultados=resultados , username=session.get('username'))
 
 
-@alumnos.route('/handle_actions', methods=['POST'])
+@alumnos.route(p+'/handle_actions', methods=['POST'])
 def almns_handle_actions(): 
     
     # Obtener datos del formulario
@@ -61,7 +63,7 @@ def almns_handle_actions():
         process_student_data(student_data)
 
         # Redirigir a otra página (por ejemplo, el portal del colegio)
-        return redirect(url_for('alumnos.almns_matriculas')+"#")
+        return redirect(url_for('matriculas.mtrcls_inscribir')+"#")
 
     # Si la acción no coincide con las esperadas
     return "Acción no reconocida", 400

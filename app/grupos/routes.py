@@ -15,7 +15,7 @@ def r_portal():
 
 @grupos.route('/distribucion')
 def distribucion():
-    return render_template('grupos/distribucion.html') 
+    return render_template('grupos/distribucion.html', menu=[])
 
 
 
@@ -23,4 +23,4 @@ def distribucion():
 def sedes():
     # Aquí podrías obtener datos de la base de datos
     # Renderiza una plantilla para mostrar los resultados
-    return render_template('grupos/sedes.html')
+    return render_template('grupos/sedes.html', menu=[])

@@ -3,7 +3,7 @@ from flask import render_template,session, redirect,url_for
 from . import matriculas
 from .views import *
 import json
-
+p=('/matriculas')
 @matriculas.route('/matriculas')
 def r_portal():
     # Aquí podrías obtener datos de la base de datos
@@ -12,8 +12,8 @@ def r_portal():
     # Renderiza una plantilla para mostrar los resultados
     return render_template('core/portal.html', menu=itemsMenu, titulo= "Matrículas", username=session.get('username'))
 
-@matriculas.route('/handle_actions', methods=['POST'])
-def almns_handle_actions():
+@matriculas.route(p+'/handle_actions', methods=['POST'])
+def mtrcls_handle_actions():
     # Obtener datos del formulario
     nombres = request.form.get('nombres')
     apellidos = request.form.get('apellidos')
@@ -37,14 +37,14 @@ def almns_handle_actions():
     # Si la acción no coincide con las esperadas
     return "Acción no reconocida", 400
 
-@matriculas.route('/inscribir')
+@matriculas.route(p+'/inscribir')
 def mtrcls_inscribir():
     # Aquí podrías obtener datos de la base de datos
     resultados = ""
     # Renderiza una plantilla para mostrar los resultados
     return render_template('matriculas/inscribir.html', resultados=resultados, username=session.get('username'))
 
-@matriculas.route('/gestion')
+@matriculas.route(p+'/gestion')
 def mtrcls_gestion():
     # Aquí podrías obtener datos de la base de datos
     resultados = ""
