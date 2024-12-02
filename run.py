@@ -8,7 +8,7 @@ app = create_app()
 @app.before_request
 def check_login():
     # Define rutas públicas que no necesitan autenticación
-    logging.info(f'desde run.py: usuario={str(session)}')
+    #logging.info(f'desde run.py: usuario={str(session)}')
     public_routes = ['sesion.login', 'core.r_portal', 'static','.static']
     administrador=[]
     if session.get('empresa')==130230414:
