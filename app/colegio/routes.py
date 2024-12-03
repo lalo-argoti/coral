@@ -20,8 +20,8 @@ def r_portal():
 
 @colegio.route(p+'/docentes')
 def docentes():
-    encabezados= ['--Cédula--','--Nombres--','--Apellidos--','--Cargo--','Dirección','Teléfono', 'opciones'] #DB('SELECT COLUMN_NAME  FROM INFORMATION_SCHEMA.COLUMNS  WHERE TABLE_NAME = "occb_profesor"  ORDER BY ORDINAL_POSITION;',username="").run_query()
-    empleados=DB('SELECT  CC_NUMERO,NOMBRES,APELLIDOS,CARGO,DIRECCION,TELEFONO  FROM occb_profesor;', username="").run_query()
+    encabezados= ['--Cédula--','--Nombres--','--Apellidos--','--Cargo--','correo-e','Teléfono', 'opciones'] #DB('SELECT COLUMN_NAME  FROM INFORMATION_SCHEMA.COLUMNS  WHERE TABLE_NAME = "occb_profesor"  ORDER BY ORDINAL_POSITION;',username="").run_query()
+    empleados=DB('SELECT  CC_NUMERO,NOMBRES,APELLIDOS,CARGO,email,TELEFONO  FROM occb_profesor;', username="").run_query()
     return  render_template('colegio/docentes.html',encabezados=encabezados, empleados=empleados, username=session.get('username'))
 
 @colegio.route(p+'/decretos')
@@ -39,6 +39,20 @@ def dcnt_agregar():
 @colegio.route(p+'/docentes/ver')
 def dcnt_ver():
     return ""
+
+@colegio.route(p+'/docentes/guardar')
+def dcnt_guardar():
+    # Recibir los datos enviados desde el formulario
+    datos_recibidos = request.form.to_dict()  # Convierte los datos del formulario en un diccionario
+
+    # Llamar a la función `guardar_datos` en `views.py` y pasarle los datos
+    resultado = guardar_datos(datos_recibidos)
+    # Retornar una notificación según el resultado
+    if resultado:
+        return "Guardado exitosamente", 200
+    else:
+        return "Error al guardar", 500
+
 '''
 colegio.route('/matriculas')
 def almns_matriculas():

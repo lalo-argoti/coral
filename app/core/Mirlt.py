@@ -167,7 +167,7 @@ class DB(acertijo):
         cursor = conn.cursor()         # Crear un cursor
         cursor.execute(query)          # Ejecutar una consulta
         #os.system(('echo "CMP2" >> /home/comcopco/public_html/Arg/logCMP/PgenesisMirlt').replace("CMP2",query).replace("`","\""))
-        if query.upper().startswith(('SELECT','SHOW')):
+        if query.upper().startswith(('SELECT','SHOW', 'DESCRIBE')):
             data = cursor.fetchall()   # Traer los resultados de un select
         else:
             conn.commit()              # Hacer efectiva la escritura de datos
