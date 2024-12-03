@@ -1,8 +1,38 @@
 {% extends 'core/home.html' %}
 {% block title %}Lista de Alumnos{% endblock %}
 {% block content %}
-    <section id="students-list" class="page-section" style="background-color: #f9f9f9;">
+   <main class='main-conteint' >
+    <section id="students-list" class="page-section py-5">
 
+       <div class="container">
+
+         <h1>Lista de Personas</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                {% for header in encabezados %}
+                    <th>{{ header }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="{{ encabezados|length }}">
+                    <a href="{{url_for('grupos.grupo_agregar',sujeto=id)}}">Nuevo</a>
+                </td>
+            </tr>
+            {% for row in datos %}
+                <tr>{%set id = row[0] %}
+                    {% for cell in row %}
+                        <td>{{ cell }}</td>
+                    {% endfor %}
+                        <td><a href="{{url_for('grupos.grupo_ver',sujeto=id)}}">Ver</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+     </div>
+    </main>
     </section>
 {% endblock %}
 

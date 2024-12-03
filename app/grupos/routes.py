@@ -1,6 +1,7 @@
 from flask import render_template,session
 from . import grupos
 from .views import *
+from app.core.Mirlt import DB  # Importa la clase DB
 
 @grupos.route('/grupos')
 def r_portal():
@@ -11,16 +12,22 @@ def r_portal():
     # Renderiza una plantilla para mostrar los resultados
     return render_template('core/portal.html', menu=itemsMenu, titulo= "Grupos y materias", username=session.get('username'))
 
-
-
 @grupos.route('/distribucion')
 def distribucion():
-    return render_template('grupos/distribucion.html', menu=[])
-
-
+    datos=DB("SELECT id, SEDE, CURSO, NOMBRE, JORNADA, DURAHORA FROM cursos WHERE colegio= 22312;", username= "").run_query() 
+    return render_template('grupos/distribucion.html', encabezados=["sede", "id", "curso", "duracion", "opciones"],datos= datos,  username=session.get('username'))
 
 @grupos.route('/sedes')
 def sedes():
     # Aquí podrías obtener datos de la base de datos
     # Renderiza una plantilla para mostrar los resultados
-    return render_template('grupos/sedes.html', menu=[])
+    return render_template('grupos/sedes.html', menu=[] , username=session.get('username'))
+
+
+@grupos.route('/grupos/agregar')
+def grupo_agregar():
+   return "Progarmas aqui para agregar un grupo"
+
+@grupos.route('/grupos/ver')
+def grupo_ver():
+   return "Ver detalles de grupo"
