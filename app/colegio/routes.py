@@ -38,8 +38,8 @@ def dcnt_agregar():
 
 @colegio.route(p+'/docentes/ver')
 def dcnt_ver():
-    return render_template('core/perfil.html')
-
+    return render_template('core/perfil.html', username=session.get('username'))
+    
 @colegio.route(p+'/docentes/guardar')
 def dcnt_guardar():
     # Recibir los datos enviados desde el formulario

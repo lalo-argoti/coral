@@ -1058,5 +1058,82 @@ copyright a:hover {
     }
 }
 
+/* =========================================
+   Estilos para las Pestañas del Perfil
+   ========================================= */
 
+/* Estilos para las pestañas de Resumen y Contacto */
+.profile .nav-tabs {
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.profile .nav-tabs > li > a {
+    background-color: #FFDF00;
+    color: #000;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    margin-right: 5px;
+    border-radius: 5px 5px 0 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.profile .nav-tabs > li.active > a,
+.profile .nav-tabs > li.active > a:hover,
+.profile .nav-tabs > li.active > a:focus {
+    background-color: #fff;
+    color: #000;
+    border-color: #ddd;
+    border-bottom: 1px solid #fff;
+}
+
+.profile .nav-tabs > li > a:hover {
+    background-color: #E0C400;
+    color: #fff;
+}
+
+/* Estilos para el contenido de las pestañas */
+.profile .tab-content {
+    border: 1px solid #ddd;
+    border-top: none;
+    padding: 20px;
+    border-radius: 0 5px 5px 5px;
+    background-color: #fff;
+}
+
+/* Estilos para las etiquetas de perfil */
+.profile .label {
+    font-weight: bold;
+    color: #333;
+    text-align: right;
+    padding-right: 15px;
+    margin-bottom: 5px;
+}
+
+.profile .row {
+    margin-bottom: 15px;
+}
+
+/* Responsividad para el Perfil */
+@media (max-width: 768px) {
+    .profile .label {
+        text-align: left;
+        padding-right: 0;
+    }
+}
+
+/* Centrar la imagen y alinear con el texto */
+.profile-card img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Opcional: Ajustar los títulos para una mejor alineación */
+.profile-card h2,
+.profile-card h3 {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
 
