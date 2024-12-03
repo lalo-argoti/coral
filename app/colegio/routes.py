@@ -38,7 +38,7 @@ def dcnt_agregar():
 
 @colegio.route(p+'/docentes/ver')
 def dcnt_ver():
-    return ""
+    return render_template('core/perfil.html')
 
 @colegio.route(p+'/docentes/guardar')
 def dcnt_guardar():

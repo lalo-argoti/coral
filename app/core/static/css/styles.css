@@ -208,12 +208,11 @@ a:hover {
 
 /* Navbar */
 .header {
-    position: fixed;
+    position: sticky;
+    top: 0; /* Fija el navbar al top cuando se hace scroll */
     width: 100%;
     background: rgba(0, 0, 0, 0.8); /* Fondo oscuro semi-transparente */
     z-index: 50;
-    top: 0;
-    left: 0;
     transition: all 0.3s linear;
 }
 
@@ -436,7 +435,7 @@ copyright a:hover {
 
 /* Ajuste para main content */
 .main-content {
-    padding-top: 60px; /* Ajusta según la altura de tu navbar */
+    /*padding-top: 60px;  Ajusta según la altura de tu navbar */
 }
 
 /* Estilos para el formulario de búsqueda en el navbar */
@@ -973,3 +972,91 @@ copyright a:hover {
         margin-top: 10px; /* Añade un margen superior para separación */
     }
 }
+
+/* Estilos personalizados para la tabla de estudiantes */
+#students-list table {
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#students-list th, #students-list td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px 15px;
+}
+
+#students-list th {
+    background-color: #343a40; /* Color oscuro para el encabezado */
+    color: #fff;
+}
+
+#students-list tbody tr:nth-of-type(odd) {
+    background-color: #f2f2f2;
+}
+
+#students-list tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+#students-list .btn {
+    margin-right: 5px;
+}
+
+#students-list .btn:last-child {
+    margin-right: 0;
+}
+
+/* Responsividad para la página de Lista de Alumnos */
+@media (max-width: 992px) {
+    #students-list h1 {
+        font-size: 1.75em;
+    }
+
+    #students-list .btn {
+        font-size: 0.9em;
+        padding: 8px 10px;
+    }
+
+    #students-list th, #students-list td {
+        padding: 10px 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    #students-list h1 {
+        font-size: 1.5em;
+    }
+
+    #students-list .btn {
+        font-size: 0.8em;
+        padding: 6px 8px;
+    }
+
+    #students-list th, #students-list td {
+        padding: 8px 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    #students-list h1 {
+        font-size: 1.25em;
+    }
+
+    #students-list .btn {
+        font-size: 0.75em;
+        padding: 5px 6px;
+    }
+
+    #students-list th, #students-list td {
+        padding: 6px 8px;
+    }
+
+    /* Ajustar el tamaño de los iconos en los botones */
+    #students-list .btn i {
+        font-size: 0.9em;
+    }
+}
+
+
+
