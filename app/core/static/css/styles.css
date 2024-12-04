@@ -1059,81 +1059,340 @@ copyright a:hover {
 }
 
 /* =========================================
-   Estilos para las Pestañas del Perfil
+   Estilos Mejorados para la Tabla de Perfil
    ========================================= */
 
-/* Estilos para las pestañas de Resumen y Contacto */
-.profile .nav-tabs {
-    border-bottom: 2px solid #ddd;
+/* Contenedor del Resumen del Perfil */
+.profile-overview {
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
+}
+
+/* Títulos de Sección */
+.profile-overview .card-title {
+    font-size: 1.75em;
+    color: #333333;
     margin-bottom: 20px;
+    border-bottom: 2px solid #FFDF00;
+    display: inline-block;
+    padding-bottom: 5px;
 }
 
-.profile .nav-tabs > li > a {
-    background-color: #FFDF00;
-    color: #000;
-    border: 1px solid #ddd;
+/* Descripción Italica */
+.profile-overview .fst-italic {
+    font-style: italic;
+    color: #555555;
+    margin-bottom: 25px;
+}
+
+/* Filas de la Tabla de Perfil */
+.profile-overview .row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 12px 0;
+    border-bottom: 1px solid #e0e0e0;
+    align-items: center;
+}
+
+.profile-overview .row:last-child {
     border-bottom: none;
-    margin-right: 5px;
-    border-radius: 5px 5px 0 0;
-    transition: background-color 0.3s, color 0.3s;
 }
 
-.profile .nav-tabs > li.active > a,
-.profile .nav-tabs > li.active > a:hover,
-.profile .nav-tabs > li.active > a:focus {
-    background-color: #fff;
-    color: #000;
-    border-color: #ddd;
-    border-bottom: 1px solid #fff;
-}
-
-.profile .nav-tabs > li > a:hover {
-    background-color: #E0C400;
-    color: #fff;
-}
-
-/* Estilos para el contenido de las pestañas */
-.profile .tab-content {
-    border: 1px solid #ddd;
-    border-top: none;
-    padding: 20px;
-    border-radius: 0 5px 5px 5px;
-    background-color: #fff;
-}
-
-/* Estilos para las etiquetas de perfil */
-.profile .label {
-    font-weight: bold;
-    color: #333;
+/* Etiquetas (Labels) */
+.profile-overview .label {
+    flex: 0 0 35%;
+    max-width: 35%;
+    font-weight: 600;
+    color: #333333;
+    padding-right: 20px;
     text-align: right;
-    padding-right: 15px;
-    margin-bottom: 5px;
 }
 
-.profile .row {
-    margin-bottom: 15px;
-}
-
-/* Responsividad para el Perfil */
 @media (max-width: 768px) {
-    .profile .label {
+    .profile-overview .label {
+        flex: 0 0 100%;
+        max-width: 100%;
         text-align: left;
-        padding-right: 0;
+        margin-bottom: 8px;
     }
 }
 
-/* Centrar la imagen y alinear con el texto */
-.profile-card img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+/* Valores */
+.profile-overview .row > div:nth-child(2) {
+    flex: 1;
+    color: #555555;
+    padding-left: 20px;
+    position: relative;
+    font-size: 1em;
 }
 
-/* Opcional: Ajustar los títulos para una mejor alineación */
-.profile-card h2,
-.profile-card h3 {
+/* Punto Decorativo Antes del Valor */
+.profile-overview .row > div:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -15px;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: #FFDF00;
+    border-radius: 50%;
+}
+
+/* Efecto Hover en los Valores */
+.profile-overview .row > div:nth-child(2):hover {
+    color: #FFDF00;
+    cursor: default;
+}
+
+/* Efecto Hover en las Filas */
+.profile-overview .row:hover {
+    background-color: #fffbea;
+    transition: background-color 0.3s ease;
+}
+
+/* Separadores entre Secciones */
+.profile-overview h5 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    color: #444444;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+/* Mejorar Tipografía */
+.profile-overview p {
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+/* Animaciones Suaves para las Filas */
+.profile-overview .row {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.5s forwards;
+}
+
+.profile-overview .row:nth-child(odd) {
+    animation-delay: 0.1s;
+}
+
+.profile-overview .row:nth-child(even) {
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   Estilos Optimizado para la Pestaña de Contacto
+   ========================================= */
+
+/* Contenedor de la Información de Contacto */
+.profile-contact {
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
+}
+
+/* Títulos de Sección en Contacto */
+.profile-contact .card-title,
+.profile-contact h5 {
+    color: #333;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #FFDF00;
+    display: inline-block;
+}
+
+.profile-contact .card-title {
+    font-size: 1.75em;
+}
+
+.profile-contact h5 {
+    font-size: 1.5em;
+    color: #444;
+    border-bottom: 1px solid #ddd;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+/* Filas de la Tabla de Contacto */
+.profile-contact .row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 12px 0;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.5s forwards;
+    transition: background-color 0.3s ease;
+}
+
+/* Bordes inferiores excepto en la última fila */
+.profile-contact .row:not(:last-child) {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Animaciones para las filas */
+.profile-contact .row:nth-child(odd) {
+    animation-delay: 0.1s;
+}
+
+.profile-contact .row:nth-child(even) {
+    animation-delay: 0.2s;
+}
+
+/* Etiquetas (Labels) en Contacto */
+.profile-contact .label {
+    flex: 0 0 35%;
+    max-width: 35%;
+    font-weight: 600;
+    color: #333;
+    padding-right: 20px;
+    text-align: right;
+}
+
+/* Responsividad para Etiquetas */
+@media (max-width: 768px) {
+    .profile-contact .label {
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: left;
+        margin-bottom: 8px;
+    }
+}
+
+/* Valores en Contacto */
+.profile-contact .row > div:nth-child(2) {
+    flex: 1;
+    color: #555;
+    padding-left: 20px;
+    position: relative;
+    font-size: 1em;
+}
+
+/* Punto Decorativo Antes del Valor en Contacto */
+.profile-contact .row > div:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -15px;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: #FFDF00;
+    border-radius: 50%;
+}
+
+/* Efecto Hover en los Valores de Contacto */
+.profile-contact .row > div:nth-child(2):hover {
+    color: #FFDF00;
+    cursor: default;
+}
+
+/* Efecto Hover en las Filas de Contacto */
+.profile-contact .row:hover {
+    background-color: #fffbea;
+}
+
+/* Mejorar Tipografía en Contacto */
+.profile-contact p {
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+/* Animaciones Suaves para las Filas de Contacto */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   Estilos Mejorados para la Tarjeta de Perfil
+   ========================================= */
+
+/* Contenedor de la tarjeta de perfil */
+.profile-card {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Contenedor de Imagen y Texto Alineado Verticalmente */
+  .profile-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Imagen de perfil */
+  .profile-card img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 15px; /* Espacio entre la imagen y el texto */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .profile-card img:hover {
+    transform: scale(1.05); /* Efecto de zoom en la imagen */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Información del perfil (nombre y cargo) */
+  .profile-info h2 {
+    font-size: 1.8em;
+    color: #333;
     margin-bottom: 5px;
-}
-
+  }
+  
+  .profile-info h3 {
+    font-size: 1.2em;
+    color: #777;
+    margin-bottom: 15px;
+  }
+  
+  /* Enlaces sociales */
+  .social-links a {
+    color: #FFDF00;
+    font-size: 1.2em;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+  }
+  
+  .social-links a:hover {
+    color: #E0C400;
+  }
+  
+  /* Alineación de la tarjeta de perfil en pantallas pequeñas */
+  @media (max-width: 768px) {
+    .profile-card {
+      padding: 15px;
+    }
+  
+    .profile-info h2 {
+      font-size: 1.5em;
+    }
+  
+    .profile-info h3 {
+      font-size: 1.1em;
+    }
+  }
+  

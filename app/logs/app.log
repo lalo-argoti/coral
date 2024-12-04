@@ -9120,3 +9120,242 @@ Traceback (most recent call last):
     logging.error(f'Error al ejecutar la consulta: {e}')
     ^^^^^^^
 NameError: name 'logging' is not defined. Did you forget to import 'logging'
+2024-12-04 11:23:53,502 - app - ERROR - Exception on /colegio/docentes/ver [GET]
+Traceback (most recent call last):
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/colegio/routes.py", line 84, in dcnt_ver
+    return render_template('core/perfil.html', profesores=profesores, username=session.get('username'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/jinja2/environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/jinja2/environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/core/templates/core/perfil.html", line 3, in top-level template code
+    {% extends 'core/home.html' %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/core/templates/core/home.html", line 78, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/core/templates/core/perfil.html", line 17, in block 'content'
+    <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="{{ profesor.NOMBRES }}" class="profile-img mb-3">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/jinja2/environment.py", line 487, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'profesor' is undefined
+2024-12-04 11:40:18,560 - app - ERROR - Exception on /colegio/docentes/ver [GET]
+Traceback (most recent call last):
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/colegio/routes.py", line 84, in dcnt_ver
+    return render_template('core/perfil.html', profesores=profesores, username=session.get('username'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/jinja2/environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/jinja2/environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/core/templates/core/perfil.html", line 3, in top-level template code
+    {% extends 'core/home.html' %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/core/templates/core/home.html", line 78, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/core/templates/core/perfil.html", line 17, in block 'content'
+    <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="{{ profesor.NOMBRES }}" class="profile-img mb-3">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/jinja2/environment.py", line 487, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'profesor' is undefined
+2024-12-04 11:43:06,783 - app - ERROR - Exception on /colegio/docentes/ver [GET]
+Traceback (most recent call last):
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/colegio/routes.py", line 84, in dcnt_ver
+    return render_template('core/perfil.html', profesores=profesores, username=session.get('username'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/jinja2/environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/jinja2/environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/core/templates/core/perfil.html", line 3, in top-level template code
+    {% extends 'core/home.html' %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/core/templates/core/home.html", line 78, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/core/templates/core/perfil.html", line 17, in block 'content'
+    <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="{{ profesor.NOMBRES }}" class="profile-img mb-3">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/jinja2/environment.py", line 487, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'profesor' is undefined
+2024-12-04 11:44:01,157 - app - ERROR - Exception on /colegio/docentes/ver [GET]
+Traceback (most recent call last):
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/colegio/routes.py", line 84, in dcnt_ver
+    return render_template('core/perfil.html', profesores=profesores, username=session.get('username'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/jinja2/environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/jinja2/environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/core/templates/core/perfil.html", line 3, in top-level template code
+    {% extends 'core/home.html' %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/core/templates/core/home.html", line 78, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/core/templates/core/perfil.html", line 25, in block 'content'
+    {% if profesor.twitter %}
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/jinja2/environment.py", line 487, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'profesor' is undefined
+2024-12-04 11:44:47,484 - app - ERROR - Exception on /colegio/docentes/ver [GET]
+Traceback (most recent call last):
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/colegio/routes.py", line 84, in dcnt_ver
+    return render_template('core/perfil.html', profesores=profesores, username=session.get('username'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/jinja2/environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/jinja2/environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/core/templates/core/perfil.html", line 3, in top-level template code
+    {% extends 'core/home.html' %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/core/templates/core/home.html", line 78, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/core/templates/core/perfil.html", line 96, in block 'content'
+    <div class="col-sm-8">{{ profesor.FEC_VINCUL }}</div>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/jinja2/environment.py", line 487, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'profesor' is undefined
+2024-12-04 11:45:51,417 - app - ERROR - Exception on /colegio/docentes/ver [GET]
+Traceback (most recent call last):
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/colegio/routes.py", line 84, in dcnt_ver
+    return render_template('core/perfil.html', profesores=profesores, username=session.get('username'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/jinja2/environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/jinja2/environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/core/templates/core/perfil.html", line 3, in top-level template code
+    {% extends 'core/home.html' %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/core/templates/core/home.html", line 78, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/core/templates/core/perfil.html", line 17, in block 'content'
+    <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="{{ profesoreses.NOMBRES }}" class="profile-img mb-3">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/jinja2/environment.py", line 487, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'profesoreses' is undefined

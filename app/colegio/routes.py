@@ -43,16 +43,7 @@ def dcnt_ver():
 
     # Construir la consulta SQL basada en la presencia del parámetro 'sujeto'
     if sujeto:
-        query = f''' SELECT 
-                CC_NUMERO, NOMBRES, APELLIDOS, FECHA_NAC, CARGO, LUG_EXP, 
-                EST_CIVIL, CC_LUGAR, LIB_MILIT, GENERO, DIRECCION, TELEFONO, 
-                FEC_VINCUL, DECRETO, UNIVERS, CURSILLOS, NOM_GRADO1, REG_GRADO1, 
-                ESCAL_SE, email
-            FROM 
-                occb_profesor
-            WHERE
-                CC_NUMERO = {sujeto};
-        '''    
+        query = f'''SELECT CC_NUMERO, NOMBRES, APELLIDOS, FECHA_NAC, CARGO, LUG_EXP, EST_CIVIL, CC_LUGAR, LIB_MILIT, GENERO, DIRECCION, TELEFONO,  FEC_VINCUL, DECRETO, UNIVERS, CURSILLOS, NOM_GRADO1, REG_GRADO1, ESCAL_SE, email FROM  occb_profesor WHERE CC_NUMERO = {sujeto}; '''    
 
     # Ejecutar la consulta utilizando tu clase DB
     try:

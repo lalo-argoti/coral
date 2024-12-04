@@ -10,25 +10,32 @@
     <div class="container">
       <div class="row">
         {% for profesor in profesores %}
-          <div class="col-md-4">
-            <div class="card">
-              <div class="card-body profile-card pt-4 text-center">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body profile-card pt-4 text-center">
+              <!-- Contenedor de Imagen y Texto Alineado Verticalmente -->
+              <div class="profile-card-content">
                 <!-- Imagen de Perfil -->
                 <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="Profile" class="img-circle img-responsive center-block" style="max-width: 150px; height: auto;">
-
-                <h2>{{ profesor.NOMBRES }} {{ profesor.APELLIDOS }}</h2>
-                <h3>{{ profesor.CARGO }}</h3>
-                <div class="social-links mt-2">
-                  <!-- Asumiendo que tienes campos para redes sociales o puedes agregarlos -->
-                  <!-- Ejemplo estático -->
-                  <a href="#" class="twitter" target="_blank"><i class="fa fa-twitter"></i></a>
-                  <a href="#" class="facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-                  <a href="#" class="instagram" target="_blank"><i class="fa fa-instagram"></i></a>
-                  <a href="#" class="linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
+        
+                <!-- Nombre y Cargo -->
+                <div class="profile-info">
+                  <h2>{{ profesor.NOMBRES }} {{ profesor.APELLIDOS }}</h2>
+                  <h3>{{ profesor.CARGO }}</h3>
                 </div>
+              </div>
+        
+              <!-- Enlaces Sociales -->
+              <div class="social-links mt-2">
+                <a href="#" class="twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a href="#" class="linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
               </div>
             </div>
           </div>
+        </div>
+        
 
           <div class="col-md-8">
             <div class="card">

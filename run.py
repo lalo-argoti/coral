@@ -17,4 +17,4 @@ def check_login():
         return redirect(url_for('core.r_portal', titulo= "No login"))
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5002)
