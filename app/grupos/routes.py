@@ -14,8 +14,8 @@ def r_portal():
 
 @grupos.route('/distribucion')
 def distribucion():
-    datos=DB("SELECT id, SEDE, CURSO, NOMBRE, JORNADA, DURAHORA FROM cursos WHERE colegio= 22312;", username= "").run_query() 
-    return render_template('grupos/distribucion.html', encabezados=["sede", "id", "curso", "duracion", "opciones"],datos= datos,  username=session.get('username'))
+    datos=DB("SELECT id, SEDE, CURSO, NOMBRE, JORNADA, DURAHORA FROM cursos WHERE colegio= 22312 ORDER BY CURSO;", username= "").run_query() 
+    return render_template('grupos/distribucion.html', encabezados=["sede", "id", "curso","jornada", "duracion", "opciones"],datos= datos,  username=session.get('username'))
 
 @grupos.route('/sedes')
 def sedes():

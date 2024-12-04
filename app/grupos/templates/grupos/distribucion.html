@@ -23,7 +23,7 @@
             </tr>
             {% for row in datos %}
                 <tr>{%set id = row[0] %}
-                    {% for cell in row %}
+                    {% for cell in row[1:] %}
                         <td>{{ cell }}</td>
                     {% endfor %}
                         <td><a href="{{url_for('grupos.grupo_ver',sujeto=id)}}">Ver</a></td>

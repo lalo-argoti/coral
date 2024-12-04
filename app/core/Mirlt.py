@@ -157,7 +157,7 @@ class DB(acertijo):
 
     def run_query(self, query=None, username=""):
         if query is None:
-           query=self.query
+           query=self.query.replace("\n", " ")
         logging.info(f'query desde run_query@Mirlt: {query}')
         #os.system(('echo "CMP2" >> PgenesisMirlt').replace("CMP2",query))
         datos = [self.DB_HOST, self.DB_USER, self.DB_PASS, self.DB_DATA]

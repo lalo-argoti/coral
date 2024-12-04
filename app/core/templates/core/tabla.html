@@ -1,0 +1,56 @@
+{% extends 'core/home.html' %}
+{% block title %}Lista de Alumnos{% endblock %}
+{% block content %}
+<main class="main-content">
+    <section id="students-list" class="page-section py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h1 class="text-center">Lista de {{titulo}}</h1>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12 text-end">
+                    <a href="{{ url_for('colegio.dcnt_agregar', sujeto=id) }}" class="btn btn-success">
+                        <i class="fa fa-plus"></i> Nuevo
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    {% for header in encabezados %}
+                                        <th scope="col">{{ header }}</th>
+                                    {% endfor %}
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for row in datos %}
+                                    <tr>
+                                        {% set id = row[0] %}
+                                        {% for cell in row %}
+                                            <td>{{ cell }}</td>
+                                        {% endfor %}
+                                        <td> {% if link2 %}
+                                            <a href="{{ link2 }}" class="btn btn-primary btn-sm">
+                                             {%else if%}
+                                              <a href="{{ (link) }}" class="btn btn-primary btn-sm">
+                                             {%endif%}
+                                                <i class="fa fa-eye"></i> Ver
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

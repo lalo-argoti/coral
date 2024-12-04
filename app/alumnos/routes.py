@@ -14,21 +14,27 @@ def r_portal():
     # Renderiza una plantilla para mostrar los resultados
     return render_template('core/portal.html', menu=itemsMenu, titulo= "Alumnos", username=session.get('username'))
 
-@alumnos.route(p+'/acudientes')
-def almns_acudientes():
-    # Aquí podrías obtener datos de la base de datos
-    resultados = acudientes()
-    # Renderiza una plantilla para mostrar los resultados
-    return render_template('alumnos/acudientes.html', resultados=resultados, username=session.get('username'))
+#@alumnos.route(p+'/acudientes')
+#def almns_acudientes():
+#    # Aquí podrías obtener datos de la base de datos
+#    resultados = acudientes()
+#    # Renderiza una plantilla para mostrar los resultados
+#    return render_template('alumnos/acudientes.html', resultados=resultados, username=session.get('username'))
 
 @alumnos.route(p+'/calificaciones')
 def almns_calificaciones():
     # Aquí podrías obtener datos de la base de datos
     DB(query=f'--accion: calificaciones', username="").run_query()
-
     resultados = calificaciones()
     # Renderiza una plantilla para mostrar los resultados
-    return render_template('alumnos/calificaciones.html', resultados=resultados, username=session.get('username'))
+    return render_template('alumnos/calificaciones.html', resultados=resultados, username=session.get('username'), titulo="estudiantes")
+
+@alumnos.route(p+'/acudientes')
+def almns_acudientes():
+    resultados= DB(query=f'SELECT * FROM occb_acudientes;', username="").run_query()
+    # Renderiza una plantilla para mostrar los resultados
+    return render_template('core/tabla.html', datos=resultados,encabezados=[], username=session.get('username'), titulo="acudientes")
+
 
 @alumnos.route(p+'/promocion')
 def almns_promocion():
@@ -41,7 +47,6 @@ def almns_promocion():
 
 @alumnos.route(p+'/handle_actions', methods=['POST'])
 def almns_handle_actions(): 
-    
     # Obtener datos del formulario
     nombres = request.form.get('nombres')
     apellidos = request.form.get('apellidos')

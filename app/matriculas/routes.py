@@ -48,6 +48,8 @@ def mtrcls_inscribir():
 def mtrcls_gestion():
     # Aquí podrías obtener datos de la base de datos
     resultados = ""
+    campos=DB("SELECT * FROM occb_estudiantes;", username="").run_query()
+    encabezados=["","","","","","","",""]
     # Renderiza una plantilla para mostrar los resultados
-    return render_template('matriculas/gestion.html', resultados=resultados, username=session.get('username'))
+    return render_template('core/tabla.html', datos= campos,encabezados=encabezados ,titulo="estudiantes", username=session.get('username'))
 
