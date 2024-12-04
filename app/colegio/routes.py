@@ -1,8 +1,8 @@
-from flask import render_template,session
+from flask import render_template, session, request
 from . import colegio
 from .views import *
 from app.core.Mirlt import DB  # Importa la clase DB
-
+import logging
 
 p=('/colegio')
 
@@ -36,11 +36,6 @@ def eventos():
 def dcnt_agregar():
     return render_template('colegio/agregar.html',encabezados=[], empleados=[], username=session.get('username'))
 
-from flask import render_template, session, request
-from . import colegio
-from app.core.Mirlt import DB  # Asegúrate de que esta ruta es correcta
-import logging
-
 @colegio.route(p + '/docentes/ver')
 def dcnt_ver():
     # Obtener el parámetro 'sujeto' de la URL
@@ -48,16 +43,21 @@ def dcnt_ver():
 
     # Construir la consulta SQL basada en la presencia del parámetro 'sujeto'
     if sujeto:
-        query = f'''SELECT CC_NUMERO, NOMBRES, APELLIDOS, FECHA_NAC, CARGO, LUG_EXP, EST_CIVIL, CC_LUGAR, LIB_MILIT, GENERO, DIRECCION, TELEFONO, FEC_VINCUL, DECRETO, UNIVERS, CURSILLOS, NOM_GRADO1, REG_GRADO1, ESCAL_SE, email FROM  occb_profesor WHERE CC_NUMERO = %s '''
-        params = (sujeto,)
-    else:
-        query = '''SELECT CC_NUMERO, NOMBRES, APELLIDOS, FECHA_NAC, CARGO, LUG_EXP, EST_CIVIL, CC_LUGAR, LIB_MILIT, GENERO, DIRECCION, TELEFONO, FEC_VINCUL, DECRETO, UNIVERS, CURSILLOS, NOM_GRADO1, REG_GRADO1, ESCAL_SE, email FROM  occb_profesor ORDER BY  APELLIDOS, NOMBRES;'''
-        params = None
+        query = f''' SELECT 
+                CC_NUMERO, NOMBRES, APELLIDOS, FECHA_NAC, CARGO, LUG_EXP, 
+                EST_CIVIL, CC_LUGAR, LIB_MILIT, GENERO, DIRECCION, TELEFONO, 
+                FEC_VINCUL, DECRETO, UNIVERS, CURSILLOS, NOM_GRADO1, REG_GRADO1, 
+                ESCAL_SE, email
+            FROM 
+                occb_profesor
+            WHERE
+                CC_NUMERO = {sujeto};
+        '''    
 
     # Ejecutar la consulta utilizando tu clase DB
     try:
-        db = DB(query=query, username="")  # Asegúrate de pasar el username si es necesario
-        empleados = db.run_query(query=query, params=params) if params else db.run_query()
+        empleados = DB(query=query, username="").run_query()  # Asegúrate de pasar el username si es necesario
+        print(empleados)
     except Exception as e:
         logging.error(f'Error al ejecutar la consulta: {e}')
         empleados = []
