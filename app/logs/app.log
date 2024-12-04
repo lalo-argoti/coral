@@ -8977,3 +8977,102 @@ Traceback (most recent call last):
   File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/mysql/connector/connection_cext.py", line 340, in _open_connection
     raise get_mysql_exception(
 mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on '51.222.159.144:3306' (110)
+2024-12-04 10:31:48,541 - app - ERROR - Exception on /colegio/docentes/ver [GET]
+Traceback (most recent call last):
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/colegio/routes.py", line 57, in dcnt_ver
+    empleados = db.run_query()
+                ^^^^^^^^^^^^^^
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/core/Mirlt.py", line 173, in run_query
+    conn.commit()              # Hacer efectiva la escritura de datos
+    ^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/mysql/connector/connection_cext.py", line 576, in commit
+    self.handle_unread_result()
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/mysql/connector/connection_cext.py", line 1047, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/colegio/routes.py", line 59, in dcnt_ver
+    logging.error(f'Error al ejecutar la consulta: {e}')
+    ^^^^^^^
+NameError: name 'logging' is not defined. Did you forget to import 'logging'
+2024-12-04 10:32:21,644 - app - ERROR - Exception on /colegio/docentes/ver [GET]
+Traceback (most recent call last):
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/colegio/routes.py", line 57, in dcnt_ver
+    empleados = db.run_query()
+                ^^^^^^^^^^^^^^
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/core/Mirlt.py", line 173, in run_query
+    conn.commit()              # Hacer efectiva la escritura de datos
+    ^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/mysql/connector/connection_cext.py", line 576, in commit
+    self.handle_unread_result()
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/mysql/connector/connection_cext.py", line 1047, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/colegio/routes.py", line 59, in dcnt_ver
+    logging.error(f'Error al ejecutar la consulta: {e}')
+    ^^^^^^^
+NameError: name 'logging' is not defined. Did you forget to import 'logging'
+2024-12-04 10:32:45,510 - app - ERROR - Exception on /colegio/docentes/ver [GET]
+Traceback (most recent call last):
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/colegio/routes.py", line 57, in dcnt_ver
+    empleados = db.run_query()
+                ^^^^^^^^^^^^^^
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/core/Mirlt.py", line 173, in run_query
+    conn.commit()              # Hacer efectiva la escritura de datos
+    ^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/mysql/connector/connection_cext.py", line 576, in commit
+    self.handle_unread_result()
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/mysql/connector/connection_cext.py", line 1047, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/colegio/routes.py", line 59, in dcnt_ver
+    logging.error(f'Error al ejecutar la consulta: {e}')
+    ^^^^^^^
+NameError: name 'logging' is not defined. Did you forget to import 'logging'

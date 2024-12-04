@@ -2,111 +2,146 @@
 
 {% extends 'core/home.html' %}
 
-{% block title %}Perfil de Profesor | Colegio{% endblock %}
+{% block title %}Perfil de Profesores | Colegio{% endblock %}
 
 {% block content %}
 
-  <section class="section profile">
+  <section class="section profiles">
     <div class="container">
       <div class="row">
-        <!-- Columna de la Imagen y Datos Básicos del Profesor -->
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-body profile-card pt-4 text-center">
-              <!-- Imagen de Perfil -->
-              <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="Profile" class="img-circle img-responsive center-block" style="max-width: 150px; height: auto;">
+        {% for profesor in profesores %}
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body profile-card pt-4 text-center">
+                <!-- Imagen de Perfil -->
+                <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="Profile" class="img-circle img-responsive center-block" style="max-width: 150px; height: auto;">
 
-              <h2>Juan Pérez</h2>
-              <h3>Profesor de Matemáticas</h3>
-              <div class="social-links mt-2">
-                <a href="https://twitter.com/juanperez" class="twitter" target="_blank"><i class="fa fa-twitter"></i></a>
-                <a href="https://facebook.com/juanperez" class="facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-                <a href="https://instagram.com/juanperez" class="instagram" target="_blank"><i class="fa fa-instagram"></i></a>
-                <a href="https://linkedin.com/in/juanperez" class="linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
+                <h2>{{ profesor.NOMBRES }} {{ profesor.APELLIDOS }}</h2>
+                <h3>{{ profesor.CARGO }}</h3>
+                <div class="social-links mt-2">
+                  <!-- Asumiendo que tienes campos para redes sociales o puedes agregarlos -->
+                  <!-- Ejemplo estático -->
+                  <a href="#" class="twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                  <a href="#" class="facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                  <a href="#" class="instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+                  <a href="#" class="linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Columna de Detalles del Perfil -->
-        <div class="col-md-8">
-          <div class="card">
-            <div class="card-body pt-3">
-              <!-- Pestañas Simplificadas -->
-              <ul class="nav nav-tabs" id="profileTabs" role="tablist">
-                <li class="active"><a href="#profile-overview" data-toggle="tab" role="tab" aria-controls="profile-overview" aria-expanded="true">Resumen</a></li>
-                <li><a href="#profile-contact" data-toggle="tab" role="tab" aria-controls="profile-contact">Contacto</a></li>
-              </ul>
-              <div class="tab-content">
-                <!-- Resumen del Perfil -->
-                <div class="tab-pane fade in active profile-overview" id="profile-overview" role="tabpanel" aria-labelledby="overview-tab">
-                  <h5 class="card-title">Acerca de</h5>
-                  <p class="small fst-italic">Juan es un apasionado de las matemáticas con más de 10 años de experiencia enseñando en diversos niveles educativos. Su enfoque en el aprendizaje práctico y su habilidad para explicar conceptos complejos lo hacen un profesor excepcional.</p>
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-body pt-3">
+                <!-- Pestañas Simplificadas -->
+                <ul class="nav nav-tabs" id="profileTabs{{ profesor.CC_NUMERO }}" role="tablist">
+                  <li class="active"><a href="#profile-overview-{{ profesor.CC_NUMERO }}" data-toggle="tab" role="tab" aria-controls="profile-overview" aria-expanded="true">Resumen</a></li>
+                  <li><a href="#profile-contact-{{ profesor.CC_NUMERO }}" data-toggle="tab" role="tab" aria-controls="profile-contact">Contacto</a></li>
+                </ul>
+                <div class="tab-content">
+                  <!-- Resumen del Perfil -->
+                  <div class="tab-pane fade in active profile-overview" id="profile-overview-{{ profesor.CC_NUMERO }}" role="tabpanel" aria-labelledby="overview-tab">
+                    <h5 class="card-title">Acerca de</h5>
+                    <p class="small fst-italic">{{ profesor.NOMBRES }} es un/a {{ profesor.CARGO }} con amplia experiencia en el área. <!-- Puedes personalizar este texto según tus necesidades --></p>
 
-                  <h5 class="card-title">Detalles del Perfil</h5>
+                    <h5 class="card-title">Detalles del Perfil</h5>
 
-                  <div class="row">
-                    <div class="col-sm-3 col-xs-5 label">Nombre Completo</div>
-                    <div class="col-sm-9 col-xs-7">Juan Andrés Pérez Gómez</div>
+                    <div class="row">
+                      <div class="col-sm-3 col-xs-5 label">Nombre Completo</div>
+                      <div class="col-sm-9 col-xs-7">{{ profesor.NOMBRES }} {{ profesor.APELLIDOS }}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-sm-3 col-xs-5 label">Cédula</div>
+                      <div class="col-sm-9 col-xs-7">{{ profesor.CC_NUMERO }}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-sm-3 col-xs-5 label">Fecha de Nacimiento</div>
+                      <div class="col-sm-9 col-xs-7">{{ profesor.FECHA_NAC }}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-sm-3 col-xs-5 label">Lugar de Expedición</div>
+                      <div class="col-sm-9 col-xs-7">{{ profesor.LUG_EXP }}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-sm-3 col-xs-5 label">Estado Civil</div>
+                      <div class="col-sm-9 col-xs-7">{{ profesor.EST_CIVIL }}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-sm-3 col-xs-5 label">Género</div>
+                      <div class="col-sm-9 col-xs-7">{{ profesor.GENERO }}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-sm-3 col-xs-5 label">Dirección</div>
+                      <div class="col-sm-9 col-xs-7">{{ profesor.DIRECCION }}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-sm-3 col-xs-5 label">Teléfono</div>
+                      <div class="col-sm-9 col-xs-7">{{ profesor.TELEFONO }}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-sm-3 col-xs-5 label">Fecha de Vinculación</div>
+                      <div class="col-sm-9 col-xs-7">{{ profesor.FEC_VINCUL }}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-sm-3 col-xs-5 label">Universidad</div>
+                      <div class="col-sm-9 col-xs-7">{{ profesor.UNIVERS }}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-sm-3 col-xs-5 label">Cursos</div>
+                      <div class="col-sm-9 col-xs-7">{{ profesor.CURSILLOS }}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-sm-3 col-xs-5 label">Grado Académico</div>
+                      <div class="col-sm-9 col-xs-7">{{ profesor.NOM_GRADO1 }} ({{ profesor.REG_GRADO1 }})</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-sm-3 col-xs-5 label">Escala Salarial</div>
+                      <div class="col-sm-9 col-xs-7">{{ profesor.ESCAL_SE }}</div>
+                    </div>
+
                   </div>
 
-                  <div class="row">
-                    <div class="col-sm-3 col-xs-5 label">Empresa</div>
-                    <div class="col-sm-9 col-xs-7">Colegio XYZ</div>
+                  <!-- Información de Contacto -->
+                  <div class="tab-pane fade profile-contact pt-3" id="profile-contact-{{ profesor.CC_NUMERO }}" role="tabpanel" aria-labelledby="contact-tab">
+                    <h5 class="card-title">Información de Contacto</h5>
+
+                    <div class="row">
+                      <div class="col-sm-3 col-xs-5 label">Teléfono</div>
+                      <div class="col-sm-9 col-xs-7">{{ profesor.TELEFONO }}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-sm-3 col-xs-5 label">Email</div>
+                      <div class="col-sm-9 col-xs-7">{{ profesor.email }}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-sm-3 col-xs-5 label">Dirección</div>
+                      <div class="col-sm-9 col-xs-7">{{ profesor.DIRECCION }}</div>
+                    </div>
                   </div>
 
-                  <div class="row">
-                    <div class="col-sm-3 col-xs-5 label">Cargo</div>
-                    <div class="col-sm-9 col-xs-7">Profesor de Matemáticas</div>
-                  </div>
+                </div><!-- End Tab Content -->
 
-                  <div class="row">
-                    <div class="col-sm-3 col-xs-5 label">País</div>
-                    <div class="col-sm-9 col-xs-7">Colombia</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-sm-3 col-xs-5 label">Dirección</div>
-                    <div class="col-sm-9 col-xs-7">Calle 123, Bogotá, Colombia</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-sm-3 col-xs-5 label">Teléfono</div>
-                    <div class="col-sm-9 col-xs-7">+57 320 1234567</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-sm-3 col-xs-5 label">Email</div>
-                    <div class="col-sm-9 col-xs-7">juan.perez@example.com</div>
-                  </div>
-
-                </div>
-
-                <!-- Información de Contacto -->
-                <div class="tab-pane fade profile-contact pt-3" id="profile-contact" role="tabpanel" aria-labelledby="contact-tab">
-                  <h5 class="card-title">Información de Contacto</h5>
-
-                  <div class="row">
-                    <div class="col-sm-3 col-xs-5 label">Teléfono</div>
-                    <div class="col-sm-9 col-xs-7">+57 320 1234567</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-sm-3 col-xs-5 label">Email</div>
-                    <div class="col-sm-9 col-xs-7">juan.perez@example.com</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-sm-3 col-xs-5 label">Dirección</div>
-                    <div class="col-sm-9 col-xs-7">Calle 123, Bogotá, Colombia</div>
-                  </div>
-                </div>
-
-              </div><!-- End Tab Content -->
-
+              </div>
             </div>
           </div>
-        </div>
+          <hr>
+        {% endfor %}
       </div>
-    </section>
+    </div>
+  </section>
+
 {% endblock %}
