@@ -1,3 +1,4 @@
+
 {% extends 'core/home.html' %}
 
 {% block title %}Matrículas e inscripciones{% endblock %}
@@ -27,33 +28,59 @@
         <div class="tab-content mt-3">
           <!-- Datos Básicos -->
           <div class="tab-pane fade show active" id="datos-basicos" role="tabpanel" aria-labelledby="datos-basicos-tab">
-            <form action="{{ url_for('alumnos.almns_handle_actions') }}" method="POST">
-              <div class="row mb-3">
+            <form action="{{ url_for('matriculas.almns_handle_actions', alumno=alumno) }}" method="POST">
+
+                <div class="col-md-6">
+                  <label for="carnet" class="form-label">Carnete</label>
+                  <input type="text" class="form-control" id="carnet" name="carnet"  value="{{alumno}}"  required>
+                </div><br>
+
+   <div class="row mb-3">
                 <div class="col-md-6">
                   <label for="nombres" class="form-label">Nombres</label>
-                  <input type="text" class="form-control" id="nombres" name="nombres" required>
+                  <input type="text" class="form-control" id="nombres" name="nombres" value="{{resultados[1]}}" required>
                 </div>
                 <div class="col-md-6">
                   <label for="apellidos" class="form-label">Apellidos</label>
-                  <input type="text" class="form-control" id="apellidos" name="apellidos" required>
+                  <input type="text" class="form-control" id="apellidos" name="apellidos" value="{{resultados[2]}}" required>
                 </div>
               </div>
-              <div class="row mb-3">
+            
+   <div class="row mb-3"> 
                 <div class="col-md-6">
-                  <label for="identidad" class="form-label">Identidad</label>
-                  <input type="text" class="form-control" id="identidad" name="identidad" required>
+                  <label for="fecha-nacimiento" class="form-label">Tipo de documento</label>
+                  <input type="text" class="form-control" id="tipo_doc" name="tipo_doc" value="{{resultados[3]}}" required>
                 </div>
+
+              
+               <div class="col-md-6">
+                  <label for="identidad" class="form-label">Identidad</label>
+                  <input type="text" class="form-control" id="identidad" name="identidad"  value="{{resultados[4]}}" required>
+                </div>
+                </div>
+                 
+   <div class="row mb-3"> 
                 <div class="col-md-6">
                   <label for="fecha-nacimiento" class="form-label">Fecha de Nacimiento</label>
-                  <input type="date" class="form-control" id="fecha-nacimiento" name="fecha_nacimiento" required>
+                  <input type="date" class="form-control" id="fecha-nacimiento" name="fecha_nacimiento" value="{{resultados[6]}}" required>
                 </div>
-              </div>
+                <div class="col-md-6">
+                  <label for="identidad" class="form-label">Tipo de sangre</label>
+                  <input type="text" class="form-control" id="tipo_sangre" name="tipo_sangre" value="{{resultados[7]}}" required>
+                </div>
+   </div>
+             <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="genero" class="form-label">género</label>
+                  <input type="text" class="form-control" id="genero" name="genero" value="{{resultados[5]}}" required>
+                </div>
+              
               <div class="d-flex justify-content-end">
                 <button type="submit" id="guardar_alumno_p1" value="matricular" class="btn btn-primary" name="action">Guardar y continuar</button>
               </div>
             </form>
           </div>
-
+    </div>
           <!-- Contacto y Acudiente -->
           <div class="tab-pane fade" id="contacto-acudiente" role="tabpanel" aria-labelledby="contacto-acudiente-tab">
             <form action="#" method="POST">

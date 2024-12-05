@@ -1,0 +1,112 @@
+{% extends 'core/home.html' %}
+
+{% block title %}{títlulo}{% endblock %}
+
+{% block content %}
+<section id="docentes-management" class="contact-form">
+  <div class="container">
+    <!-- Gestión de Docentes -->
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="text-center mb-4">Registro o Edición de Docente</h1>
+        <ul class="nav nav-tabs" id="docenteTabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="datos-personales-tab" data-bs-toggle="tab" data-bs-target="#datos-personales" type="button" role="tab" aria-controls="datos-personales" aria-selected="true">Datos Personales</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="datos-laborales-tab" data-bs-toggle="tab" data-bs-target="#datos-laborales" type="button" role="tab" aria-controls="datos-laborales" aria-selected="false">Datos Laborales</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="formacion-tab" data-bs-toggle="tab" data-bs-target="#formacion" type="button" role="tab" aria-controls="formacion" aria-selected="false">Formación</button>
+          </li>
+        </ul>
+
+        <div class="tab-content mt-3">
+          <!-- Datos Personales -->
+          <div class="tab-pane fade show active" id="datos-personales" role="tabpanel" aria-labelledby="datos-personales-tab">
+            <form action="{{ url_for('colegio.dcnt_guardar') }}" method="POST">
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="CC_NUMERO" class="form-label">Cédula</label>
+                  <input type="text" class="form-control" id="CC_NUMERO" name="CC_NUMERO" value="{{ docente[0] if docente else '' }}" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="NOMBRES" class="form-label">Nombres</label>
+                  <input type="text" class="form-control" id="NOMBRES" name="NOMBRES" value="{{ docente[1] if docente else '' }}" required>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="APELLIDOS" class="form-label">Apellidos</label>
+                  <input type="text" class="form-control" id="APELLIDOS" name="APELLIDOS" value="{{ docente[2] if docente else '' }}" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="FECHA_NAC" class="form-label">Fecha de Nacimiento</label>
+                  <input type="date" class="form-control" id="FECHA_NAC" name="FECHA_NAC" value="{{ docente[3] if docente else '' }}">
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="GENERO" class="form-label">Género</label>
+                  <select class="form-control" id="GENERO" name="GENERO">
+                    <option value="M" {% if docente and docente[9] == 'M' %}selected{% endif %}>Masculino</option>
+                    <option value="F" {% if docente and docente[9] == 'F' %}selected{% endif %}>Femenino</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="EST_CIVIL" class="form-label">Estado Civil</label>
+                  <input type="text" class="form-control" id="EST_CIVIL" name="EST_CIVIL" value="{{ docente[6] if docente else '' }}">
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- Datos Laborales -->
+          <div class="tab-pane fade" id="datos-laborales" role="tabpanel" aria-labelledby="datos-laborales-tab">
+            <form>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="CARGO" class="form-label">Cargo</label>
+                  <input type="text" class="form-control" id="CARGO" name="CARGO" value="{{ docente[4] if docente else '' }}">
+                </div>
+                <div class="col-md-6">
+                  <label for="FEC_VINCUL" class="form-label">Fecha de Vinculación</label>
+                  <input type="date" class="form-control" id="FEC_VINCUL" name="FEC_VINCUL" value="{{ docente[12] if docente else '' }}">
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="DECRETO" class="form-label">Decreto</label>
+                  <input type="text" class="form-control" id="DECRETO" name="DECRETO" value="{{ docente[13] if docente else '' }}">
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- Formación -->
+          <div class="tab-pane fade" id="formacion" role="tabpanel" aria-labelledby="formacion-tab">
+            <form>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="UNIVERS" class="form-label">Universidad</label>
+                  <input type="text" class="form-control" id="UNIVERS" name="UNIVERS" value="{{ docente[14] if docente else '' }}">
+                </div>
+                <div class="col-md-6">
+                  <label for="CURSILLOS" class="form-label">Cursillos</label>
+                  <input type="text" class="form-control" id="CURSILLOS" name="CURSILLOS" value="{{ docente[15] if docente else '' }}">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end mt-4">
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

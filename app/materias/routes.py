@@ -10,14 +10,17 @@ def r_portal():
     {'texto1': 'Logros', 'texto2': 'académicos', 'imagen': 'logros.png', 'link': 'materias.logros'},
     {'texto1': 'Evaluaciones', 'texto2': 'y calificaciones', 'imagen': 'evaluaciones.png', 'link': 'materias.evaluaciones'}
     ]
-
     # Renderiza una plantilla para mostrar los resultados
     return render_template('core/portal.html', menu=menu,  username=session.get('username'))
-@materias.route('/logros')
-def logros():
-   return ""
 
-@materias.route('/evaluaciones')
+@materias.route('/materias/logros')
+def logros():
+     datos= DB(f"SELECT id,CODIGO, SIGLA, FRASE  FROM occb_CCI_fras;", username="").run_query()   #WHERE colegio= mi_colegio
+     return render_template('core/tabla.html',datos=datos, encabezados=["","",""],titulo="frases",link="#" , username=session.get('username'))
+
+
+
+@materias.route('/materias/evaluaciones')
 def evaluaciones():
    return ""
 

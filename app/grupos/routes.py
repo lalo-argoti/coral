@@ -6,9 +6,9 @@ from app.core.Mirlt import DB  # Importa la clase DB
 @grupos.route('/grupos')
 def r_portal():
    # Aquí podrías obtener datos de la base de datos
-    itemsMenu =[{'texto1':'Materias,','texto2':'logros y configuraciones','imagen':'materias.png','link':'materias.r_portal'},
+    itemsMenu =[{'texto1':'Cursos,','texto2':'materias y logros','imagen':'materias.png','link':'materias.r_portal'},
     {'texto1':'Grupos','texto2':'y clubes','imagen':'grupos.png','link':'grupos.distribucion'},
-    {'texto1':'Sedes','texto2':'-','imagen':'sedes.png','link':'grupos.sedes'}]
+    {'texto1':'Sedes','texto2':'-','imagen':'sede.png','link':'grupos.sedes'}]
     # Renderiza una plantilla para mostrar los resultados
     return render_template('core/portal.html', menu=itemsMenu, titulo= "Grupos y materias", username=session.get('username'))
 
@@ -28,6 +28,8 @@ def sedes():
 def grupo_agregar():
    return "Progarmas aqui para agregar un grupo"
 
-@grupos.route('/grupos/ver')
-def grupo_ver():
-   return "Ver detalles de grupo"
+
+@grupos.route('/grupos/ver/<string:grupo>')
+def grupo_ver(grupo):
+   return  render_template('grupos/ver.html', titulo=f"Detalles de grupo {grupo}", username=session.get('username'))
+

@@ -8,8 +8,13 @@ def r_config():
 
 @usuario.route('/usuario')
 def r_portal():
-    resultados = portal()  # Simula obtener datos
-    return render_template('usuario/portal.html', titulo='Portal', resultados=resultados, username=session.get('username'))
+    #resultados = portal()  # Simula obtener datos
+    #return render_template('usuario/portal.html', titulo='Portal', resultados=resultados, username=session.get('username'))
+    # Aquí podrías obtener datos de la base de datos
+    itemsMenu =[{'texto1':'SQL','texto2':'','imagen':'2.png','link':'coral.databases'},
+    {'texto1':'Tablas','texto2':'y datos SQL','imagen':'1.png','link':'coral.tablas'}]
+    # Renderiza una plantilla para mostrar los resultados
+    return render_template('core/portal.html', menu=itemsMenu, titulo= "Matrículas", username=session.get('username'))
 
 
 

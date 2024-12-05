@@ -1,4 +1,4 @@
-from flask import render_template, session, request
+from flask import render_template, session, request, url_for
 from . import colegio
 from .views import *
 from app.core.Mirlt import DB  # Importa la clase DB
@@ -7,12 +7,15 @@ import logging
 p=('/colegio')
 
 
-@colegio.route('/colegio')
+@colegio.route(p+'/norma')
+def norma():
+    return ""
+@colegio.route(p)
 def r_portal():
     # Aquí podrías obtener datos de la base de datos
     menu = [
-    {'texto1': 'Docentes', 'texto2': 'y personal', 'imagen': 'docentes.png', 'link': 'colegio.docentes'},
-    {'texto1': 'Decretos', 'texto2': 'legales', 'imagen': 'decretos.png', 'link': 'colegio.decretos'},
+    {'texto1': 'Planta', 'texto2': 'docente', 'imagen': 'docente.png', 'link': 'colegio.docentes'},
+    {'texto1': 'Normatividad', 'texto2': '', 'imagen': 'decretos.png', 'link': 'colegio.decretos'},
     {'texto1': 'Eventos', 'texto2': 'y actividades', 'imagen': 'eventos.png', 'link': 'colegio.eventos'}]
 
     # Renderiza una plantilla para mostrar los resultados
@@ -26,7 +29,10 @@ def docentes():
 
 @colegio.route(p+'/decretos')
 def decretos():
-    return  render_template('colegio/decretos.html',username=session.get('username'))
+     datos= DB(f"SELECT id,titulo, resumen FROM occb_decretos;", username="").run_query()   #WHERE colegio= mi_colegio
+     return render_template('core/tabla.html',datos=datos, encabezados=["Título","resumen"],titulo="normatividades",link=url_for('colegio.norma') , username=session.get('username'))
+
+
 
 @colegio.route(p+ '/eventos')
 def eventos():

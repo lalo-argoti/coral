@@ -30,6 +30,11 @@ def tablas():
      return render_template('core/tabla.html',datos=datos, encabezados=encabezados,titulo="tablas", link2=True,  username=session.get('username'))
 
 
+@coral.route('/copia')
+def r_copia():
+    mensaje= copia()
+    return mensaje
+
 @coral.route('/tablas/datos/<string:ref>')
 def datos(ref):
      c_encabezados=  DB(f"DESCRIBE {ref};", username="").run_query()

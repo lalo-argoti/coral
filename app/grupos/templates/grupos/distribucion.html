@@ -18,7 +18,7 @@
         <tbody>
             <tr>
                 <td colspan="{{ encabezados|length }}">
-                    <a href="{{url_for('grupos.grupo_agregar',sujeto=id)}}">Nuevo</a>
+                    <a href="{{url_for('grupos.grupo_agregar',grupo="")}}">Nuevo</a>
                 </td>
             </tr>
             {% for row in datos %}
@@ -26,7 +26,7 @@
                     {% for cell in row[1:] %}
                         <td>{{ cell }}</td>
                     {% endfor %}
-                        <td><a href="{{url_for('grupos.grupo_ver',sujeto=id)}}">Ver</a></td>
+                        <td><a href="{{url_for('grupos.grupo_ver',grupo=row[0])}}">Ver</a></td>
                 </tr>
             {% endfor %}
         </tbody>
