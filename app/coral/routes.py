@@ -4,31 +4,19 @@ from .views import *
 import logging
 from app.core.Mirlt import DB  # Importa la clase DB
 
-
 @coral.route('/coral')
 def r_portal():
-    # Aquí podrías obtener datos de la base de datos
     resultados = portal()
-    # Renderiza una plantilla para mostrar los resultados
     return render_template('coral/portal.html', resultados=resultados,  username=session.get('username'))
-
 
 @coral.route('/databases')
 def databases():
-    # Aquí podrías obtener datos de la base de datos
-    # Renderiza una plantilla para mostrar los resultados
     return render_template('coral/databases.html', username=session.get('username'))
 
 @coral.route('/tablas')
 def tablas():
-     encabezados=["Tabla", ""]
-     datos= DB("SHOW TABLES;", username="").run_query()
-         # Agregar el enlace dinámico para cada tabla, si se agrega esto , link2 debe quedar como True
-     datos= [
-        [tabla[0] , url_for('coral.datos', ref=tabla[0])]        for tabla in datos
-     ]
+     datos, encabezados=mostrarTablas()
      return render_template('core/tabla.html',datos=datos, encabezados=encabezados,titulo="tablas", link2=True,  username=session.get('username'))
-
 
 @coral.route('/copia')
 def r_copia():
@@ -37,9 +25,7 @@ def r_copia():
 
 @coral.route('/tablas/datos/<string:ref>')
 def datos(ref):
-     c_encabezados=  DB(f"DESCRIBE {ref};", username="").run_query()
-     encabezados=  [columna[0] for columna in c_encabezados]
-     datos= DB(f"SELECT * FROM {ref};", username="").run_query()
+     encabezados,datos= renderTabla(ref)
      return render_template('core/tabla.html',datos=datos, encabezados=encabezados,titulo=ref,link=url_for('coral.tablas') , username=session.get('username'))
 
 # Ruta para procesar consultas SQL

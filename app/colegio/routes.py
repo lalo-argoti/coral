@@ -6,20 +6,9 @@ import logging
 
 p=('/colegio')
 
-
 @colegio.route(p+'/norma')
 def norma():
     return ""
-@colegio.route(p)
-def r_portal():
-    # Aquí podrías obtener datos de la base de datos
-    menu = [
-    {'texto1': 'Planta', 'texto2': 'docente', 'imagen': 'docente.png', 'link': 'colegio.docentes'},
-    {'texto1': 'Normatividad', 'texto2': '', 'imagen': 'decretos.png', 'link': 'colegio.decretos'},
-    {'texto1': 'Eventos', 'texto2': 'y actividades', 'imagen': 'eventos.png', 'link': 'colegio.eventos'}]
-
-    # Renderiza una plantilla para mostrar los resultados
-    return render_template('core/portal.html', menu=menu, username=session.get('username'))
 
 @colegio.route(p+'/docentes')
 def docentes():
@@ -32,8 +21,6 @@ def decretos():
      datos= DB(f"SELECT id,titulo, resumen FROM occb_decretos;", username="").run_query()   #WHERE colegio= mi_colegio
      return render_template('core/tabla.html',datos=datos, encabezados=["Título","resumen"],titulo="normatividades",link=url_for('colegio.norma') , username=session.get('username'))
 
-
-
 @colegio.route(p+ '/eventos')
 def eventos():
     return  render_template('colegio/eventos.html',  username=session.get('username'))
@@ -44,51 +31,8 @@ def dcnt_agregar():
 
 @colegio.route(p + '/docentes/ver')
 def dcnt_ver():
-    # Obtener el parámetro 'sujeto' de la URL
-    sujeto = request.args.get('sujeto', default=None, type=int)
-
-    # Construir la consulta SQL basada en la presencia del parámetro 'sujeto'
-    if sujeto:
-        query = f'''SELECT CC_NUMERO, NOMBRES, APELLIDOS, FECHA_NAC, CARGO, LUG_EXP, EST_CIVIL, CC_LUGAR, LIB_MILIT, GENERO, DIRECCION, TELEFONO,  FEC_VINCUL, DECRETO, UNIVERS, CURSILLOS, NOM_GRADO1, REG_GRADO1, ESCAL_SE, email FROM  occb_profesor WHERE CC_NUMERO = {sujeto}; '''    
-
-    # Ejecutar la consulta utilizando tu clase DB
-    try:
-        empleados = DB(query=query, username="").run_query()  # Asegúrate de pasar el username si es necesario
-        print(empleados)
-    except Exception as e:
-        logging.error(f'Error al ejecutar la consulta: {e}')
-        empleados = []
-
-    # Mapea los resultados a una lista de diccionarios para facilitar el acceso en la plantilla
-    profesores = []
-    for row in empleados:
-        profesor = {
-            "CC_NUMERO": row[0],
-            "NOMBRES": row[1],
-            "APELLIDOS": row[2],
-            "FECHA_NAC": row[3],
-            "CARGO": row[4],
-            "LUG_EXP": row[5],
-            "EST_CIVIL": row[6],
-            "CC_LUGAR": row[7],
-            "LIB_MILIT": row[8],
-            "GENERO": row[9],
-            "DIRECCION": row[10],
-            "TELEFONO": row[11],
-            "FEC_VINCUL": row[12],
-            "DECRETO": row[13],
-            "UNIVERS": row[14],
-            "CURSILLOS": row[15],
-            "NOM_GRADO1": row[16],
-            "REG_GRADO1": row[17],
-            "ESCAL_SE": row[18],
-            "email": row[19],
-        }
-        profesores.append(profesor)
-
-    # Renderizar la plantilla con los datos de los profesores
+    profesores= perfil( request.args.get('sujeto', default=None, type=int))
     return render_template('core/perfil.html', profesores=profesores, username=session.get('username'))
-
     
 @colegio.route(p+'/docentes/guardar')
 def dcnt_guardar():
@@ -103,11 +47,10 @@ def dcnt_guardar():
     else:
         return "Error al guardar", 500
 
-'''
-colegio.route('/matriculas')
-def almns_matriculas():
-    # Aquí podrías obtener datos de la base de datos
-    resultados = matriculas()
-    # Renderiza una plantilla para mostrar los resultados
-    return render_template('colegio/matriculas.html', resultados=resultados)
-'''
+@colegio.route(p)
+def r_portal():
+    menu = [
+    {'texto1': 'Planta', 'texto2': 'docente', 'imagen': 'docente.png', 'link': 'colegio.docentes'},
+    {'texto1': 'Normatividad', 'texto2': '', 'imagen': 'decretos.png', 'link': 'colegio.decretos'},
+    {'texto1': 'Eventos', 'texto2': 'y actividades', 'imagen': 'eventos.png', 'link': 'colegio.eventos'}]
+    return render_template('core/portal.html', menu=menu, username=session.get('username'))
