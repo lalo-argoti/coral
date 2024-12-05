@@ -21,7 +21,7 @@
                 {% endif %}
                 <ul>
                     <li><label><input type="radio" name="q{{ loop.index }}" value="{{ pregunta[1] }}"> {{ pregunta[1] }}</label></li>
-                    {% for opcion in pregunta[2] | fromjson %}
+                    {% for opcion in pregunta[2] %}
                         <li><label><input type="radio" name="q{{ loop.index }}" value="{{ opcion }}"> {{ opcion }}</label></li>
                     {% endfor %}
                 </ul>

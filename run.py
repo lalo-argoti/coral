@@ -1,6 +1,7 @@
 from app import create_app
 from flask import session, request, url_for,redirect
 import logging
+from flask_json import FlaskJSON
 
 # Crear y ejecutar la app
 app = create_app()

@@ -9,7 +9,8 @@ def logros():
 
 @materias.route('/materias/evaluaciones')
 def evaluaciones():
-   return ""
+   data = get_examen_data()
+   return render_template('materias/evaluaciones.html', examen=data['examen'], preguntas=data['preguntas'], username=session.get('username'))
     
 @materias.route('/materias')
 def r_portal():
