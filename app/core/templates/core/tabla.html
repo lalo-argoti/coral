@@ -32,7 +32,7 @@
                                 {% for row in datos %}
                                     <tr>
                                         {% set id = row[0] %}
-                                        {% for cell in row[1:] %}
+                                        {% for cell in row %}
                                             <td>{{ cell }}</td>
                                         {% endfor %}
                                         <td> {% if link2 %}

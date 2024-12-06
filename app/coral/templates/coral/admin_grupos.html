@@ -1,0 +1,85 @@
+{% extends 'core/home.html' %}
+{% block title %}Gestión de Grupos de Usuarios{% endblock %}
+{% block content %}
+<section id="groups-management" class="page-section" style="background-color: #f9f9f9;">
+    <h1>Gestión de Grupos de Usuarios</h1>
+
+    <!-- Tabla de visualización -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                {% for campo in campos %}
+                    <th>{{ campo[0] | capitalize }}</th>
+                {% endfor %}
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for grupo in grupos %}
+            <tr>
+                <td>{{ grupo.id }}</td>
+                <td>{{ grupo.nombre }}</td>
+                <td>{{ grupo.permisos }}</td>
+                <td>{{ grupo.proyecto }}</td>
+                <td>{{ grupo.usado }}</td>
+                <td>
+                    <button onclick="editGroup({{ grupo.id }})">Editar</button>
+                    <button onclick="deleteGroup({{ grupo.id }})">Eliminar</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Formulario para agregar/editar grupo -->
+    <form id="userGroupForm" onsubmit="return handleSubmit(event)">
+        <h2>Agregar/Editar Grupo de Usuarios</h2>
+        <input type="hidden" id="userGroupId" name="userGroupId">
+
+        {% for campo in campos %}
+            <label for="{{ campo[0] }}">{{ campo[0] | capitalize }}:</label>
+            {% if 'text' in campo[1] %}
+                <textarea id="{{ campo[0] }}" name="{{ campo[0] }}" required></textarea>
+            {% else %}
+                <input type="{{ 'number' if 'int' in campo[1] else 'text' }}" id="{{ campo[0] }}" name="{{ campo[0] }}" required>
+            {% endif %}
+        {% endfor %}
+
+        <button type="submit">Guardar</button>
+    </form>
+
+    <script>
+        // Funciones para manejar acciones
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('userGroupForm');
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+
+            console.log('Datos enviados:', data);
+            // Aquí envías los datos al servidor mediante fetch o AJAX
+        }
+
+        function editGroup(id) {
+            // Aquí buscas el grupo por ID y llenas el formulario
+            const grupo = {{ grupos | tojson }};
+            const editar = grupo.find(g => g.id === id);
+
+            document.getElementById('userGroupId').value = editar.id;
+            document.getElementById('nombre').value = editar.nombre;
+            document.getElementById('permisos').value = editar.permisos;
+            document.getElementById('proyecto').value = editar.proyecto;
+            document.getElementById('usado').value = editar.usado;
+        }
+
+        function deleteGroup(id) {
+            if (confirm(`¿Estás seguro de que deseas eliminar el grupo con ID ${id}?`)) {
+                console.log(`Eliminar grupo con ID: ${id}`);
+                // Aquí envías la solicitud para eliminar al servidor
+            }
+        }
+    </script>
+</section>
+{% endblock %}

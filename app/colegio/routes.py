@@ -12,7 +12,7 @@ def norma():
 
 @colegio.route(p+'/docentes')
 def docentes():
-    encabezados= ['--Cédula--','--Nombres--','--Apellidos--','--Cargo--','correo-e','Teléfono', 'opciones'] #DB('SELECT COLUMN_NAME  FROM INFORMATION_SCHEMA.COLUMNS  WHERE TABLE_NAME = "occb_profesor"  ORDER BY ORDINAL_POSITION;',username="").run_query()
+    encabezados= ['--Cédula--','--Nombres--','--Apellidos--','--Cargo--','correo-e','Teléfono', 'opciones']   
     empleados=DB('SELECT  CC_NUMERO,NOMBRES,APELLIDOS,CARGO,email,TELEFONO  FROM occb_profesor;', username="").run_query()
     return  render_template('colegio/docentes.html',encabezados=encabezados, empleados=empleados, username=session.get('username'))
 

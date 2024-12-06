@@ -9,24 +9,42 @@ def r_portal():
     resultados = portal()
     return render_template('coral/portal.html', resultados=resultados,  username=session.get('username'))
 
-@coral.route('/databases')
+@coral.route('/coral/databases')
 def databases():
     return render_template('coral/databases.html', username=session.get('username'))
 
-@coral.route('/tablas')
+@coral.route('/coral/databases/tablas')
 def tablas():
      datos, encabezados=mostrarTablas()
      return render_template('core/tabla.html',datos=datos, encabezados=encabezados,titulo="tablas", link2=True,  username=session.get('username'))
 
-@coral.route('/copia')
+@coral.route('/coral/databases/copia')
 def r_copia():
     mensaje= copia()
     return mensaje
 
-@coral.route('/tablas/datos/<string:ref>')
+@coral.route('/coral/databases/tabla/<string:ref>')
 def datos(ref):
      encabezados,datos= renderTabla(ref)
      return render_template('core/tabla.html',datos=datos, encabezados=encabezados,titulo=ref,link=url_for('coral.tablas') , username=session.get('username'))
+
+@coral.route('/coral/user_grupo')
+def user_group ():
+    # Simulación de datos de la base de datos
+    vectores=DB('SELECT * FROM occb_user_group', username="").run_query()
+    columnas = ["id", "nombre", "permisos", "proyecto", "usado"]
+    grupos= [dict(zip(columnas, fila)) for fila in vectores]
+    '''grupos = [
+        {"id": 1, "nombre": "Administradores", "permisos": '["create", "read", "update", "delete"]', "proyecto": "Proyecto A", "usado": 1},
+        {"id": 2, "nombre": "Usuarios Básicos", "permisos": '["read"]', "proyecto": "Proyecto B", "usado": 0}
+    ]'''
+    campos = [
+        ["nombre", "char 16"], 
+        ["permisos", "text"], 
+        ["proyecto", "char 64"], 
+        ["usado", "int"]
+    ]
+    return render_template('coral/admin_grupos.html', grupos=grupos, campos=campos, username=session.get('username'))    
 
 # Ruta para procesar consultas SQL
 # Ruta para procesar consultas SQL
