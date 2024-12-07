@@ -39,19 +39,18 @@ def handle_docente_actions():
     cargo = request.form.get('CARGO')
     email = request.form.get('email')
     CC_NUMERO = request.form.get('CC_NUMERO')
-
+    logging.error(action)
     if action == 'crear':
         # Crear un nuevo docente
         DB(f"INSERT INTO occb_profesor (CC_NUMERO, NOMBRES, APELLIDOS, CARGO, email) VALUES ({CC_NUMERO}, '{nombres}', '{apellidos}', '{cargo}', '{email}')", username="").run_query()
         return "Docente creado", 201
-    elif action== "ver": 
+    elif action== 'ver': 
         profesores= perfil(docente_id)    
         return render_template('core/perfil.html', profesores=profesores, username=session.get('username'))
     elif action == 'editar':
         # Editar un docente
         DB(f"UPDATE occb_profesor SET NOMBRES='{nombres}', APELLIDOS='{apellidos}', CARGO='{cargo}', email='{email}' WHERE CC_NUMERO={docente_id}", username="").run_query()
         return jsonify({"success": True, "message": "Docente editado"})
-
     elif action == 'eliminar':
         # Eliminar un docente
         DB(f"DELETE FROM occb_profesor WHERE CC_NUMERO = {docente_id}", username="").run_query()
