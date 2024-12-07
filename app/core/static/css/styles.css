@@ -119,10 +119,10 @@ h6 {
     width:120px;
     height:90px;
     display:inline-block;
-    background: transparent; 
+    background: transparent;
 }
 
-#Features .circle:hover { 
+#Features .circle:hover {
     transition: all 0.2s linear 0s;
     background: rgba(255, 255, 255, 0.2); /* Cambio de fondo al hover */
 }
@@ -202,6 +202,8 @@ a {
     transition: color 0.2s;
 }
 
+/* Nota: Existen dos reglas a:hover, se mantienen para no dañar la página */
+
 a:hover {
     color: #000;
 }
@@ -217,7 +219,7 @@ a:hover {
 }
 
 .navbar-inverse {
-    background: rgba(0, 0, 0, 0.8); /* Fondo oscuro semi-transparente */
+    background: rgba(0, 0, 0, 0.8);
     border: none; /* Eliminar borde */
 }
 
@@ -295,7 +297,7 @@ a:hover {
 
 #students-list .member-img {
     position: relative;
-    overflow: hidden; 
+    overflow: hidden;
     padding: 5px;
 }
 
@@ -362,7 +364,8 @@ footer .col ul {
     list-style: none;
 }
 
-footer .col ul li, footer .col p {
+footer .col ul li,
+footer .col p {
     font-size: 14px;
 }
 
@@ -377,7 +380,7 @@ footer .col.col-social-icons a:hover {
     color: #FFDF00;
 }
 
-.copyright {
+copyright {
     color: #000;
     background: #FFDF00;
     padding: 20px 0;
@@ -403,7 +406,7 @@ copyright a:hover {
 }
 
 .topHome:hover {
-    color:#F89F9F;    
+    color:#F89F9F;
 }
 
 /* Botones */
@@ -423,10 +426,12 @@ copyright a:hover {
         opacity: 1;
         margin-top: 10px;
     }
+
     .hero-text {
         margin: 20% auto 10px auto;
         width: 90%;
     }
+
     #students-list .team-member {
         padding: 15px;
         border: 1px solid #ccc;
@@ -434,9 +439,10 @@ copyright a:hover {
 }
 
 /* Ajuste para main content */
+/*
 .main-content {
-    /*padding-top: 60px;  Ajusta según la altura de tu navbar */
-}
+    padding-top: 60px;  Ajusta según la altura de tu navbar (descomentarlo si se requiere)
+} */
 
 /* Estilos para el formulario de búsqueda en el navbar */
 .navbar-form {
@@ -448,9 +454,9 @@ copyright a:hover {
 }
 
 .navbar-form .form-control {
-    border-radius: 4px 0 0 4px; /* Bordes redondeados en el lado izquierdo */
-    border: 1px solid #FEDE00; /* Borde consistente con otros elementos */
-    padding-left: 10px; /* Espaciado interno */
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #FEDE00;
+    padding-left: 10px;
     transition: border 0.3s;
 }
 
@@ -460,7 +466,7 @@ copyright a:hover {
 }
 
 .navbar-form .input-group-btn .btn {
-    border-radius: 0 4px 4px 0; /* Bordes redondeados en el lado derecho */
+    border-radius: 0 4px 4px 0;
     background: #FFDF00;
     color: #000;
     border: 1px solid #FEDE00;
@@ -507,8 +513,6 @@ copyright a:hover {
 /* =========================================
    Estilos para la página de Matrículas e Inscripciones
    ========================================= */
-
-/* Estilos para las pestañas de Matrículas e Inscripciones */
 .nav-tabs .nav-link {
     background-color: #FFDF00;
     color: #000;
@@ -620,70 +624,62 @@ copyright a:hover {
 /* =========================================
    Estilos Personalizados para el Menú Desplegable de "Estrato"
    ========================================= */
-
-/* 1. Asegurar que las etiquetas estén correctamente alineadas */
 .form-label {
     display: block;
     margin-bottom: 5px;
     font-weight: 600; /* Negrita para destacar las etiquetas */
 }
 
-/* 2. Igualar el tamaño y apariencia de 'grado' y 'eps' */
 #grado, #eps {
-    width: 100%; /* Ancho completo dentro de su contenedor */
-    padding: 10px 15px; /* Espaciado interno consistente */
-    font-size: 16px; /* Tamaño de fuente uniforme */
-    border: 1px solid #FEDE00; /* Borde amarillo consistente */
-    border-radius: 4px; /* Bordes ligeramente redondeados */
-    background-color: #fff; /* Fondo blanco para mantener la coherencia */
-    color: #000; /* Texto negro para buena legibilidad */
-    box-sizing: border-box; /* Incluir padding y border en el cálculo del ancho */
-    transition: border-color 0.3s, background-color 0.3s, color 0.3s; /* Transiciones suaves */
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #FEDE00;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #000;
+    box-sizing: border-box;
+    transition: border-color 0.3s, background-color 0.3s, color 0.3s;
 }
 
-/* 1. Eliminar el fondo amarillo y ajustar el select para que coincida con "EPS" */
+/* Ajustes para #estrato */
 #estrato {
-    background-color: #fff !important; /* Fondo blanco */
-    border-color: #ccc !important; /* Borde gris claro */
-    color: #000 !important; /* Texto negro */
-    background-image: none !important; /* Eliminar icono personalizado */
-    padding: 10px 15px !important; /* Ajustar padding para igualar "EPS" */
-    font-size: 16px !important; /* Asegurar tamaño de fuente coherente */
-    border-radius: 4px !important; /* Bordes ligeramente redondeados */
-    height: auto !important; /* Altura automática */
-    width: 100% !important; /* Ancho completo del contenedor */
-    box-shadow: none !important; /* Eliminar sombra si existe */
-    transition: border-color 0.3s, background-color 0.3s, color 0.3s; /* Transiciones suaves */
+    background-color: #fff !important;
+    border-color: #ccc !important;
+    color: #000 !important;
+    background-image: none !important;
+    padding: 10px 15px !important;
+    font-size: 16px !important;
+    border-radius: 4px !important;
+    height: auto !important;
+    width: 100% !important;
+    box-shadow: none !important;
+    transition: border-color 0.3s, background-color 0.3s, color 0.3s !important;
 }
 
-/* 4. Ajustar la altura de 'grado', 'eps' y 'estrato' para uniformidad */
 #grado, #eps, #estrato {
-    height: 45px; /* Altura uniforme */
+    height: 45px;
 }
 
-/* 5. Eliminar cualquier sombra o estilo adicional que afecte los campos */
 #estrato, #grado, #eps {
     box-shadow: none !important;
 }
 
-/* 6. Estilizar el select 'estrato' para que se vea como los inputs */
 #estrato {
-    padding: 10px 15px !important; /* Espaciado interno consistente */
-    font-size: 16px !important; /* Tamaño de fuente uniforme */
-    border-radius: 4px !important; /* Bordes ligeramente redondeados */
-    transition: border-color 0.3s, background-color 0.3s, color 0.3s !important; /* Transiciones suaves */
+    padding: 10px 15px !important;
+    font-size: 16px !important;
+    border-radius: 4px !important;
 }
 
-/* 7. Ajustes Responsivos para Dispositivos Móviles */
+/* Responsividad para Estrato */
 @media (max-width: 768px) {
     #grado, #eps, #estrato {
-        width: 100% !important; /* Ancho completo en móviles */
-        padding: 10px 15px !important; /* Mantener padding consistente */
-        font-size: 16px !important; /* Mantener tamaño de fuente */
-        height: 45px !important; /* Mantener altura uniforme */
+        width: 100% !important;
+        padding: 10px 15px !important;
+        font-size: 16px !important;
+        height: 45px !important;
     }
 
-    /* Asegurar que las etiquetas estén correctamente alineadas en móviles */
     .form-label {
         margin-bottom: 5px !important;
     }
@@ -692,11 +688,9 @@ copyright a:hover {
 /* =========================================
    Estilos para la Página de Iniciar Sesión
    ========================================= */
-
-/* Contenedor de Inicio de Sesión */
 .login-container {
     max-width: 400px;
-    margin: 100px auto; /* Centrar vertical y horizontalmente */
+    margin: 100px auto;
     padding: 30px;
     background: #fff;
     border: 1px solid #ddd;
@@ -705,13 +699,11 @@ copyright a:hover {
     text-align: center;
 }
 
-/* Logo en el Contenedor de Inicio de Sesión */
 .login-container .logo {
     max-width: 150px;
     margin-bottom: 20px;
 }
 
-/* Título del Formulario */
 .login-container h1 {
     font-family: 'Oswald', sans-serif;
     font-size: 24px;
@@ -719,7 +711,6 @@ copyright a:hover {
     margin-bottom: 20px;
 }
 
-/* Estilos para las Etiquetas */
 .login-container label {
     display: block;
     text-align: left;
@@ -728,7 +719,6 @@ copyright a:hover {
     color: #333;
 }
 
-/* Estilos para los Campos de Entrada */
 .login-container input[type="text"],
 .login-container input[type="password"] {
     width: 100%;
@@ -749,7 +739,6 @@ copyright a:hover {
     box-shadow: none;
 }
 
-/* Botón de Inicio de Sesión */
 .login-container button[type="submit"] {
     width: 100%;
     padding: 10px;
@@ -768,14 +757,12 @@ copyright a:hover {
     color: #fff;
 }
 
-/* Mensaje de Error */
 .login-container p {
     margin-top: 15px;
-    color: #FF0000; /* Puedes ajustar el color según tus necesidades */
+    color: #FF0000;
     font-weight: 600;
 }
 
-/* Responsividad para Dispositivos Móviles */
 @media (max-width: 480px) {
     .login-container {
         margin: 50px 20px;
@@ -850,7 +837,7 @@ copyright a:hover {
     padding: 150px 0;
     color: #fff;
     position: relative;
-    background: url('../images/hero-bg.jpg') no-repeat center center / cover; /* Añade una imagen de fondo si lo deseas */
+    background: url('../images/hero-bg.jpg') no-repeat center center / cover;
 }
 
 .hero-section::after {
@@ -860,7 +847,7 @@ copyright a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Superposición oscura */
+    background: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
 
@@ -959,17 +946,15 @@ copyright a:hover {
     box-shadow: 0 0 5px rgba(224, 196, 0, 0.5);
 }
 
-/* Alinear el botón "Enviar Mensaje" correctamente */
 #contact .btn-primary {
-    display: inline-block; /* Asegura que el botón no ocupe toda la línea */
+    display: inline-block;
 }
 
-/* Estilos para el botón "Enviar Mensaje" en dispositivos móviles */
 @media (max-width: 480px) {
     #contact .btn-primary {
         display: block;
         width: 100%;
-        margin-top: 10px; /* Añade un margen superior para separación */
+        margin-top: 10px;
     }
 }
 
@@ -987,7 +972,7 @@ copyright a:hover {
 }
 
 #students-list th {
-    background-color: #343a40; /* Color oscuro para el encabezado */
+    background-color: #343a40;
     color: #fff;
 }
 
@@ -1052,7 +1037,6 @@ copyright a:hover {
         padding: 6px 8px;
     }
 
-    /* Ajustar el tamaño de los iconos en los botones */
     #students-list .btn i {
         font-size: 0.9em;
     }
@@ -1061,8 +1045,6 @@ copyright a:hover {
 /* =========================================
    Estilos Mejorados para la Tabla de Perfil
    ========================================= */
-
-/* Contenedor del Resumen del Perfil */
 .profile-overview {
     padding: 25px;
     background-color: #ffffff;
@@ -1071,7 +1053,6 @@ copyright a:hover {
     margin-top: 20px;
 }
 
-/* Títulos de Sección */
 .profile-overview .card-title {
     font-size: 1.75em;
     color: #333333;
@@ -1081,14 +1062,12 @@ copyright a:hover {
     padding-bottom: 5px;
 }
 
-/* Descripción Italica */
 .profile-overview .fst-italic {
     font-style: italic;
     color: #555555;
     margin-bottom: 25px;
 }
 
-/* Filas de la Tabla de Perfil */
 .profile-overview .row {
     display: flex;
     flex-wrap: wrap;
@@ -1101,7 +1080,6 @@ copyright a:hover {
     border-bottom: none;
 }
 
-/* Etiquetas (Labels) */
 .profile-overview .label {
     flex: 0 0 35%;
     max-width: 35%;
@@ -1120,7 +1098,6 @@ copyright a:hover {
     }
 }
 
-/* Valores */
 .profile-overview .row > div:nth-child(2) {
     flex: 1;
     color: #555555;
@@ -1129,7 +1106,6 @@ copyright a:hover {
     font-size: 1em;
 }
 
-/* Punto Decorativo Antes del Valor */
 .profile-overview .row > div:nth-child(2)::before {
     content: '';
     position: absolute;
@@ -1142,19 +1118,16 @@ copyright a:hover {
     border-radius: 50%;
 }
 
-/* Efecto Hover en los Valores */
 .profile-overview .row > div:nth-child(2):hover {
     color: #FFDF00;
     cursor: default;
 }
 
-/* Efecto Hover en las Filas */
 .profile-overview .row:hover {
     background-color: #fffbea;
     transition: background-color 0.3s ease;
 }
 
-/* Separadores entre Secciones */
 .profile-overview h5 {
     margin-top: 30px;
     margin-bottom: 15px;
@@ -1164,13 +1137,11 @@ copyright a:hover {
     padding-bottom: 5px;
 }
 
-/* Mejorar Tipografía */
 .profile-overview p {
     font-size: 1em;
     line-height: 1.6;
 }
 
-/* Animaciones Suaves para las Filas */
 .profile-overview .row {
     opacity: 0;
     transform: translateY(10px);
@@ -1195,8 +1166,6 @@ copyright a:hover {
 /* =========================================
    Estilos Optimizado para la Pestaña de Contacto
    ========================================= */
-
-/* Contenedor de la Información de Contacto */
 .profile-contact {
     padding: 25px;
     background-color: #fff;
@@ -1205,7 +1174,6 @@ copyright a:hover {
     margin-top: 20px;
 }
 
-/* Títulos de Sección en Contacto */
 .profile-contact .card-title,
 .profile-contact h5 {
     color: #333;
@@ -1227,7 +1195,6 @@ copyright a:hover {
     margin-bottom: 15px;
 }
 
-/* Filas de la Tabla de Contacto */
 .profile-contact .row {
     display: flex;
     flex-wrap: wrap;
@@ -1239,12 +1206,10 @@ copyright a:hover {
     transition: background-color 0.3s ease;
 }
 
-/* Bordes inferiores excepto en la última fila */
 .profile-contact .row:not(:last-child) {
     border-bottom: 1px solid #e0e0e0;
 }
 
-/* Animaciones para las filas */
 .profile-contact .row:nth-child(odd) {
     animation-delay: 0.1s;
 }
@@ -1253,7 +1218,6 @@ copyright a:hover {
     animation-delay: 0.2s;
 }
 
-/* Etiquetas (Labels) en Contacto */
 .profile-contact .label {
     flex: 0 0 35%;
     max-width: 35%;
@@ -1263,7 +1227,6 @@ copyright a:hover {
     text-align: right;
 }
 
-/* Responsividad para Etiquetas */
 @media (max-width: 768px) {
     .profile-contact .label {
         flex: 0 0 100%;
@@ -1273,7 +1236,6 @@ copyright a:hover {
     }
 }
 
-/* Valores en Contacto */
 .profile-contact .row > div:nth-child(2) {
     flex: 1;
     color: #555;
@@ -1282,7 +1244,6 @@ copyright a:hover {
     font-size: 1em;
 }
 
-/* Punto Decorativo Antes del Valor en Contacto */
 .profile-contact .row > div:nth-child(2)::before {
     content: '';
     position: absolute;
@@ -1295,18 +1256,15 @@ copyright a:hover {
     border-radius: 50%;
 }
 
-/* Efecto Hover en los Valores de Contacto */
 .profile-contact .row > div:nth-child(2):hover {
     color: #FFDF00;
     cursor: default;
 }
 
-/* Efecto Hover en las Filas de Contacto */
 .profile-contact .row:hover {
     background-color: #fffbea;
 }
 
-/* Mejorar Tipografía en Contacto */
 .profile-contact p {
     font-size: 1em;
     line-height: 1.6;
@@ -1323,76 +1281,69 @@ copyright a:hover {
 /* =========================================
    Estilos Mejorados para la Tarjeta de Perfil
    ========================================= */
-
-/* Contenedor de la tarjeta de perfil */
 .profile-card {
     padding: 20px;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  }
-  
-  /* Contenedor de Imagen y Texto Alineado Verticalmente */
-  .profile-card-content {
+}
+
+.profile-card-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     margin-bottom: 20px;
-  }
-  
-  /* Imagen de perfil */
-  .profile-card img {
+}
+
+.profile-card img {
     max-width: 150px;
     height: auto;
     border-radius: 50%;
-    margin-bottom: 15px; /* Espacio entre la imagen y el texto */
+    margin-bottom: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .profile-card img:hover {
-    transform: scale(1.05); /* Efecto de zoom en la imagen */
+}
+
+.profile-card img:hover {
+    transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Información del perfil (nombre y cargo) */
-  .profile-info h2 {
+}
+
+.profile-info h2 {
     font-size: 1.8em;
     color: #333;
     margin-bottom: 5px;
-  }
-  
-  .profile-info h3 {
+}
+
+.profile-info h3 {
     font-size: 1.2em;
     color: #777;
     margin-bottom: 15px;
-  }
-  
-  /* Enlaces sociales */
-  .social-links a {
+}
+
+.social-links a {
     color: #FFDF00;
     font-size: 1.2em;
     margin: 0 10px;
     transition: color 0.3s ease;
-  }
-  
-  .social-links a:hover {
+}
+
+.social-links a:hover {
     color: #E0C400;
-  }
-  
-  /* Alineación de la tarjeta de perfil en pantallas pequeñas */
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     .profile-card {
-      padding: 15px;
+        padding: 15px;
     }
-  
+
     .profile-info h2 {
-      font-size: 1.5em;
+        font-size: 1.5em;
     }
-  
+
     .profile-info h3 {
-      font-size: 1.1em;
+        font-size: 1.1em;
     }
-  }
-  
+}
+

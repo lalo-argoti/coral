@@ -9359,3 +9359,38 @@ Traceback (most recent call last):
     return getattr(obj, attribute)
            ^^^^^^^^^^^^^^^^^^^^^^^
 jinja2.exceptions.UndefinedError: 'profesoreses' is undefined
+2024-12-07 09:13:13,439 - app - ERROR - Exception on /colegio/handle_docente_actions [POST]
+Traceback (most recent call last):
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/mysql/connector/connection_cext.py", line 706, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'LUG_EXP' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/colegio/routes.py", line 45, in handle_docente_actions
+    DB(f"INSERT INTO occb_profesor (CC_NUMERO, NOMBRES, APELLIDOS, CARGO, email) VALUES ({CC_NUMERO}, '{nombres}', '{apellidos}', '{cargo}', '{email}')", username="").run_query()
+  File "/home/felipe/Escritorio/Trabajo/Argoti/Desarrollo web/coral/app/core/Mirlt.py", line 168, in run_query
+    cursor.execute(query)          # Ejecutar una consulta
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/mysql/connector/cursor_cext.py", line 357, in execute
+    result = self._connection.cmd_query(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/mysql/connector/opentelemetry/context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/felipe/nuevo_entorno/lib/python3.12/site-packages/mysql/connector/connection_cext.py", line 714, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'LUG_EXP' doesn't have a default value
