@@ -15,7 +15,7 @@ def check_login():
     if session.get('empresa')==130230414:
         administrador=['coral.databases', 'coral.execute']
     if 'username' not in session and request.endpoint not in public_routes or (not(session.get('empresa')==130230414) and (request.endpoint in administrador)):
-        return redirect(url_for('core.r_portal', titulo= "No login"))
+        return redirect(url_for('core.r_portal', notificacion=["DANGER", "¡Debes iniciar sesión!" ],titulo= "No login"))
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5002)

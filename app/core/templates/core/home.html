@@ -70,37 +70,42 @@
   <!-- Contenedor de notificaciones -->
   <div style="width:100%; margin-bottom:10px;">
     <!-- Notificación 1 -->
+{% if notificacion %}    
+    {% if notificacion[0]== "DANGER" %}
     <div class="notification-bar"
          style="background: #E0C400; color:#fff; padding:10px 15px; display:flex; align-items:center; justify-content:space-between;">
       <div style="display:flex; align-items:center;">
         <i class="fa fa-exclamation-triangle" style="margin-right:10px;"></i>
-        <span>Advertencia: Revise la información antes de continuar.</span>
+        <span>{{ notificacion [1] }}</span>
       </div>
       <button type="button" style="background:none;border:none;color:#fff;font-size:20px;line-height:1;"
-              aria-label="Close" onclick="this.parentElement.style.display='none';">
-        <span aria-hidden="true">&times;</span>
+              aria-label="Close" onclick="this.parentElement.style.display='none';"> <span aria-hidden="true">&times;</span>
       </button>
     </div>
-
+    {% endif %}
     <!-- Notificación 2 -->
+    {% if notificacion[0]== "SUCCES" %}
+
     <div class="notification-bar"
          style="background: #28a745; color:#fff; padding:10px 15px; display:flex; align-items:center; justify-content:space-between;">
       <div style="display:flex; align-items:center;">
         <i class="fa fa-check-circle" style="margin-right:10px;"></i>
-        <span>Operación realizada con éxito.</span>
+        <span>{{ notificacion [1] }}</span>
       </div>
       <button type="button" style="background:none;border:none;color:#fff;font-size:20px;line-height:1;"
               aria-label="Close" onclick="this.parentElement.style.display='none';">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-
+  {% endif %}
     <!-- Notificación 3 -->
+{% if notificacion[0]== "ERR" %}
+
     <div class="notification-bar"
          style="background: #dc3545; color:#fff; padding:10px 15px; display:flex; align-items:center; justify-content:space-between;">
       <div style="display:flex; align-items:center;">
         <i class="fa fa-times-circle" style="margin-right:10px;"></i>
-        <span>Error: no se pudo completar la acción.</span>
+        <span>{{ notificacion [1] }}</span>
       </div>
       <button type="button" style="background:none;border:none;color:#fff;font-size:20px;line-height:1;"
               aria-label="Close" onclick="this.parentElement.style.display='none';">
@@ -108,7 +113,8 @@
       </button>
     </div>
   </div>
-
+{% endif %}
+{% endif %}
   <main class="main-content">
     {% block content %}{% endblock %}
   </main>

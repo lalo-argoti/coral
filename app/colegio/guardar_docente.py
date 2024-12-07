@@ -1,5 +1,6 @@
 from app.core.Mirlt import DB  # Importa la clase DB
 from datetime import datetime
+import logging
 
 def guardar_profesor(datos):
     datos_docente = {
