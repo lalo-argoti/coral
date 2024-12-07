@@ -1,0 +1,25 @@
+from flask import render_template,session
+from models import db, UserGroup  # Importa el modelo correspondiente
+from . import user_group
+from .views import *
+p= "/coral/user_grupo"
+
+
+@user_groups.route(p + '/handle_actions', methods=['POST'])
+def handle_user_group_actions():
+    user_group_id = request.form.get('user_group_id')
+    action = request.form.get('action')
+
+    if action == 'crear':
+        # Aquí se crearán los datos en la base de datos
+        return "Grupo creado", 201
+
+    elif action == 'editar':
+        # Aquí se editarán los datos en la base de datos
+        return "Grupo editado", 200
+
+    elif action == 'eliminar':
+        # Aquí se eliminará en la base de datos
+        return "Grupo eliminado", 200
+
+    return "Acción no reconocida", 400

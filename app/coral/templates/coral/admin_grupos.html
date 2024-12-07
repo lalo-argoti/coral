@@ -9,23 +9,24 @@
         <thead>
             <tr>
                 <th>ID</th>
-                {% for campo in campos %}
-                    <th>{{ campo[0] | capitalize }}</th>
-                {% endfor %}
+                <th>Nombre</th>
+                <th>Permisos</th>
+                <th>Proyecto</th>
+                <th>Usado</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
             {% for grupo in grupos %}
             <tr>
-                <td>{{ grupo.id }}</td>
-                <td>{{ grupo.nombre }}</td>
-                <td>{{ grupo.permisos }}</td>
+                <td>{{ grupo.user_group_id }}</td>
+                <td>{{ grupo.name }}</td>
+                <td>{{ grupo.permission }}</td>
                 <td>{{ grupo.proyecto }}</td>
                 <td>{{ grupo.usado }}</td>
                 <td>
-                    <button onclick="editGroup({{ grupo.id }})">Editar</button>
-                    <button onclick="deleteGroup({{ grupo.id }})">Eliminar</button>
+                    <button onclick="editGroup('{{ grupo.user_group_id }}')">Editar</button>
+                    <button onclick="deleteGroup('{{ grupo.user_group_id }}')">Eliminar</button>
                 </td>
             </tr>
             {% endfor %}
@@ -35,49 +36,71 @@
     <!-- Formulario para agregar/editar grupo -->
     <form id="userGroupForm" onsubmit="return handleSubmit(event)">
         <h2>Agregar/Editar Grupo de Usuarios</h2>
-        <input type="hidden" id="userGroupId" name="userGroupId">
+        <input type="hidden" id="user_group_id" name="user_group_id">
 
-        {% for campo in campos %}
-            <label for="{{ campo[0] }}">{{ campo[0] | capitalize }}:</label>
-            {% if 'text' in campo[1] %}
-                <textarea id="{{ campo[0] }}" name="{{ campo[0] }}" required></textarea>
-            {% else %}
-                <input type="{{ 'number' if 'int' in campo[1] else 'text' }}" id="{{ campo[0] }}" name="{{ campo[0] }}" required>
-            {% endif %}
-        {% endfor %}
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="permission">Permisos (JSON):</label>
+        <textarea id="permission" name="permission" required></textarea>
+
+        <label for="proyecto">Proyecto:</label>
+        <input type="text" id="proyecto" name="proyecto" required>
+
+        <label for="usado">Usado:</label>
+        <input type="number" id="usado" name="usado" required>
 
         <button type="submit">Guardar</button>
     </form>
 
     <script>
-        // Funciones para manejar acciones
+        const baseUrl = '/user_groups/handle_actions';
 
         function handleSubmit(event) {
             event.preventDefault();
             const form = document.getElementById('userGroupForm');
             const formData = new FormData(form);
-            const data = Object.fromEntries(formData);
-
-            console.log('Datos enviados:', data);
-            // Aquí envías los datos al servidor mediante fetch o AJAX
+            
+            fetch(baseUrl, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.reload();
+                } else {
+                    console.error('Error al procesar la solicitud');
+                }
+            })
+            .catch(error => console.error('Error:', error));
         }
 
         function editGroup(id) {
-            // Aquí buscas el grupo por ID y llenas el formulario
-            const grupo = {{ grupos | tojson }};
-            const editar = grupo.find(g => g.id === id);
-
-            document.getElementById('userGroupId').value = editar.id;
-            document.getElementById('nombre').value = editar.nombre;
-            document.getElementById('permisos').value = editar.permisos;
-            document.getElementById('proyecto').value = editar.proyecto;
-            document.getElementById('usado').value = editar.usado;
+            const row = document.querySelector(`tr td:first-child:contains(${id})`).parentNode;
+            document.getElementById('user_group_id').value = id;
+            document.getElementById('name').value = row.children[1].textContent;
+            document.getElementById('permission').value = row.children[2].textContent;
+            document.getElementById('proyecto').value = row.children[3].textContent;
+            document.getElementById('usado').value = row.children[4].textContent;
         }
 
         function deleteGroup(id) {
             if (confirm(`¿Estás seguro de que deseas eliminar el grupo con ID ${id}?`)) {
-                console.log(`Eliminar grupo con ID: ${id}`);
-                // Aquí envías la solicitud para eliminar al servidor
+                fetch(baseUrl, {
+                    method: 'POST',
+                    body: new URLSearchParams({
+                        user_group_id: id,
+                        action: 'eliminar'
+                    })
+                })
+                .then(response => {
+                    if (response.ok) {
+                        window.location.reload();
+                    } else {
+                        console.error('Error al eliminar el grupo');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
             }
         }
     </script>

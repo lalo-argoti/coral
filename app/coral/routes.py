@@ -6,8 +6,16 @@ from app.core.Mirlt import DB  # Importa la clase DB
 
 @coral.route('/coral')
 def r_portal():
-    resultados = portal()
-    return render_template('coral/portal.html', resultados=resultados,  username=session.get('username'))
+
+    menu = [
+    {'texto1': 'Consultas', 'texto2': 'sql', 'imagen': 'distribucion.png', 'link': 'coral.databases'},
+    {'texto1': 'Tablas de la', 'texto2': 'base de datos', 'imagen': 'logros.png', 'link': 'coral.tablas'},
+    {'texto1': 'Grupos de ', 'texto2': 'usuarios', 'imagen': 'evaluaciones.png', 'link': 'user_group.user_group'}
+    ]
+    return render_template('core/portal.html', menu=menu,  username=session.get('username'))
+
+
+
 
 @coral.route('/coral/databases')
 def databases():
@@ -28,7 +36,7 @@ def datos(ref):
      encabezados,datos= renderTabla(ref)
      return render_template('core/tabla.html',datos=datos, encabezados=encabezados,titulo=ref,link=url_for('coral.tablas') , username=session.get('username'))
 
-@coral.route('/coral/user_grupo')
+@coral.route('/coral/user_grupoOLD')
 def user_group ():
     # Simulación de datos de la base de datos
     vectores=DB('SELECT * FROM occb_user_group', username="").run_query()

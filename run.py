@@ -1,5 +1,5 @@
 from app import create_app
-from flask import session, request, url_for,redirect
+from flask import session, request, url_for,redirect ,jsonify
 import logging
 from flask_json import FlaskJSON
 

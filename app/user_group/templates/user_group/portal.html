@@ -1,0 +1,37 @@
+{% extends 'core/home.html' %}
+{% block title %}Lista de Alumnos{% endblock %}
+{% block content %}
+    <section id="students-list" class="page-section" style="background-color: #f9f9f9;">
+    
+
+
+    <h1>{{ examen[7] }}</h1> <!-- Examen descripción -->
+    <h2>Fecha: {{ examen[4] }} - {{ examen[5] }}</h2>
+    <p>Duración: {{ examen[8] }} minutos</p>
+
+    <form method="POST" action="/materias/evaluaciones/submit">
+        {% for pregunta in preguntas %}
+            <div>
+                <h3>{{ pregunta[0] }}</h3>
+                {% if pregunta[3] == 'audio' %}
+                    <audio controls>
+                        <source src="{{ pregunta[4] }}" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                {% endif %}
+                <ul>
+                    <li><label><input type="radio" name="q{{ loop.index }}" value="{{ pregunta[1] }}"> {{ pregunta[1] }}</label></li>
+                    {% for opcion in pregunta[2] | fromjson %}
+                        <li><label><input type="radio" name="q{{ loop.index }}" value="{{ opcion }}"> {{ opcion }}</label></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+
+
+
+    </section>
+{% endblock %}
+

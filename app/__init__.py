@@ -1,6 +1,6 @@
 import os
 import logging
-from flask import Flask
+from flask import Flask, jsonify
 
 def create_app():
     # Definir las rutas de las carpetas 'static' y 'templates' para core
@@ -37,6 +37,7 @@ def create_app():
     from app.materias import materias
     from app.coral import coral
     from app.sesion import sesion 
+    from app.user_group import  user_group
     app.register_blueprint(core)
     app.register_blueprint(sesion)
     app.register_blueprint(usuario)
@@ -46,4 +47,5 @@ def create_app():
     app.register_blueprint(colegio)
     app.register_blueprint(materias)
     app.register_blueprint(coral)
+    app.register_blueprint(user_group)
     return app
