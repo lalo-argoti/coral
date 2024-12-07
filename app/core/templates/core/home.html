@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum=1">
   <title>{% block title %}Colegio{% endblock %}</title>
   <meta name="description" content="">
   <meta name="author" content="WebThemez">
@@ -18,30 +18,25 @@
     <div class="container">
       <nav class="navbar navbar-inverse" role="navigation">
         <div class="navbar-header">
-          <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav"> 
-            <span class="sr-only">Toggle navigation</span> 
-            <span class="icon-bar"></span> 
-            <span class="icon-bar"></span> 
-            <span class="icon-bar"></span> 
+          <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
           </button>
           <!-- Logo -->
           <a href="{{ url_for('core.r_portal') }}" class="navbar-brand scroll-top logo animated bounceInLeft">
             <b><i><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" /></i></b>
-          </a> 
+          </a>
         </div>
-        <!--/.navbar-header-->
-
-
-
 
         <div id="main-nav" class="collapse navbar-collapse">
           <ul class="nav navbar-nav" id="mainNav">
-            {%if username%}
+            {% if username %}
             <li><a href="{{url_for('core.r_portal')}}">Inicio</a></li>
             <li><a href="{{ url_for('alumnos.r_portal') }}">Alumnos</a></li>
             <li><a href="{{ url_for('grupos.r_portal') }}">Grupos y cursos</a></li>
             <li><a href="{{ url_for('colegio.r_portal') }}">Colegio</a></li>
-            <!-- Menú Desplegable para Usuario -->
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 {{username}} <span class="caret"></span>
@@ -52,12 +47,10 @@
                 <li role="separator" class="divider"></li>
                 <li><a href="{{url_for('usuario.r_salir') }}">Salir</a></li>
               </ul>
-               
-
             </li>
-             {%else%}
-             <li><a href="{{ url_for('sesion.login') }}">Entrar</a></li>
-             {%endif%}
+            {% else %}
+            <li><a href="{{ url_for('sesion.login') }}">Entrar</a></li>
+            {% endif %}
           </ul>
 
           <!-- Formulario de Búsqueda -->
@@ -73,6 +66,48 @@
       </nav>
     </div>
   </header>
+
+  <!-- Contenedor de notificaciones -->
+  <div style="width:100%; margin-bottom:10px;">
+    <!-- Notificación 1 -->
+    <div class="notification-bar"
+         style="background: #E0C400; color:#fff; padding:10px 15px; display:flex; align-items:center; justify-content:space-between;">
+      <div style="display:flex; align-items:center;">
+        <i class="fa fa-exclamation-triangle" style="margin-right:10px;"></i>
+        <span>Advertencia: Revise la información antes de continuar.</span>
+      </div>
+      <button type="button" style="background:none;border:none;color:#fff;font-size:20px;line-height:1;"
+              aria-label="Close" onclick="this.parentElement.style.display='none';">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <!-- Notificación 2 -->
+    <div class="notification-bar"
+         style="background: #28a745; color:#fff; padding:10px 15px; display:flex; align-items:center; justify-content:space-between;">
+      <div style="display:flex; align-items:center;">
+        <i class="fa fa-check-circle" style="margin-right:10px;"></i>
+        <span>Operación realizada con éxito.</span>
+      </div>
+      <button type="button" style="background:none;border:none;color:#fff;font-size:20px;line-height:1;"
+              aria-label="Close" onclick="this.parentElement.style.display='none';">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <!-- Notificación 3 -->
+    <div class="notification-bar"
+         style="background: #dc3545; color:#fff; padding:10px 15px; display:flex; align-items:center; justify-content:space-between;">
+      <div style="display:flex; align-items:center;">
+        <i class="fa fa-times-circle" style="margin-right:10px;"></i>
+        <span>Error: no se pudo completar la acción.</span>
+      </div>
+      <button type="button" style="background:none;border:none;color:#fff;font-size:20px;line-height:1;"
+              aria-label="Close" onclick="this.parentElement.style.display='none';">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
 
   <main class="main-content">
     {% block content %}{% endblock %}
@@ -143,8 +178,9 @@
   <section class="copyright">
     <div class="container">
       <div class="row">
-        <div class="col-sm-12 text-center"> Copyright 2014 | All Rights Reserved -- Template by -  
-          <a href="http://webThemez.com"> WebThemez.com</a>
+        <div class="col-sm-12 text-center">
+          Copyright 2014 | All Rights Reserved --
+          Template by - <a href="http://webThemez.com"> WebThemez.com</a>
         </div>
       </div>
     </div>
@@ -157,24 +193,27 @@
   <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" type="text/javascript"></script>
   <script src="{{ url_for('static', filename='js/custom.js') }}" type="text/javascript"></script>
   <script>
-  // Verificar si estamos en la página de login y ocultar el header, footer y copyright
+  // Verificar si estamos en la página de login y ocultar el header, footer, copyright
+  // y las notificaciones si las hubiera
   if (window.location.pathname.includes("/login")) {
     // Ocultar el header
     document.querySelector("header").style.display = "none";
-    
+
     // Ocultar el footer
     document.querySelector("footer").style.display = "none";
-    
-    // Ocultar el copyright
+
+    // Ocultar copyright
     document.querySelector(".copyright").style.display = "none";
-    
-    // No mostrar el console.log en la página de login
+
+    // Ocultar notificaciones
+    var notifications = document.querySelectorAll(".notification-bar");
+    notifications.forEach(function(notification) {
+      notification.style.display = "none";
+    });
   } else {
-    console.log(window.location.pathname);  // Solo se ejecutará si no estamos en la página de login
+    console.log(window.location.pathname);
   }
 </script>
 
-  
-  
 </body>
 </html>
