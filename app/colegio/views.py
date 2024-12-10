@@ -28,35 +28,39 @@ def perfil(sujeto):
 
 
 def levanta_la_mano(docente_id,action,nombres,apellidos,cargo,email,CC_NUMERO, session, decreto, lug_exp, est_civil, lib_milit, genero, direccion, telefono, fec_vincul, univers, cursillos, nom_grado1, reg_grado1, escal_se):
-
-    if action == 'crear':
-        # Crear un nuevo docente
-        decreto = decreto if decreto else " "
-        lug_exp = lug_exp if lug_exp else " "
-        est_civil = est_civil if est_civil else " "
-        lib_milit = lib_milit if lib_milit else " "
-        genero = genero if genero else " "
-        direccion = direccion if direccion else " "
-        telefono = telefono if telefono else " "
-        fec_vincul =  datetime.now().strftime('%Y-%m-%d')  # Formato YYYY-MM-DD fec_vincul if fec_vincul else
-        univers =univers if univers else " "
-        cursillos = cursillos if cursillos else " "
-        nom_grado1 = nom_grado1 if nom_grado1 else " "
-        reg_grado1 = reg_grado1 if reg_grado1 else " "
-        escal_se = escal_se if escal_se else " "
-        DB(f"""    INSERT INTO occb_profesor 
-            (CC_NUMERO, NOMBRES, APELLIDOS, CARGO, LUG_EXP, EST_CIVIL, LIB_MILIT, GENERO, DIRECCION, TELEFONO, 
-             FEC_VINCUL, DECRETO, UNIVERS, CURSILLOS, NOM_GRADO1, REG_GRADO1, ESCAL_SE, email) 
-            VALUES 
-            ({CC_NUMERO}, '{nombres}', '{apellidos}', '{cargo}', '{lug_exp}', '{est_civil}', '{lib_milit}', 
-             '{genero}', '{direccion}', '{telefono}', '{fec_vincul}', '{decreto}', '{univers}', '{cursillos}', 
-             '{nom_grado1}', '{reg_grado1}', '{escal_se}', '{email}')
-        """, username="").run_query()
-
-        encabezados= ['--Cédula--','--Nombres--','--Apellidos--','--Cargo--','correo-e','Teléfono', 'opciones']   
-        empleados=DB('SELECT  CC_NUMERO,NOMBRES,APELLIDOS,CARGO,email,TELEFONO  FROM occb_profesor;', username="").run_query()
-        return ('colegio/agregar.html', encabezados, empleados, "", ["SUCCES","Registro agregado."])
-
+    if action == 'crear':   
+        try: 
+            # Crear un nuevo docente
+            decreto = decreto if decreto else " "
+            lug_exp = lug_exp if lug_exp else " "
+            est_civil = est_civil if est_civil else " "
+            lib_milit = lib_milit if lib_milit else " "
+            genero = genero if genero else " "
+            direccion = direccion if direccion else " "
+            telefono = telefono if telefono else " "
+            fec_vincul =  datetime.now().strftime('%Y-%m-%d')  # Formato YYYY-MM-DD fec_vincul if fec_vincul else
+            univers =univers if univers else " "
+            cursillos = cursillos if cursillos else " "
+            nom_grado1 = nom_grado1 if nom_grado1 else " "
+            reg_grado1 = reg_grado1 if reg_grado1 else " "
+            escal_se = escal_se if escal_se else " "
+            DB(f"""    INSERT INTO occb_profesor 
+                (CC_NUMERO, NOMBRES, APELLIDOS, CARGO, LUG_EXP, EST_CIVIL, LIB_MILIT, GENERO, DIRECCION, TELEFONO, 
+                FEC_VINCUL, DECRETO, UNIVERS, CURSILLOS, NOM_GRADO1, REG_GRADO1, ESCAL_SE, email) 
+                VALUES 
+                ({CC_NUMERO}, '{nombres}', '{apellidos}', '{cargo}', '{lug_exp}', '{est_civil}', '{lib_milit}', 
+                '{genero}', '{direccion}', '{telefono}', '{fec_vincul}', '{decreto}', '{univers}', '{cursillos}', 
+                '{nom_grado1}', '{reg_grado1}', '{escal_se}', '{email}')
+            """, username="").run_query()
+            encabezados= ['--Cédula--','--Nombres--','--Apellidos--','--Cargo--','correo-e','Teléfono', 'opciones']   
+            empleados=DB('SELECT  CC_NUMERO,NOMBRES,APELLIDOS,CARGO,email,TELEFONO  FROM occb_profesor;', username="").run_query()
+            return ('colegio/docentes.html', encabezados, empleados, "", ["SUCCES","Registro agregado."])
+        except Exception as e:
+         if "Duplicate entry" in str(e):
+            # Redirige a la página de error
+            logging.info("error:"+str(e))
+            return ('core/error.html', [], [], "", ["DANGER","Registro ya existe. (pulse <atrás> para recuperar los datos del formulario)"])  # Asegúrate de tener la ruta core/error definida
+    
     elif action== 'ver': 
         logging.info("Pulsaron ver")
         profesores= perfil(docente_id) 

@@ -2,7 +2,7 @@ from flask import render_template, session, request, url_for
 from . import buscar
 from .views import *
 from app.core.Mirlt import DB  # Clase DB para las consultas
-
+import ast
 @buscar.route('/buscar')
 def r_portal():
     query = request.args.get('query', '').strip()
@@ -51,4 +51,4 @@ def r_portal():
         # Ordenar resultados por el campo 'score' (relevancia), mayor a menor
         resultados = sorted(resultados, key=lambda x: x['score'], reverse=True)
 
-    return render_template('buscar/portal.html', resultados=resultados, username=session.get('username'))
+    return render_template('buscar/portal.html', resultados=resultados, username=session.get('username'), menu_data =  ast.literal_eval(session['menu']))

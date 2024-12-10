@@ -1,5 +1,5 @@
 from app.core.Mirlt import DB  # Importa la clase DB
-
+import ast
 from flask import render_template,session,request, jsonify
 #from models import db, UserGroup  # Importa el modelo correspondiente
 from . import user_group
@@ -50,4 +50,4 @@ def user_group ():
         ["proyecto", "char 64"], 
         ["usado", "int"]
     ]
-    return render_template('user_group/admin_grupos.html', grupos=grupos, campos=campos, username=session.get('username'))    
+    return render_template('user_group/admin_grupos.html', grupos=grupos, campos=campos, username=session.get('username'),menu_data =  ast.literal_eval(session['menu']))    

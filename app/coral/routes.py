@@ -3,7 +3,7 @@ from . import coral
 from .views import *
 import logging
 from app.core.Mirlt import DB  # Importa la clase DB
-
+import ast
 @coral.route('/coral')
 def r_portal():
 
@@ -12,19 +12,19 @@ def r_portal():
     {'texto1': 'Tablas de la', 'texto2': 'base de datos', 'imagen': 'logros.png', 'link': 'coral.tablas'},
     {'texto1': 'Grupos de ', 'texto2': 'usuarios', 'imagen': 'evaluaciones.png', 'link': 'user_group.user_group'}
     ]
-    return render_template('core/portal.html', menu=menu,  username=session.get('username'))
+    return render_template('core/portal.html', menu=menu,  username=session.get('username'),menu_data =  ast.literal_eval(session['menu']))
 
 
 
 
 @coral.route('/coral/databases')
 def databases():
-    return render_template('coral/databases.html', username=session.get('username'))
+    return render_template('coral/databases.html', username=session.get('username'),menu_data =  ast.literal_eval(session['menu']))
 
 @coral.route('/coral/databases/tablas')
 def tablas():
      datos, encabezados=mostrarTablas()
-     return render_template('core/tabla.html',datos=datos, encabezados=encabezados,titulo="tablas", link2=True,  username=session.get('username'))
+     return render_template('core/tabla.html',datos=datos, encabezados=encabezados,titulo="tablas", link2=True,  username=session.get('username'),menu_data =  ast.literal_eval(session['menu']))
 
 @coral.route('/coral/databases/copia')
 def r_copia():
@@ -34,7 +34,7 @@ def r_copia():
 @coral.route('/coral/databases/tabla/<string:ref>')
 def datos(ref):
      encabezados,datos= renderTabla(ref)
-     return render_template('core/tabla.html',datos=datos, encabezados=encabezados,titulo=ref,link=url_for('coral.tablas') , username=session.get('username'))
+     return render_template('core/tabla.html',datos=datos, encabezados=encabezados,titulo=ref,link=url_for('coral.tablas') , username=session.get('username'),menu_data =  ast.literal_eval(session['menu']))
 
 @coral.route('/coral/user_grupoOLD')
 def user_group ():
@@ -52,7 +52,7 @@ def user_group ():
         ["proyecto", "char 64"], 
         ["usado", "int"]
     ]
-    return render_template('coral/admin_grupos.html', grupos=grupos, campos=campos, username=session.get('username'))    
+    return render_template('coral/admin_grupos.html', grupos=grupos, campos=campos, username=session.get('username'),menu_data =  ast.literal_eval(session['menu']))
 
 # Ruta para procesar consultas SQL
 # Ruta para procesar consultas SQL
