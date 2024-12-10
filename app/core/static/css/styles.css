@@ -1347,3 +1347,24 @@ copyright a:hover {
     }
 }
 
+/* Estilos personalizados para los resultados de búsqueda */
+.custom-result-item {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.custom-result-item:hover {
+    background-color: #fffbea;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.custom-result-item h5 {
+    color: #333;
+}
+
+.custom-result-item small {
+    font-size: 0.9em;
+    color: #777;
+}

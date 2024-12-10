@@ -53,15 +53,15 @@
             {% endif %}
           </ul>
 
-          <!-- Formulario de Búsqueda -->
-          <form class="navbar-form navbar-right" role="search" action="#" method="GET">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Buscar" name="query" required>
-              <span class="input-group-btn">
-                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-              </span>
-            </div>
-          </form>
+          <form class="navbar-form navbar-right" role="search" action="{{ url_for('buscar.r_portal') }}" method="GET">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Buscar" name="query" required>
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                </span>
+              </div>
+            </form>
+
         </div>
       </nav>
     </div>

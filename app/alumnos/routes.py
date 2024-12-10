@@ -11,7 +11,7 @@ def r_portal():
     {'texto1':'Acudientes','texto2':'y contacto','imagen':'6.png','link':'alumnos.almns_acudientes'},
     {'texto1':'Notas','texto2':'logros y recuperaciones','imagen':'2.png','link':'alumnos.almns_calificaciones'},
     {'texto1':'Grados','texto2':'y promociones','imagen':'5.png','link':'alumnos.almns_promocion'}]
-    # Renderiza una plantilla para mostrar los resultados
+    # Renderiza una buscar para mostrar los resultados
     return render_template('core/portal.html', menu=itemsMenu, titulo= "Alumnos", username=session.get('username'))
 
 @alumnos.route(p+'/calificaciones')

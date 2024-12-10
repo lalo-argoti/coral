@@ -13,7 +13,7 @@ def perfil(sujeto):
     except Exception as e:
         logging.error(f'Error al ejecutar la consulta: {e}')
         empleados = []
-    # Mapea los resultados a una lista de diccionarios para facilitar el acceso en la plantilla
+    # Mapea los resultados a una lista de diccionarios para facilitar el acceso en la buscar
     profesores = []
     for row in empleados:
         profesor = {
@@ -22,7 +22,7 @@ def perfil(sujeto):
             "FEC_VINCUL": row[12-1], "DECRETO": row[13-1],  "UNIVERS": row[14-1],  "CURSILLOS": row[15-1],   "NOM_GRADO1": row[16-1], "REG_GRADO1": row[17-1],
             "ESCAL_SE": row[18-1],  "email": row[19-1], }
         profesores.append(profesor)
-    # Renderizar la plantilla con los datos de los profesores
+    # Renderizar la buscar con los datos de los profesores
     return profesores
 
 
