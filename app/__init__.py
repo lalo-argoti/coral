@@ -38,6 +38,7 @@ def create_app():
     from app.coral import coral
     from app.sesion import sesion 
     from app.user_group import  user_group
+    from app.buscar import buscar
     app.register_blueprint(core)
     app.register_blueprint(sesion)
     app.register_blueprint(usuario)
@@ -48,4 +49,5 @@ def create_app():
     app.register_blueprint(materias)
     app.register_blueprint(coral)
     app.register_blueprint(user_group)
+    app.register_blueprint(buscar)
     return app

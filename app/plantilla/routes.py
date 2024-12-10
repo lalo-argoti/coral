@@ -6,7 +6,7 @@ from .views import *
 def r_portal():
     # Aquí podrías obtener datos de la base de datos
     resultados = portal()
-    # Renderiza una plantilla para mostrar los resultados
+    # Renderiza una buscar para mostrar los resultados
     return render_template('grupos/portal.html', resultados=resultados, username=session.get('username'))
 
 """
@@ -14,7 +14,7 @@ def r_portal():
 def almns_matriculas():
     # Aquí podrías obtener datos de la base de datos
     resultados = matriculas()
-    # Renderiza una plantilla para mostrar los resultados
+    # Renderiza una buscar para mostrar los resultados
     return render_template('alumnos/matriculas.html', resultados=resultados)
 
 """

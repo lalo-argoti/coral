@@ -1,0 +1,31 @@
+{% extends 'core/home.html' %}
+
+{% block title %}Resultados de la Búsqueda{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Resultados para "{{ request.args.get('query') }}"</h1>
+
+    {% if resultados %}
+        <div class="list-group">
+            {% for resultado in resultados %}
+                <a href="{{ resultado.url }}" class="list-group-item list-group-item-action flex-column align-items-start custom-result-item">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{ resultado.title }}</h5>
+                        {% if resultado.type %}
+                            <small class="text-muted">{{ resultado.type }}</small>
+                        {% endif %}
+                    </div>
+                    {% if resultado.description %}
+                        <p class="mb-1">{{ resultado.description }}</p>
+                    {% endif %}
+                </a>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-warning" role="alert">
+            No se encontraron resultados.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
